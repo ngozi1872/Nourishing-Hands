@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NourishingHands.Data;
+using NourishingHands.Areas.Identity.NourishingHands.Data;
 
 [assembly: HostingStartup(typeof(NourishingHands.Areas.Identity.IdentityHostingStartup))]
 namespace NourishingHands.Areas.Identity

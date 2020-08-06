@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using NourishingHands.Areas.Identity.Data;
 
-namespace NourishingHands.Data
+namespace NourishingHands.Areas.Identity.NourishingHands.Data
 {
     public class NourishingHandsContext : IdentityDbContext<IdentityUser>
     {
