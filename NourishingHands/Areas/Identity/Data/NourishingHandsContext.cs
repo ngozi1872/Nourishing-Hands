@@ -31,7 +31,6 @@ namespace NourishingHands.Areas.Identity.NourishingHands.Data
         public DbSet<Person> Persons { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> Answers { get; set; }
-        public DbSet<EducationHistory> EducationHistories { get; set; }
         public DbSet<EmploymentHistory> EmploymentHistories { get; set; }
         public DbSet<Events> Events { get; set; }
         public DbSet<EventVolunteer> EventVolunteers { get; set; }

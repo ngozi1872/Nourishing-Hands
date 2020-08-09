@@ -11,6 +11,9 @@ namespace NourishingHands.Areas.Identity.Data
         public string JobTitle { get; set; }
         public string JobDescription { get; set; }
         public DateTime StartDate  { get; set; }
+        public bool? ContactEmployer { get; set; }
+        public string EmployerPhone { get; set; }
+        public string EmployerEmail { get; set; }
         public DateTime EndDate { get; set; }
 
         [ForeignKey(nameof(PersonId))]
