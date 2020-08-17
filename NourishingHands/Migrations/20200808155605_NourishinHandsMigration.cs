@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NourishingHands.Migrations
 {
-    public partial class NourishingHandsMigration : Migration
+    public partial class NourishinHandsMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -231,6 +231,7 @@ namespace NourishingHands.Migrations
                     HomePhone = table.Column<string>(nullable: true),
                     WorkPhone = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
+                    HighestLevelOfEducation = table.Column<string>(nullable: true),
                     AvatarPath = table.Column<string>(nullable: true),
                     BarcodePath = table.Column<string>(nullable: true),
                     IsSigned = table.Column<bool>(nullable: false),
@@ -276,28 +277,6 @@ namespace NourishingHands.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "EducationHistories",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    PersonId = table.Column<int>(nullable: false),
-                    HighSchool = table.Column<string>(nullable: true),
-                    College = table.Column<string>(nullable: true),
-                    OtherEducation = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_EducationHistories", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_EducationHistories_Persons_PersonId",
-                        column: x => x.PersonId,
-                        principalTable: "Persons",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "EmploymentHistories",
                 columns: table => new
                 {
@@ -308,6 +287,9 @@ namespace NourishingHands.Migrations
                     JobTitle = table.Column<string>(nullable: true),
                     JobDescription = table.Column<string>(nullable: true),
                     StartDate = table.Column<DateTime>(nullable: false),
+                    ContactEmployer = table.Column<bool>(nullable: true),
+                    EmployerPhone = table.Column<string>(nullable: true),
+                    EmployerEmail = table.Column<string>(nullable: true),
                     EndDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -390,11 +372,6 @@ namespace NourishingHands.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EducationHistories_PersonId",
-                table: "EducationHistories",
-                column: "PersonId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_EmploymentHistories_PersonId",
                 table: "EmploymentHistories",
                 column: "PersonId");
@@ -432,9 +409,6 @@ namespace NourishingHands.Migrations
 
             migrationBuilder.DropTable(
                 name: "Donations");
-
-            migrationBuilder.DropTable(
-                name: "EducationHistories");
 
             migrationBuilder.DropTable(
                 name: "EmploymentHistories");

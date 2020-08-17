@@ -9,7 +9,6 @@ namespace NourishingHands.Areas.Identity.Data
     {
         public Person()
         {
-            EducationHistories = new HashSet<EducationHistory>();
             EmploymentHistories = new HashSet<EmploymentHistory>();
             Answers = new HashSet<Answer>();
         }   
@@ -33,13 +32,13 @@ namespace NourishingHands.Areas.Identity.Data
         public string HomePhone { get; set; }
         public string WorkPhone { get; set; }
         public string Email { get; set; }
+        public string HighestLevelOfEducation { get; set; }
         public string AvatarPath { get; set; }
         public string BarcodePath { get; set; }
         public bool IsSigned { get; set; }
         public DateTime CreatedOn { get; set; }
         public  DateTime? UpdatedOn { get; set; }
 
-        public ICollection<EducationHistory> EducationHistories { get; set; }
         public ICollection<EmploymentHistory> EmploymentHistories { get; set; }
         public ICollection<Answer> Answers { get; set; }
 

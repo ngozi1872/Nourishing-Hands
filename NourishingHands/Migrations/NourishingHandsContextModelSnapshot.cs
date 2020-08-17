@@ -15,7 +15,7 @@ namespace NourishingHands.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.5")
+                .HasAnnotation("ProductVersion", "3.1.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -276,32 +276,6 @@ namespace NourishingHands.Migrations
                     b.ToTable("Donations");
                 });
 
-            modelBuilder.Entity("NourishingHands.Areas.Identity.Data.EducationHistory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("College")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HighSchool")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OtherEducation")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PersonId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PersonId");
-
-                    b.ToTable("EducationHistories");
-                });
-
             modelBuilder.Entity("NourishingHands.Areas.Identity.Data.EmploymentHistory", b =>
                 {
                     b.Property<int>("Id")
@@ -309,7 +283,16 @@ namespace NourishingHands.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool?>("ContactEmployer")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Employer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployerEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployerPhone")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("EndDate")
@@ -426,6 +409,9 @@ namespace NourishingHands.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Grade")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HighestLevelOfEducation")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("HomePhone")
@@ -554,15 +540,6 @@ namespace NourishingHands.Migrations
                     b.HasOne("NourishingHands.Areas.Identity.Data.Question", "Question")
                         .WithMany("Answers")
                         .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("NourishingHands.Areas.Identity.Data.EducationHistory", b =>
-                {
-                    b.HasOne("NourishingHands.Areas.Identity.Data.Person", "Person")
-                        .WithMany("EducationHistories")
-                        .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

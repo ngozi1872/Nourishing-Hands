@@ -25,6 +25,21 @@ namespace NourishingHands
         {
             services.AddRazorPages();
 
+            services.AddAuthentication()
+               .AddGoogle(options =>
+               {
+                   IConfigurationSection googleAuthNSection =
+                       Configuration.GetSection("Authentication:Google");
+
+                   options.ClientId = Configuration["Google:ClientId"];
+                   options.ClientSecret = Configuration["Google:Secret"];
+               })
+               .AddFacebook(facebookOptions =>
+               {
+                   facebookOptions.AppId = Configuration["FaceBook:ClientId"];
+                   facebookOptions.AppSecret = Configuration["FaceBook:Secret"];
+               });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
