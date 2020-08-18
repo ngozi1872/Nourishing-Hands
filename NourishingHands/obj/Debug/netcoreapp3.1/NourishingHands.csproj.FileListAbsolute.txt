@@ -551,7 +551,6 @@ C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\NourishingHands.csprojAssemblyReference.cache
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\NourishingHands.AssemblyInfoInputs.cache
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\NourishingHands.AssemblyInfo.cs
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\NourishingHands.csproj.CoreCompileInputs.cache
@@ -853,3 +852,12 @@ C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\bin\Debu
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\NourishingHands.csproj.CoreCompileInputs.cache
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\NourishingHands.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\NourishingHands.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Facebook.dll
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Mentor\Application.cshtml.g.cs
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Mentor\Education.cshtml.g.cs
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Mentor\Employment.cshtml.g.cs
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Mentor\Questions.cshtml.g.cs
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\NourishingHands.csprojAssemblyReference.cache
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Gallery.cshtml.g.cs
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Curriculum.cshtml.g.cs
