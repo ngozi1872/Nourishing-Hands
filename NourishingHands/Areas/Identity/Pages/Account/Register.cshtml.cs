@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using NourishingHands.Utilities;
 
 namespace NourishingHands.Areas.Identity.Pages.Account
 {
@@ -23,17 +26,20 @@ namespace NourishingHands.Areas.Identity.Pages.Account
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
         public RegisterModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
-            ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            UserManager<IdentityUser> userManager, 
+            SignInManager<IdentityUser> signInManager, 
+            ILogger<RegisterModel> logger, 
+            IEmailSender emailSender, 
+            IWebHostEnvironment hostEnvironment)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _hostingEnvironment = hostEnvironment;
         }
 
         [BindProperty]
@@ -88,8 +94,16 @@ namespace NourishingHands.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    //await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                    //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+
+                    var path = Path.Combine(_hostingEnvironment.WebRootPath, $"assets/images/NourishingHandsLogo.png");
+
+                    SendEmailFromGmail sfgmail = new SendEmailFromGmail();
+                    sfgmail.SendEmail(Input.Email, "Registrant", "Confirm your email",
+                            string.Format("Hello, <br/> Please confirm your account by <a href=" + HtmlEncoder.Default.Encode(callbackUrl) + ">clicking here</a>. <br/><br/>Thanks, <br/> Nourishing Hands, Inc.<br/><br/>"), path);
+
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {

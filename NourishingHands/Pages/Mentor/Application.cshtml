@@ -13,7 +13,9 @@
                 <div class="heading_s1">
                     <h4>Personal Information</h4>
                 </div>
-                <form method="post" class="row">
+                <form method="post" class="row needs-validation" novalidate>
+                    <div asp-validation-summary="All" style="color:red"></div>
+                    <br />
                     <div class="form-group col-md-6">
                         <input asp-for="Person.FirstName" required class="form-control" placeholder="First name *">
                     </div>
@@ -22,7 +24,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <div class="custom_select">
-                            <select required asp-for="Person.Gender">
+                            <select required asp-for="Person.Gender" class="custom-select browser-default">
                                 <option value="">Select a gender</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
@@ -31,7 +33,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <div class="custom_select">
-                            <select asp-for="Person.Ethnicity" required>
+                            <select asp-for="Person.Ethnicity" required class="custom-select browser-default">
                                 <option value="">Select a race</option>
                                 <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
                                 <option value="Asian">Asian</option>
@@ -56,7 +58,7 @@
                     </div>
                     <div class="form-group col-md-3">
                         <div class="custom_select">
-                            <select asp-for="Person.State" required>
+                            <select asp-for="Person.State" required class="custom-select browser-default">
                                 <option value="">Select a state</option>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
@@ -116,7 +118,7 @@
                         <input asp-for="Person.PostalCode" required class="form-control" placeholder="Postcode / ZIP *">
                     </div>
                     <div class="form-group col-md-6">
-                        <input asp-for="Person.Email" required class="form-control" type="email" placeholder="Email address *">
+                        <input asp-for="Person.HighestLevelOfEducation" required class="form-control" placeholder="Highest level of education *">
                     </div>
                     <div class="form-group col-md-3">
                         <input asp-for="Person.HomePhone" required class="form-control" placeholder="Home phone number *">
@@ -124,19 +126,13 @@
                     <div class="form-group col-md-3">
                         <input asp-for="Person.WorkPhone" required class="form-control" placeholder="Work phone number *">
                     </div>
+
                     <div class="form-group col-md-12">
                         <button type="submit" class="btn btn-default"> Save and continue </button>
                     </div>
 
 
-                    @*<div class="ship_detail col-md-12 form-group">
-            <div class="chek-form">
-                <div class="custome-checkbox">
-                    <input class="form-check-input" type="checkbox" name="checkbox" id="differentaddress">
-                    <label class="form-check-label label_info" for="differentaddress"><span>Ship to a different address?</span></label>
-                </div>
-            </div>
-        </div>
+                    @*c
 
         <div class="form-group mb-0 mt-2 col-md-12">
             <div class="heading_s1">
@@ -151,4 +147,23 @@
     </div>
 </div>
 <!-- END SECTION SHOP -->
-   
+ 
+<script>
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>  

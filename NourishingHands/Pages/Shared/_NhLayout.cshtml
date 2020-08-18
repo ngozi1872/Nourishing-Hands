@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Meta -->
@@ -66,7 +71,26 @@
                                 <li><a href="https://www.instagram.com/nourishinghandsinc/" target="_blank"><i class="ion-social-instagram-outline"></i></a></li>
                             </ul>
                             <ul class="header_list border_list">
-                                <li><a href="#" class="nav_btn"><i class="ti-user"></i> Login</a></li>
+                                @if (SignInManager.IsSignedIn(User))
+                                {
+                                    <li class="nav-item">
+                                        <a id="manage"class="nav_btn" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><i class="ti-user"></i> Hello @UserManager.GetUserName(User)</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })"><i class="ti-lock"></i> Logout</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav_btn" asp-area="Identity" asp-page="/Account/Login"><i class="ti-user"></i> Login</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a  class="nav_btn" id="register" asp-area="Identity" asp-page="/Account/Register"><i class="ti-email"></i> Register</a>
+                                    </li>
+
+                                }
+                                @*<li><a href="#" class="nav_btn"><i class="ti-user"></i> Login</a></li>*@
                             </ul>
                         </div>
                     </div>
@@ -97,7 +121,15 @@
                             </div>
                         </li>
                         <li class="dropdown">
-                            <a class="nav-link nav_item" asp-page="/ComingSoon">Be a Dream Agent</a>
+                            <a class="dropdown-toggle nav-link " data-toggle="dropdown" asp-page="/ComingSoon">Be a Dream Agent</a>
+                            <div class="dropdown-menu">
+                                <ul>
+                                    <li><a class="dropdown-item nav-link nav_item" asp-page="/Mentor/Application">Mentor Application</a></li>
+                                    <li><a class="dropdown-item nav-link nav_item" href="#nhTeam">Board Members</a></li>
+                                    <li><a class="dropdown-item nav-link nav_item" asp-page="/ComingSoon">Gallery</a></li>
+                                </ul>
+                            </div>
+                            
                         </li>
                         <li class="dropdown">
                             <a class="nav-link nav_item" asp-page="/ComingSoon">Dream Creators</a>
@@ -118,7 +150,7 @@
     </header>
     <!-- END HEADER -->
     <div>
-         @RenderBody()
+        @RenderBody()
     </div>
 
     <!-- START FOOTER -->

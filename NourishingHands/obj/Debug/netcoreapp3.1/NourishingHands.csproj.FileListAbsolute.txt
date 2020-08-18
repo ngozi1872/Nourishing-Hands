@@ -853,3 +853,4 @@ C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\bin\Debu
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\NourishingHands.csproj.CoreCompileInputs.cache
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\NourishingHands.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\NourishingHands.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\NourishingHands.csprojAssemblyReference.cache

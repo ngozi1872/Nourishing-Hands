@@ -20,7 +20,9 @@ namespace NourishingHands.Areas.Identity
                         context.Configuration.GetConnectionString("NourishingHandsContextConnection")));
 
                 services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<NourishingHandsContext>();
+                    .AddEntityFrameworkStores<NourishingHandsContext>()
+                    .AddDefaultUI()
+                    .AddDefaultTokenProviders();
             });
         }
     }

@@ -24,12 +24,13 @@ namespace NourishingHands
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
 
             services.AddAuthentication()
                .AddGoogle(options =>
                {
-                   IConfigurationSection googleAuthNSection =
-                       Configuration.GetSection("Authentication:Google");
+                   //IConfigurationSection googleAuthNSection =
+                   //    Configuration.GetSection("Authentication:Google");
 
                    options.ClientId = Configuration["Google:ClientId"];
                    options.ClientSecret = Configuration["Google:Secret"];
@@ -39,6 +40,7 @@ namespace NourishingHands
                    facebookOptions.AppId = Configuration["FaceBook:ClientId"];
                    facebookOptions.AppSecret = Configuration["FaceBook:Secret"];
                });
+
 
         }
 
@@ -61,6 +63,7 @@ namespace NourishingHands
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
