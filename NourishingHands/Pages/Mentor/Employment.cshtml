@@ -20,11 +20,25 @@
                     <div class="form-group col-md-6">
                         <input asp-for="EmploymentHistory.JobTitle" required class="form-control" placeholder="Job Title *">
                     </div>
+                    <div class="col-md-12 form-group">
+                        <div class="chek-form">
+                            <div class="custome-checkbox">
+                                <input class="form-check-input" type="checkbox" name="checkbox" id="differentaddress">
+                                <label class="form-check-label label_info" for="differentaddress"><span>Is this your current employer?</span></label>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group col-md-12">
                         <input asp-for="EmploymentHistory.JobDescription" class="form-control" placeholder="Job Description *">
                     </div>
                     <div class="form-group col-md-6">
-                        <input asp-for="EmploymentHistory.StartDate" class="form-control" placeholder="Star tDate *">
+                        <input asp-for="EmploymentHistory.EmployerPhone" class="form-control" placeholder="Employer Phone *">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input asp-for="EmploymentHistory.EmployerEmail" class="form-control" placeholder="Employer Email *">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input asp-for="EmploymentHistory.StartDate" class="form-control" placeholder="Start Date *">
                     </div>
                     <div class="form-group col-md-6">
                         <input asp-for="EmploymentHistory.EndDate" class="form-control" placeholder="End Date *">

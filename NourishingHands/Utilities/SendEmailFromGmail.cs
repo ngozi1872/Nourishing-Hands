@@ -12,7 +12,7 @@ namespace NourishingHands.Utilities
     {
         public void SendEmail(string toEmail, string toName, string subject, string body, string path = null)
         {
-            var fromAddress = new MailAddress("ngozi1872@gmail.com", "Nourishing Hands");
+            var fromAddress = new MailAddress("stringbuild1@gmail.com", "Nourishing Hands");
             var toAddress = new MailAddress(toEmail, toName);
             const string fromPassword = "Trinity@2016";
 
@@ -26,13 +26,13 @@ namespace NourishingHands.Utilities
                 Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
             };
 
-            string html = @"<html><body><img src='cid:CopLogo' style='display: block; margin-left: auto; margin-right: auto; width:100px; height:100px'><hr/><br/>" + body + "</body></html>";
+            string html = @"<html><body><img src='cid:NHLogo' style='display: block; margin-left: auto; margin-right: auto; width:225px; height:60px'><hr/><br/>" + body + "</body></html>";
             AlternateView altView = AlternateView.CreateAlternateViewFromString(html, null, MediaTypeNames.Text.Html);
 
             if (path != null)
             {
                 LinkedResource yourPictureRes = new LinkedResource(path, MediaTypeNames.Image.Jpeg);
-                yourPictureRes.ContentId = "CopLogo";
+                yourPictureRes.ContentId = "NHLogo";
                 altView.LinkedResources.Add(yourPictureRes);
             }
 
