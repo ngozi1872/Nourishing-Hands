@@ -28,7 +28,6 @@ namespace NourishingHands.Pages.Mentor
         public List<EmploymentHistory> EmploymentHistories { get; set; }
         public IActionResult OnGet()
         {
-            //EmploymentHistories = new List<EmploymentHistory>();
             if (PersonId() == 0)
             {
                 return RedirectToPage("/Mentor/Application");
