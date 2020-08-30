@@ -101,7 +101,7 @@
             <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand" href="index.html">
                     <img class="logo_light" src="assets/images/logo_light.png" alt="logo">
-                    <img class="logo_dark" src="~/assets/images/NourishingHandsLogo.png" alt="logo">
+                    <img class="logo_dark" src="~/assets/images/LogoTransparency.png" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false"> <span class="ion-android-menu"></span> </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
@@ -114,8 +114,7 @@
                             <a class="dropdown-toggle nav-link " data-toggle="dropdown" asp-page="/Aboutus">About NHI</a>
                             <div class="dropdown-menu">
                                 <ul>
-                                    <li><a class="dropdown-item nav-link nav_item" asp-page="/Aboutus">About Us</a></li>
-                                    <li><a class="dropdown-item nav-link nav_item" href="#nhTeam">Board Members</a></li>
+                                    <li><a class="dropdown-item nav-link nav_item" asp-page="/Aboutus">About Us</a></li>                                    
                                     <li><a class="dropdown-item nav-link nav_item" asp-page="/Gallery">Gallery</a></li>
                                 </ul>
                             </div>
@@ -124,9 +123,8 @@
                             <a class="dropdown-toggle nav-link " data-toggle="dropdown" asp-page="/ComingSoon">Be a Dream Agent</a>
                             <div class="dropdown-menu">
                                 <ul>
-                                    <li><a class="dropdown-item nav-link nav_item" asp-page="/Mentor/Application">Mentor Application</a></li>
-                                    <li><a class="dropdown-item nav-link nav_item" href="#nhTeam">Board Members</a></li>
-                                    <li><a class="dropdown-item nav-link nav_item" asp-page="/ComingSoon">Gallery</a></li>
+                                    <li><a class="dropdown-item nav-link nav_item" asp-page="/Mentor/Application">Mentor Application</a></li> 
+                                    <li><a class="dropdown-item nav-link nav_item" asp-page="/curriculum">Curriculum</a></li>                                 
                                 </ul>
                             </div>
                             
@@ -187,13 +185,13 @@
                         <div class="widget">
                             <h6 class="widget_title">Useful Links</h6>
                             <ul class="widget_links">
-                                <li><a href="#">Our services</a></li>
-                                <li><a href="#">Our Story</a></li>
-                                <li><a href="#">Photo Gallery</a>
-                                <li><a href="#">Our Mission</a>
-                                <li><a href="#">Our Vision</a></li>
+                                @*<li><a href="#">Our services</a></li>*@
+                                <li><a asp-page="/Aboutus">Our Story</a></li>
+                                <li><a asp-page="/Gallery">Photo Gallery</a>
+                                @*<li><a href="#">Our Mission</a>
+                                <li><a href="#">Our Vision</a></li>*@
                                 <li><a asp-page="/ComingSoon">Donate</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#contactUs">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>

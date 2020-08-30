@@ -46,7 +46,7 @@ namespace NourishingHands.Pages.Mentor
             _dbContext.Persons.Add(Person);
             await _dbContext.SaveChangesAsync();
 
-            return RedirectToPage("./");
+            return RedirectToPage("/Mentor/Employment");
         }
 
     }

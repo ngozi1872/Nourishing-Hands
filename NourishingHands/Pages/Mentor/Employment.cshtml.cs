@@ -25,8 +25,34 @@ namespace NourishingHands.Pages.Mentor
 
         [BindProperty]
         public EmploymentHistory EmploymentHistory { get; set; }
-        public void OnGet()
+        public List<EmploymentHistory> EmploymentHistories { get; set; }
+        public IActionResult OnGet()
         {
+            //EmploymentHistories = new List<EmploymentHistory>();
+            if (PersonId() == 0)
+            {
+                return RedirectToPage("/Mentor/Application");
+            }
+
+            EmploymentHistories = _dbContext.EmploymentHistories.Where(p => p.PersonId == PersonId()).ToList();
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            EmploymentHistory.PersonId = PersonId();
+            _dbContext.EmploymentHistories.Add(EmploymentHistory);
+
+            await _dbContext.SaveChangesAsync();
+
+            EmploymentHistories = _dbContext.EmploymentHistories.Where(e => e.PersonId == EmploymentHistory.PersonId).ToList();
+            
+            return Page();
         }
 
         private int PersonId()

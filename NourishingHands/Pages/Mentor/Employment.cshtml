@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{handler?}"
 @model NourishingHands.Pages.Mentor.EmploymentModel
 @{
     Layout = "_NhLayout";
@@ -9,10 +9,11 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-lg-10">
+            <div class="col-lg-12">
                 <div class="heading_s1">
                     <h4>Employment Information</h4>
                 </div>
+
                 <form method="post" class="row">
                     <div class="form-group col-md-6">
                         <input asp-for="EmploymentHistory.Employer" required class="form-control" placeholder="Employer *">
@@ -46,11 +47,99 @@
                     <div class="form-group col-md-12">
                         <button type="submit" class="btn btn-default"> Save and continue </button>
                     </div>
+                    <br /><br /><br /><br />
+                    <hr />
+                    <br />
+
+
 
                 </form>
+                @if (Model.EmploymentHistories != null && Model.EmploymentHistories.Count > 0)
+                {
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div>
+                                <div class="heading_s1 mb-3">
+                                    @*<h6>Employment History</h6>*@
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th class="th-sm">
+                                                    Employer
+                                                </th>
+                                                <th class="th-sm">
+                                                    Job Title
+                                                </th>
+                                                <th class="th-sm">
+                                                    Description
+                                                </th>
+                                                <th class="th-sm">
+                                                    Phone
+                                                </th>
+                                                <th class="th-sm">
+                                                    Email
+                                                </th>
+                                                <th class="th-sm">
+                                                    Start Date
+                                                </th>
+                                                <th class="th-sm">
+                                                    End Date
+                                                </th>
+                                                <th class="th-sm">
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var employment in Model.EmploymentHistories)
+                                            {
+                                                <tr>
+                                                    <td>@employment.Employer</td>
+                                                    <td>@employment.JobTitle</td>
+                                                    <td>@employment.JobDescription</td>
+                                                    <td>@employment.EmployerPhone</td>
+                                                    <td>@employment.EmployerEmail</td>
+                                                    <td>@employment.StartDate</td>
+                                                    <td>@employment.EndDate</td>
+                                                    <td><button class="btn btn-default btn-block btn-sm" data-id="@employment.Id"  data-toggle="modal" data-target="#details-modal" id="edit">Edit</button></td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                }
+                <div class="modal fade" tabindex="-1" role="dialog" id="details-modal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Product Details</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body"></div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </div>
     </div>
 </div>
 <!-- END SECTION SHOP -->
+@section scripts{
+    <script>
+        $(function () {
+            $('#edit').on('click', function () {
+                $('.modal-body').load("/Mentor/_UpdateEmployment?id=${$(this).data('id')}");
+            });
+        })
+    </script>
+}
