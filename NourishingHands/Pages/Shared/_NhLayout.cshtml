@@ -41,6 +41,8 @@
     <link rel="stylesheet" href="~/assets/css/style.css">
     <link rel="stylesheet" href="~/assets/css/responsive.css">
     <link rel="stylesheet" id="layoutstyle" href="~/assets/color/theme-yellow.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 </head>
 <body>
     <div id="preloader">
@@ -74,7 +76,7 @@
                                 @if (SignInManager.IsSignedIn(User))
                                 {
                                     <li class="nav-item">
-                                        <a id="manage"class="nav_btn" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><i class="ti-user"></i> Hello @UserManager.GetUserName(User)</a>
+                                        <a id="manage" class="nav_btn" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><i class="ti-user"></i> Hello @UserManager.GetUserName(User)</a>
                                     </li>
                                     <li class="nav-item">
                                         <a asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })"><i class="ti-lock"></i> Logout</a>
@@ -86,7 +88,7 @@
                                         <a class="nav_btn" asp-area="Identity" asp-page="/Account/Login"><i class="ti-user"></i> Login</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a  class="nav_btn" id="register" asp-area="Identity" asp-page="/Account/Register"><i class="ti-email"></i> Register</a>
+                                        <a class="nav_btn" id="register" asp-area="Identity" asp-page="/Account/Register"><i class="ti-email"></i> Register</a>
                                     </li>
 
                                 }
@@ -100,8 +102,8 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand" href="index.html">
-                    <img class="logo_light" src="assets/images/logo_light.png" alt="logo">
-                    <img class="logo_dark" src="~/assets/images/LogoTransparency.png" alt="logo">
+                    @*<img class="logo_light" src="assets/images/logo_light.png" alt="logo">*@
+                    <img class="logo_dark" src="~/assets/images/NH-Logo.png" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false"> <span class="ion-android-menu"></span> </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
@@ -114,7 +116,7 @@
                             <a class="dropdown-toggle nav-link " data-toggle="dropdown" asp-page="/Aboutus">About NHI</a>
                             <div class="dropdown-menu">
                                 <ul>
-                                    <li><a class="dropdown-item nav-link nav_item" asp-page="/Aboutus">About Us</a></li>                                    
+                                    <li><a class="dropdown-item nav-link nav_item" asp-page="/Aboutus">About Us</a></li>
                                     <li><a class="dropdown-item nav-link nav_item" asp-page="/Gallery">Gallery</a></li>
                                 </ul>
                             </div>
@@ -123,11 +125,11 @@
                             <a class="dropdown-toggle nav-link " data-toggle="dropdown" asp-page="/ComingSoon">Be a Dream Agent</a>
                             <div class="dropdown-menu">
                                 <ul>
-                                    <li><a class="dropdown-item nav-link nav_item" asp-page="/Mentor/Application">Mentor Application</a></li> 
-                                    <li><a class="dropdown-item nav-link nav_item" asp-page="/curriculum">Curriculum</a></li>                                 
+                                    <li><a class="dropdown-item nav-link nav_item" asp-page="/Mentor/Home">Mentor Application</a></li>
+                                    <li><a class="dropdown-item nav-link nav_item" asp-page="/curriculum">Curriculum</a></li>
                                 </ul>
                             </div>
-                            
+
                         </li>
                         <li class="dropdown">
                             <a class="nav-link nav_item" asp-page="/ComingSoon">Dream Creators</a>
@@ -187,9 +189,10 @@
                             <ul class="widget_links">
                                 @*<li><a href="#">Our services</a></li>*@
                                 <li><a asp-page="/Aboutus">Our Story</a></li>
-                                <li><a asp-page="/Gallery">Photo Gallery</a>
-                                @*<li><a href="#">Our Mission</a>
-                                <li><a href="#">Our Vision</a></li>*@
+                                <li>
+                                    <a asp-page="/Gallery">Photo Gallery</a>
+                                    @*<li><a href="#">Our Mission</a>
+                                        <li><a href="#">Our Vision</a></li>*@
                                 <li><a asp-page="/ComingSoon">Donate</a></li>
                                 <li><a href="#contactUs">Contact Us</a></li>
                             </ul>

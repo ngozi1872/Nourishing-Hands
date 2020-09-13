@@ -7,124 +7,220 @@
 <!-- START SECTION SHOP -->
 <div class="section">
     <div class="container">
-            
+
         <div class="row">
-            <div class="col-lg-10">
+            <div class="col-lg-12">
                 <div class="heading_s1">
                     <h4>Personal Information</h4>
                 </div>
-                <form method="post" class="row needs-validation" novalidate>
-                    <div asp-validation-summary="All" style="color:red"></div>
+                <form method="post" asp-page="Application" asp-page-handler="AddPersonRecord" class="row needs-validation" novalidate>
+                    @*<div asp-validation-summary="All" style="color:red"></div>*@
                     <br />
-                    <div class="form-group col-md-6">
-                        <input asp-for="Person.FirstName" required class="form-control" placeholder="First name *">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <input asp-for="Person.LastName" required class="form-control" placeholder="Last name *">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <div class="custom_select">
-                            <select required asp-for="Person.Gender" class="custom-select browser-default">
-                                <option value="">Select a gender</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>
+                    @if (Model.Person != null)
+                    {
+                        <input asp-for="Person.Id" hidden class="form-control" placeholder="Employer *">
+                    }
+                    <div class="form-group col-md-6 row">
+                        <label asp-for="Person.FirstName" class="col-form-label col-sm-4"></label>
+                        <div class="col-sm-8">
+                            <input asp-for="Person.FirstName" required class="form-control" placeholder="Employer *">
+                            <div class="invalid-tooltip">
+                                First Name can not be empty.
+                                <br />
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group col-md-6">
-                        <div class="custom_select">
-                            <select asp-for="Person.Ethnicity" required class="custom-select browser-default">
-                                <option value="">Select a race</option>
-                                <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
-                                <option value="Asian">Asian</option>
-                                <option value="Black or African American">Black or African American</option>
-                                <option value="Hispanic or Latino">Hispanic or Latino</option>
-                                <option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander</option>
-                                <option value="White">White</option>
-                            </select>
+                    <div class="form-group col-md-6 row">
+                        <label asp-for="Person.LastName" class="col-form-label col-sm-4"></label>
+                        <div class="col-sm-8">
+                            <input asp-for="Person.LastName" required class="form-control" placeholder="Employer *">
+                            <div class="invalid-tooltip">
+                                Last Name can not be empty.
+                                <br />
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group col-md-6">
-                        <input asp-for="Person.BirthDay" required class="form-control" type="date" placeholder="Birth date *">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <input asp-for="Person.SSNumber" required class="form-control" placeholder="Social Security Number  *">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <input asp-for="Person.Address" required class="form-control" placeholder="Permanent Address Street, Apt. *">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <input asp-for="Person.City" required class="form-control" placeholder="City *">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <div class="custom_select">
-                            <select asp-for="Person.State" required class="custom-select browser-default">
-                                <option value="">Select a state</option>
-                                <option value="AL">Alabama</option>
-                                <option value="AK">Alaska</option>
-                                <option value="AZ">Arizona</option>
-                                <option value="AR">Arkansas</option>
-                                <option value="CA">California</option>
-                                <option value="CO">Colorado</option>
-                                <option value="CT">Connecticut</option>
-                                <option value="DE">Delaware</option>
-                                <option value="DC">District Of Columbia</option>
-                                <option value="FL">Florida</option>
-                                <option value="GA">Georgia</option>
-                                <option value="HI">Hawaii</option>
-                                <option value="ID">Idaho</option>
-                                <option value="IL">Illinois</option>
-                                <option value="IN">Indiana</option>
-                                <option value="IA">Iowa</option>
-                                <option value="KS">Kansas</option>
-                                <option value="KY">Kentucky</option>
-                                <option value="LA">Louisiana</option>
-                                <option value="ME">Maine</option>
-                                <option value="MD">Maryland</option>
-                                <option value="MA">Massachusetts</option>
-                                <option value="MI">Michigan</option>
-                                <option value="MN">Minnesota</option>
-                                <option value="MS">Mississippi</option>
-                                <option value="MO">Missouri</option>
-                                <option value="MT">Montana</option>
-                                <option value="NE">Nebraska</option>
-                                <option value="NV">Nevada</option>
-                                <option value="NH">New Hampshire</option>
-                                <option value="NJ">New Jersey</option>
-                                <option value="NM">New Mexico</option>
-                                <option value="NY">New York</option>
-                                <option value="NC">North Carolina</option>
-                                <option value="ND">North Dakota</option>
-                                <option value="OH">Ohio</option>
-                                <option value="OK">Oklahoma</option>
-                                <option value="OR">Oregon</option>
-                                <option value="PA">Pennsylvania</option>
-                                <option value="RI">Rhode Island</option>
-                                <option value="SC">South Carolina</option>
-                                <option value="SD">South Dakota</option>
-                                <option value="TN">Tennessee</option>
-                                <option value="TX">Texas</option>
-                                <option value="UT">Utah</option>
-                                <option value="VT">Vermont</option>
-                                <option value="VA">Virginia</option>
-                                <option value="WA">Washington</option>
-                                <option value="WV">West Virginia</option>
-                                <option value="WI">Wisconsin</option>
-                                <option value="WY">Wyoming</option>
-                            </select>
+                    <div class="form-group col-md-6 row">
+                        <label asp-for="Person.Gender" class="col-form-label col-sm-4"></label>
+                        <div class="col-sm-8">
+                            <div class="custom_select">
+                                <select required asp-for="Person.Gender" class="custom-select browser-default">
+                                    <option value="">Select a gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                            <div class="invalid-tooltip">
+                                Gender can not be empty.
+                                <br />
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group col-md-3">
-                        <input asp-for="Person.PostalCode" required class="form-control" placeholder="Postcode / ZIP *">
+                    <div class="form-group col-md-6 row">
+                        <label asp-for="Person.Ethnicity" class="col-form-label col-sm-4"></label>
+                        <div class="col-sm-8">
+                            <div class="custom_select">
+                                <select asp-for="Person.Ethnicity" required class="custom-select browser-default">
+                                    <option value="">Select a race</option>
+                                    <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
+                                    <option value="Asian">Asian</option>
+                                    <option value="Black or African American">Black or African American</option>
+                                    <option value="Hispanic or Latino">Hispanic or Latino</option>
+                                    <option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander</option>
+                                    <option value="White">White</option>
+                                </select>
+                            </div>
+                            <div class="invalid-tooltip">
+                                Ethnicity can not be empty.
+                                <br />
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group col-md-6">
-                        <input asp-for="Person.HighestLevelOfEducation" required class="form-control" placeholder="Highest level of education *">
+                    <div class="form-group col-md-6 row">
+                        <label asp-for="Person.BirthDay" class="col-form-label col-sm-4"></label>
+                        <div class="col-sm-8">
+                            <input asp-for="Person.BirthDay" required class="form-control" type="date" placeholder="Birth date *">
+                            <div class="invalid-tooltip">
+                                Birth Date can not be empty.
+                                <br />
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group col-md-3">
-                        <input asp-for="Person.HomePhone" required class="form-control" placeholder="Home phone number *">
+                    <div class="form-group col-md-6 row">
+                        <label asp-for="Person.SSNumber" class="col-form-label col-sm-4"></label>
+                        <div class="col-sm-8">
+                            <input asp-for="Person.SSNumber" id="ssNumber" required class="form-control" placeholder="Social Security Number  *">
+                            <div class="invalid-tooltip">
+                                SSN can not be empty.
+                                <br />
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group col-md-3">
-                        <input asp-for="Person.WorkPhone" required class="form-control" placeholder="Work phone number *">
+
+                    <div class="form-group col-md-6 row">
+                        <label asp-for="Person.Address" class="col-form-label col-sm-4"></label>
+                        <div class="col-sm-8">
+                            <textarea asp-for="Person.Address" required class="form-control" placeholder="Social Security Number  *" rows="2"></textarea>
+                            <div class="invalid-tooltip">
+                                Address can not be empty.
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 row">
+                        <label asp-for="Person.City" class="col-form-label col-sm-4"></label>
+                        <div class="col-sm-8">
+                            <input asp-for="Person.City" required class="form-control" placeholder="City *">
+                            <div class="invalid-tooltip">
+                                City can not be empty.
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 row">
+                        <label asp-for="Person.State" class="col-form-label col-sm-4"></label>
+                        <div class="col-sm-8">
+                            <div class="custom_select">
+                                <select asp-for="Person.State" required class="custom-select browser-default">
+                                    <option value="">Select a state</option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="AK">Alaska</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="DC">District Of Columbia</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="HI">Hawaii</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="WV">West Virginia</option>
+                                    <option value="WI">Wisconsin</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>
+                            </div>
+                            <div class="invalid-tooltip">
+                                State can not be empty.
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 row">
+                        <label asp-for="Person.PostalCode" class="col-form-label col-sm-4"></label>
+                        <div class="col-sm-8">
+                            <input asp-for="Person.PostalCode" required class="form-control" placeholder="City *" id="zipCode">
+                            <div class="invalid-tooltip">
+                                Postal Code can not be empty.
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 row">
+                        <label asp-for="Person.HomePhone" class="col-form-label col-sm-4"></label>
+                        <div class="col-sm-8">
+                            <input asp-for="Person.HomePhone" required class="form-control" placeholder="Home phone number *" id="homePhone">
+                            <div class="invalid-tooltip">
+                                Home Phone can not be empty.
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 row">
+                        <label asp-for="Person.WorkPhone" class="col-form-label col-sm-4"></label>
+                        <div class="col-sm-8">
+                            <input asp-for="Person.WorkPhone" required class="form-control" placeholder="Work phone number *" id="workPhone">
+                            <div class="invalid-tooltip">
+                                Work Phone can not be empty.
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 row">
+                        <label asp-for="Person.HighestLevelOfEducation" class="col-form-label col-sm-4"></label>
+                        <div class="col-sm-8">
+                            <input asp-for="Person.HighestLevelOfEducation" required class="form-control" placeholder="Highest Level Of Education *">
+                            <div class="invalid-tooltip">
+                                Highest Level Of Education can not be empty.
+                                <br />
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group col-md-12">
@@ -132,38 +228,56 @@
                     </div>
 
 
-                    @*c
 
-        <div class="form-group mb-0 mt-2 col-md-12">
-            <div class="heading_s1">
-                <h4>Additional information</h4>
-            </div>
-            <textarea rows="5" class="form-control" placeholder="Order notes"></textarea>
-        </div>*@
                 </form>
             </div>
-                
+
         </div>
     </div>
 </div>
 <!-- END SECTION SHOP -->
- 
-<script>
-    (function () {
-        'use strict';
-        window.addEventListener('load', function () {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
-</script>  
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript" src="~/assets/js/jquery.inputmask.js" charset="utf-8"></script>
+    <script>
+        console.log(navigator.userAgent);
+        $("#homePhone").inputmask("1(999) 999-9999", {
+            inputFormat: "1(999) 999-9999",
+            outputFormat: "1(999) 999-9999",
+            inputEventOnly: true
+        });
+        $("#workPhone").inputmask("1(999) 999-9999", {
+            inputFormat: "1(999) 999-9999",
+            outputFormat: "1(999) 999-9999",
+            inputEventOnly: true
+        });
+        $("#ssNumber").inputmask("999-99-9999", {
+            inputFormat: "999-99-9999",
+            outputFormat: "999-99-9999",
+            inputEventOnly: true
+        });
+        $("#zipCode").inputmask("99999", {
+            inputFormat: "99999",
+            outputFormat: "99999",
+            inputEventOnly: true
+        });
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    
+    </script>
+}

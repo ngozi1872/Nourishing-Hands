@@ -4,3 +4,78 @@
     Layout = "_NhLayout";
 }
 
+<div class="section">
+    <div class="container">
+        <form method="post" asp-page="Questions" asp-page-handler="AddAnswer" class="needs-validation" novalidate>
+            <div class="row">
+                <div class="col-12">
+                    <h4>Mentor Questionnaire</h4>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-12 animation" data-animation="fadeInUp" data-animation-delay="0.2s">
+                    @if (Model.Answers != null && Model.Answers.Count > 0)
+                    {
+                        @foreach (var answer in Model.Answers)
+                        {
+                            <div class="single_faq">
+                                <div class="faq_question">
+                                    <h5>@answer.Question.Description</h5>
+                                </div>
+                                <div class="md-form">
+                                    <input type="hidden" name="employementID" id="employementID" asp-for="@answer.QuestionId" />
+                                    <input type="text" id="@answer.QuestionId" name="@answer.QuestionId" asp-for="@answer.Description" class="form-control" required>
+                                    @*<textarea asp-for="Answer.Description" required class="form-control" rows="2"></textarea>*@
+                                </div>
+                            </div>
+                        }
+
+                    }
+                    else
+                    {
+                        @foreach (var question in Model.Questions)
+                        {
+                            <div class="single_faq">
+                                <div class="faq_question">
+                                    <h5>@question.Description</h5>
+                                </div>
+                                <div class="md-form">
+                                    <input type="hidden" name="employementID" id="employementID" asp-for="@question.Id" />
+                                    <input type="text" id="@question.Id" name="@question.Id" class="form-control" required>
+                                    @*<textarea asp-for="Answer.Description" required class="form-control" rows="2"></textarea>*@
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <button type="submit" class="btn btn-default"> Save and continue </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>  

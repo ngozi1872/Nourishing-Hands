@@ -10,7 +10,7 @@
     <_SelectedScaffolderID>Microsoft.WebTools.Scaffolding.Core.ModelBasedCrudRazorPageScaffolder</_SelectedScaffolderID>
     <_SelectedScaffolderCategoryPath>root/Common/RazorPage</_SelectedScaffolderCategoryPath>
     <WebStackScaffolding_DbContextDialogWidth>600</WebStackScaffolding_DbContextDialogWidth>
-    <WebStackScaffolding_LayoutPageFile />
+    <WebStackScaffolding_LayoutPageFile>~/Pages/Shared/_NhLayout.cshtml</WebStackScaffolding_LayoutPageFile>
     <NameOfLastUsedPublishProfile>NourishingHands - Web Deploy</NameOfLastUsedPublishProfile>
     <ShowAllFiles>false</ShowAllFiles>
   </PropertyGroup>

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using NourishingHands.Areas.Identity.Data;
 using NourishingHands.Areas.Identity.NourishingHands.Data;
 
@@ -52,6 +53,10 @@ namespace NourishingHands.Pages.Mentor
             EmploymentHistories = _dbContext.EmploymentHistories.Where(e => e.PersonId == EmploymentHistory.PersonId).ToList();
             
             return Page();
+        }
+        public async Task<PartialViewResult> OnGetUpdateEmploymentAsync(int id)
+        {
+            return Partial("_ProductDetails", await _dbContext.EmploymentHistories.SingleOrDefaultAsync(e => e.Id == id));
         }
 
         private int PersonId()
