@@ -24,7 +24,7 @@ namespace NourishingHands.Pages.Mentor
 
         [BindProperty]
         public EmploymentHistory EmploymentHistory { get; set; }
-        public async Task<PartialViewResult> OnGetAsync(int id)
+        public async Task<PartialViewResult> OnGetAsync(int id = 7)
         {
             if (id == 0)
             {

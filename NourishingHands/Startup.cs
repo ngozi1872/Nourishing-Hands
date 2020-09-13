@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NourishingHands.Utilities;
+using Stripe;
 
 namespace NourishingHands
 {
@@ -41,12 +43,18 @@ namespace NourishingHands
                    facebookOptions.AppSecret = Configuration["FaceBook:Secret"];
                });
 
+            services.AddSingleton(factory => new StripeApiFactory(
+                Configuration["Stripe:SecretKey"],
+                Configuration["Stripe:PublishableKey"]));
+
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        [Obsolete]
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            StripeConfiguration.SetApiKey(Configuration.GetSection("Stripe")["SecretKey"]);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

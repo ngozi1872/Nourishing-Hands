@@ -1,0 +1,476 @@
+﻿@page
+@model NourishingHands.Pages.Mentor.EmploymentHistoryModel
+@{
+    Layout = "_NhLayout";
+}
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="form-group col-md-12 row">
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-default btn-sm float-left pull-left" data-toggle="modal" data-target="#addProductModal" style="width:240px">
+                        Add Employment
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <a class="btn btn-default btn-sm float-left pull-left" style="width:240px" asp-page="/Mentor/Questions">
+                        Continue
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                @if (!string.IsNullOrEmpty(Model.Message))
+                {
+                    <div class="alert alert-primary">
+                        @Model.Message
+                    </div>
+                }
+                <div class="cart_totals">
+                    <div class="table-responsive">
+                        <table class="table" id="manageEmployment">
+                            <thead>
+                                <tr>
+                                    <th class="product-name">Employer</th>
+                                    <th class="product-price">Job Title</th>
+                                    <th class="product-remove">Start Date</th>
+                                    <th class="product-remove">End Date</th>
+                                    <th class="product-remove"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.EmploymentHistories.Count > 0)
+                                {
+                                    @foreach (var employment in Model.EmploymentHistories)
+                                    {
+                                        <tr>
+                                            <td class="product-name">@employment.Employer</td>
+                                            <td class="product-name">@employment.JobTitle</td>
+                                            <td class="product-name">@Convert.ToString(string.Format("{0:MM/dd/yyyy}", employment.StartDate))</td>
+                                            <td class="product-name">@Convert.ToString(string.Format("{0:MM/dd/yyyy}", employment.EndDate))</td>
+                                            <td>
+                                                <a href="#editEmploymentHistoryModel" class="edit" data-toggle="modal" style="color:#FEBC34; font-weight:600"><img src="~/assets/images/pencil.png" style="width:27px; height:27px" /></a> &nbsp;&nbsp;
+                                                <a href="#deleteEmploymentHistoryModel" class="delete" data-toggle="modal" style="color:#FEBC34; font-weight:600"><img src="~/assets/images/trash.png" style="width:27px; height:27px" /></a>
+                                                <input type="hidden" name="employementID" id="employementID" asp-for="@employment.Id" />
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td class="product-name"><div>No Data</div></td>
+                                    </tr>
+                                    
+                                }
+
+                            </tbody>
+
+                            <tfoot>
+                                <tr>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="medium_divider"></div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="addProductModal">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <form method="post" asp-page="EmploymentHistory" asp-page-handler="AddEmployment" class="needs-validation" novalidate>
+                        <div class="modal-header" style="background-color:#FEBC34">
+                            <h3 class="modal-title" style="color:white">Add Employment History</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" style="color:white">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="medium_divider"></div>
+                                </div>
+                            </div>
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group col-md-12 row">
+                                <label asp-for="EmploymentHistory.Employer" class="col-form-label col-sm-3"></label>
+                                <div class="col-sm-9">
+                                    <input asp-for="EmploymentHistory.Employer" required class="form-control" placeholder="Employer *">
+                                    <div class="invalid-tooltip">
+                                        Employer can not be empty.
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12 row">
+                                <label asp-for="EmploymentHistory.JobTitle" class="col-form-label col-sm-3"></label>
+                                <div class="col-sm-9">
+                                    <input asp-for="EmploymentHistory.JobTitle" required class="form-control" placeholder="Job Title *">
+                                    <div class="invalid-tooltip">
+                                        Job Title can not be empty.
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12 row">
+                                <label class="control-label col-sm-3"></label>
+                                <div class="col-sm-9">
+                                    <div class="chek-form">
+                                        <div class="custome-checkbox">
+                                            <input class="form-check-input" type="checkbox" name="checkbox" id="currentEmployer">
+                                            <label class="form-check-label label_info" for="currentEmployer"><span>Is this your current employer?</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12 row">
+                                <label asp-for="EmploymentHistory.JobDescription" class="col-form-label col-sm-3"></label>
+                                <div class="col-sm-9">
+                                    <textarea asp-for="EmploymentHistory.JobDescription" required class="form-control" placeholder="Job Title *" rows="3"></textarea>
+                                    <div class="invalid-tooltip">
+                                        Job Description can not be empty.
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12 row">
+                                <label asp-for="EmploymentHistory.EmployerPhone" class="col-form-label col-sm-3"></label>
+                                <div class="col-sm-9">
+                                    <input asp-for="EmploymentHistory.EmployerPhone" required class="form-control phonemask" placeholder="Employer Phone *">
+                                    <div class="invalid-tooltip">
+                                        Employer Phone is not in the correct format 000-000-0000.
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12 row">
+                                <label asp-for="EmploymentHistory.EmployerEmail" class="col-form-label col-sm-3"></label>
+                                <div class="col-sm-9">
+                                    <input type="email" asp-for="EmploymentHistory.EmployerEmail" required class="form-control" placeholder="Employer Email *">
+                                    <div class="invalid-tooltip">
+                                        Employer Email can not be empty.
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12 row">
+                                <label asp-for="EmploymentHistory.StartDate" class="col-form-label col-sm-3"></label>
+                                <div class="col-sm-9">
+                                    <input asp-for="EmploymentHistory.StartDate" required class="form-control startdate" placeholder="Start Date *" id="startdate" type="text">
+                                    <div class="invalid-tooltip">
+                                        Start Date can not be empty.
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12 row">
+                                <label asp-for="EmploymentHistory.EndDate" class="col-form-label col-sm-3"></label>
+                                <div class="col-sm-9">
+                                    <input asp-for="EmploymentHistory.EndDate" required class="form-control enddate" placeholder="End Date *" id="enddate" type="text">
+                                    <div class="invalid-tooltip">
+                                        End Date can not be empty.
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Add " class="btn btn-success" />
+                            <input type="button" value="Cancel" class="btn btn-primary" data-dismiss="modal" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="editEmploymentHistoryModel">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <form method="post" asp-page="EmploymentHistory" asp-page-handler="UpdateEmployment" class="needs-validation" novalidate>
+                        <div class="modal-header" style="background-color:#FEBC34">
+                            <h3 class="modal-title" style="color:white">Update Employment History</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" style="color:white">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="medium_divider"></div>
+                                </div>
+                            </div>
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group col-md-12 row">
+                                <input type="hidden" asp-for="EmploymentHistory.Id" />
+                                <label asp-for="EmploymentHistory.Employer" class="col-form-label col-sm-3"></label>
+                                <div class="col-sm-9">
+                                    <input asp-for="EmploymentHistory.Employer" required class="form-control" placeholder="Employer *">
+                                    <div class="invalid-tooltip">
+                                        Employer can not be empty.
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12 row">
+                                <label asp-for="EmploymentHistory.JobTitle" class="col-form-label col-sm-3"></label>
+                                <div class="col-sm-9">
+                                    <input asp-for="EmploymentHistory.JobTitle" required class="form-control" placeholder="Job Title *">
+                                    <div class="invalid-tooltip">
+                                        Job Title can not be empty.
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12 row">
+                                <label class="control-label col-sm-3"></label>
+                                <div class="col-sm-9">
+                                    <div class="chek-form">
+                                        <div class="custome-checkbox">
+                                            <input class="form-check-input" type="checkbox" name="checkbox" id="currentEmployerEdit">
+                                            <label class="form-check-label label_info" for="currentEmployerEdit"><span>Is this your current employer?</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12 row">
+                                <label asp-for="EmploymentHistory.JobDescription" class="col-form-label col-sm-3"></label>
+                                <div class="col-sm-9">
+                                    <textarea asp-for="EmploymentHistory.JobDescription" required class="form-control" placeholder="Job Title *" rows="3"></textarea>
+                                    <div class="invalid-tooltip">
+                                        Job Description can not be empty.
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12 row">
+                                <label asp-for="EmploymentHistory.EmployerPhone" class="col-form-label col-sm-3"></label>
+                                <div class="col-sm-9">
+                                    <input asp-for="EmploymentHistory.EmployerPhone" required class="form-control phonemask" placeholder="Employer Phone">
+                                    <div class="invalid-tooltip">
+                                        Employer Phone is not in the correct format 000-000-0000.
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12 row">
+                                <label asp-for="EmploymentHistory.EmployerEmail" class="col-form-label col-sm-3"></label>
+                                <div class="col-sm-9">
+                                    <input type="email" asp-for="EmploymentHistory.EmployerEmail" required class="form-control" placeholder="Employer Email *">
+                                    <div class="invalid-tooltip">
+                                        Employer Email can not be empty.
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12 row">
+                                <label asp-for="EmploymentHistory.StartDate" class="col-form-label col-sm-3"></label>
+                                <div class="col-sm-9">
+                                    <input asp-for="EmploymentHistory.StartDate" required class="form-control startdate" placeholder="Start Date *" type="text" id="startdate1">
+                                    <div class="invalid-tooltip">
+                                        Start Date can not be empty.
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12 row">
+                                <label asp-for="EmploymentHistory.EndDate" class="col-form-label col-sm-3"></label>
+                                <div class="col-sm-9">
+                                    <input asp-for="EmploymentHistory.EndDate" required class="form-control enddate" placeholder="End date *" type="text" id="enddate1">
+                                    <div class="invalid-tooltip">
+                                        End Date can not be empty.
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Update" class="btn btn-success" />
+                            <input type="button" value="Cancel" class="btn btn-primary" data-dismiss="modal" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="deleteEmploymentHistoryModel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form method="post" asp-page="EmploymentHistory" asp-page-handler="DeleteEmployment">
+                        <div class="modal-header" style="background-color:#FEBC34">
+                            <h3 class="modal-title" style="color:white">Delete Employment</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" style="color:white">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to delete this employment entry?</p>
+                            <input type="hidden" name="employementID" id="employementID" />
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Yes" class="btn btn-success" />
+                            <input type="button" value="Cancel" class="btn btn-primary" data-dismiss="modal" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="medium_divider"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="medium_divider"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="medium_divider"></div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript" src="~/assets/js/jquery.inputmask.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        console.log(navigator.userAgent);
+        $(".phonemask").inputmask("1(999) 999-9999", {
+            inputFormat: "1(999) 999-9999",
+            outputFormat: "1(999) 999-9999",
+            inputEventOnly: true
+        });
+       
+        $(function () {
+            $(".startdate").datepicker({
+                numberOfMonths: 1,
+                onSelect: function (selected) {
+                    var dt = new Date(selected);
+                    dt.setDate(dt.getDate() + 1);
+                    $(".enddate").datepicker("option", "minDate", dt);
+                }
+            });
+            $(".enddate").datepicker({
+                numberOfMonths: 1,
+                onSelect: function (selected) {
+                    var dt = new Date(selected);
+                    dt.setDate(dt.getDate() - 1);
+                    $(".startdate").datepicker("option", "maxDate", dt);
+                }
+            });
+        });
+
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
+        $(document).ready(function () {
+            $('#currentEmployer').click(function () {
+                if ($(this).prop("checked") == true) {
+                    $("#enddate").prop('required', false);
+                    $("#enddate").prop('disabled', true);
+                }
+                else if ($(this).prop("checked") == false) {
+                    $("#enddate").prop('required', true);
+                    $("#enddate").prop('disabled', false);
+                }
+            });
+            $('#currentEmployerEdit').click(function () {
+                if ($(this).prop("checked") == true) {
+                    $("#enddate1").prop('required', false);
+                    $("#enddate1").prop('disabled', true);
+                }
+                else if ($(this).prop("checked") == false) {
+                    $("#enddate1").prop('required', true);
+                    $("#enddate1").prop('disabled', false);
+                }
+            });
+
+        $("table#manageEmployment .delete").click(function () {
+            var employementID = $(this).parent().find("#employementID").val();
+            $("#deleteEmploymentHistoryModel").find("#employementID").val(employementID);
+        });
+
+        $("table#manageEmployment .edit").click(function () {
+            var employementID = $(this).parent().find("#employementID").val();
+            //alert(employementID);
+            $("#editEmploymentHistoryModel").find("#EmploymentHistory_Id").val(employementID);
+            //alert(tt);
+            GetEditProductDetails(employementID);
+        });
+
+    });
+
+        function GetEditProductDetails(employementID) {
+        $.ajax({
+            url: "@Url.Page("/Mentor/EmploymentHistory", "AjaxEmploymentDetail")",
+            typr: "GET",
+            data: { "employementID": "" + employementID + "" },
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+            success: function (response) {
+                //alert(response);
+                $('#editEmploymentHistoryModel #EmploymentHistory_Employer').val(response.employer);
+                $('#editEmploymentHistoryModel #EmploymentHistory_JobTitle').val(response.jobTitle);
+                $('#editEmploymentHistoryModel #EmploymentHistory_JobDescription').val(response.jobDescription);
+                $('#editEmploymentHistoryModel #EmploymentHistory_EmployerPhone').val(response.employerPhone);
+                $('#editEmploymentHistoryModel #EmploymentHistory_EmployerEmail').val(response.employerEmail);
+                $('#editEmploymentHistoryModel #EmploymentHistory_StartDate').val(response.startDate);
+                $('#editEmploymentHistoryModel #EmploymentHistory_EndDate').val(response.endDate);
+            },
+            error: function (response) {
+                alert(response.responseText);
+                $('#editEmploymentHistoryModel #EmploymentHistory_Employer').val("");
+                $('#editEmploymentHistoryModel #EmploymentHistory_JobTitle').val("");
+                $('#editEmploymentHistoryModel #EmploymentHistory_JobDescription').val("");
+                $('#editEmploymentHistoryModel #EmploymentHistory_EmployerPhone').val("");
+                $('#editEmploymentHistoryModel #EmploymentHistory_EmployerEmail').val("");
+                $('#editEmploymentHistoryModel #EmploymentHistory_StartDate').val("");
+                $('#editEmploymentHistoryModel #EmploymentHistory_EndDate').val("");
+            }
+        });
+        return false;
+        }
+
+    </script>
+}
+
+
+
