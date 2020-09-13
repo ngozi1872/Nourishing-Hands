@@ -864,3 +864,4 @@ C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\NourishingHands.pdb
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\NourishingHands.genruntimeconfig.cache
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\NourishingHands.csprojAssemblyReference.cache
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Mentor\_UpdateRecord.cshtml.g.cs

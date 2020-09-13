@@ -53,6 +53,10 @@ namespace NourishingHands.Pages.Mentor
             
             return Page();
         }
+        public PartialViewResult OnGetEmployment(int id)
+        {
+            return Partial("_UpdateRecord", EmploymentHistory);
+        }
 
         private int PersonId()
         {
