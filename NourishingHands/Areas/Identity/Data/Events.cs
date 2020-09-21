@@ -19,6 +19,8 @@ namespace NourishingHands.Areas.Identity.Data
         public string EndTime { get; set; }
         public DateTimeOffset? CreatedOn { get; set; }
         public DateTimeOffset? ModifiedOn { get; set; }
+        public string Location { get; set; }
+        public string Address { get; set; }
 
     }
 }

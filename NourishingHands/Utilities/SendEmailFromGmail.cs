@@ -18,12 +18,13 @@ namespace NourishingHands.Utilities
 
             var smtp = new SmtpClient
             {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
+                EnableSsl = true,
+                Host = "smtp.gmail.com",
+                Port = 587,
                 Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+
             };
 
             string html = @"<html><body><img src='cid:NHLogo' style='display: block; margin-left: auto; margin-right: auto; width:225px; height:60px'><hr/><br/>" + body + "</body></html>";

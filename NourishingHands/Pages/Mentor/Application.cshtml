@@ -18,26 +18,19 @@
                     <br />
                     @if (Model.Person != null)
                     {
-                        <input asp-for="Person.Id" hidden class="form-control" placeholder="Employer *">
+                        <input asp-for="Person.Id" hidden class="form-control">
                     }
                     <div class="form-group col-md-6 row">
                         <label asp-for="Person.FirstName" class="col-form-label col-sm-4"></label>
                         <div class="col-sm-8">
-                            <input asp-for="Person.FirstName" required class="form-control" placeholder="Employer *">
-                            <div class="invalid-tooltip">
-                                First Name can not be empty.
-                                <br />
-                            </div>
+                            <input asp-for="Person.FirstName" required class="form-control">
+                            
                         </div>
                     </div>
                     <div class="form-group col-md-6 row">
                         <label asp-for="Person.LastName" class="col-form-label col-sm-4"></label>
                         <div class="col-sm-8">
-                            <input asp-for="Person.LastName" required class="form-control" placeholder="Employer *">
-                            <div class="invalid-tooltip">
-                                Last Name can not be empty.
-                                <br />
-                            </div>
+                            <input asp-for="Person.LastName" required class="form-control">
                         </div>
                     </div>
                     <div class="form-group col-md-6 row">
@@ -49,10 +42,6 @@
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </select>
-                            </div>
-                            <div class="invalid-tooltip">
-                                Gender can not be empty.
-                                <br />
                             </div>
                         </div>
                     </div>
@@ -70,51 +59,31 @@
                                     <option value="White">White</option>
                                 </select>
                             </div>
-                            <div class="invalid-tooltip">
-                                Ethnicity can not be empty.
-                                <br />
-                            </div>
                         </div>
                     </div>
                     <div class="form-group col-md-6 row">
                         <label asp-for="Person.BirthDay" class="col-form-label col-sm-4"></label>
                         <div class="col-sm-8">
-                            <input asp-for="Person.BirthDay" required class="form-control" type="date" placeholder="Birth date *">
-                            <div class="invalid-tooltip">
-                                Birth Date can not be empty.
-                                <br />
-                            </div>
+                            <input asp-for="Person.BirthDay" required class="form-control" type="date">
                         </div>
                     </div>
                     <div class="form-group col-md-6 row">
                         <label asp-for="Person.SSNumber" class="col-form-label col-sm-4"></label>
                         <div class="col-sm-8">
-                            <input asp-for="Person.SSNumber" id="ssNumber" required class="form-control" placeholder="Social Security Number  *">
-                            <div class="invalid-tooltip">
-                                SSN can not be empty.
-                                <br />
-                            </div>
+                            <input asp-for="Person.SSNumber" id="ssNumber" required class="form-control">
                         </div>
                     </div>
 
                     <div class="form-group col-md-6 row">
                         <label asp-for="Person.Address" class="col-form-label col-sm-4"></label>
                         <div class="col-sm-8">
-                            <textarea asp-for="Person.Address" required class="form-control" placeholder="Social Security Number  *" rows="2"></textarea>
-                            <div class="invalid-tooltip">
-                                Address can not be empty.
-                                <br />
-                            </div>
+                            <textarea asp-for="Person.Address" required class="form-control" rows="2"></textarea>
                         </div>
                     </div>
                     <div class="form-group col-md-6 row">
                         <label asp-for="Person.City" class="col-form-label col-sm-4"></label>
                         <div class="col-sm-8">
-                            <input asp-for="Person.City" required class="form-control" placeholder="City *">
-                            <div class="invalid-tooltip">
-                                City can not be empty.
-                                <br />
-                            </div>
+                            <input asp-for="Person.City" required class="form-control" >                           
                         </div>
                     </div>
                     <div class="form-group col-md-6 row">
@@ -176,62 +145,38 @@
                                     <option value="WY">Wyoming</option>
                                 </select>
                             </div>
-                            <div class="invalid-tooltip">
-                                State can not be empty.
-                                <br />
-                            </div>
                         </div>
                     </div>
                     <div class="form-group col-md-6 row">
                         <label asp-for="Person.PostalCode" class="col-form-label col-sm-4"></label>
                         <div class="col-sm-8">
-                            <input asp-for="Person.PostalCode" required class="form-control" placeholder="City *" id="zipCode">
-                            <div class="invalid-tooltip">
-                                Postal Code can not be empty.
-                                <br />
-                            </div>
+                            <input asp-for="Person.PostalCode" required class="form-control" id="zipCode">
                         </div>
                     </div>
                     <div class="form-group col-md-6 row">
                         <label asp-for="Person.HomePhone" class="col-form-label col-sm-4"></label>
                         <div class="col-sm-8">
-                            <input asp-for="Person.HomePhone" required class="form-control" placeholder="Home phone number *" id="homePhone">
-                            <div class="invalid-tooltip">
-                                Home Phone can not be empty.
-                                <br />
-                            </div>
+                            <input asp-for="Person.HomePhone" required class="form-control" id="homePhone">                           
                         </div>
                     </div>
                     <div class="form-group col-md-6 row">
                         <label asp-for="Person.WorkPhone" class="col-form-label col-sm-4"></label>
                         <div class="col-sm-8">
-                            <input asp-for="Person.WorkPhone" required class="form-control" placeholder="Work phone number *" id="workPhone">
-                            <div class="invalid-tooltip">
-                                Work Phone can not be empty.
-                                <br />
-                            </div>
+                            <input asp-for="Person.WorkPhone" required class="form-control" id="workPhone">
                         </div>
                     </div>
                     <div class="form-group col-md-6 row">
                         <label asp-for="Person.HighestLevelOfEducation" class="col-form-label col-sm-4"></label>
                         <div class="col-sm-8">
-                            <input asp-for="Person.HighestLevelOfEducation" required class="form-control" placeholder="Highest Level Of Education *">
-                            <div class="invalid-tooltip">
-                                Highest Level Of Education can not be empty.
-                                <br />
-                            </div>
+                            <input asp-for="Person.HighestLevelOfEducation" required class="form-control">
                         </div>
                     </div>
 
                     <div class="form-group col-md-12">
                         <button type="submit" class="btn btn-default"> Save and continue </button>
                     </div>
-
-
-
                 </form>
             </div>
-
         </div>
     </div>
 </div>

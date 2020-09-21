@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\klsomah\\Documents\\PrivateWork\\Nourishing-Hands\\NourishingHands\\NourishingHands.csproj": {}
+    "C:\\Users\\ngozi\\Documents\\StringBuilders\\AppDev\\Nourishing-Hands\\NourishingHands\\NourishingHands.csproj": {}
   },
   "projects": {
-    "C:\\Users\\klsomah\\Documents\\PrivateWork\\Nourishing-Hands\\NourishingHands\\NourishingHands.csproj": {
+    "C:\\Users\\ngozi\\Documents\\StringBuilders\\AppDev\\Nourishing-Hands\\NourishingHands\\NourishingHands.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\klsomah\\Documents\\PrivateWork\\Nourishing-Hands\\NourishingHands\\NourishingHands.csproj",
+        "projectUniqueName": "C:\\Users\\ngozi\\Documents\\StringBuilders\\AppDev\\Nourishing-Hands\\NourishingHands\\NourishingHands.csproj",
         "projectName": "NourishingHands",
-        "projectPath": "C:\\Users\\klsomah\\Documents\\PrivateWork\\Nourishing-Hands\\NourishingHands\\NourishingHands.csproj",
-        "packagesPath": "C:\\Users\\klsomah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\klsomah\\Documents\\PrivateWork\\Nourishing-Hands\\NourishingHands\\obj\\",
+        "projectPath": "C:\\Users\\ngozi\\Documents\\StringBuilders\\AppDev\\Nourishing-Hands\\NourishingHands\\NourishingHands.csproj",
+        "packagesPath": "C:\\Users\\ngozi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ngozi\\Documents\\StringBuilders\\AppDev\\Nourishing-Hands\\NourishingHands\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\klsomah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ngozi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +27,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\Microsoft SDKs\\Service Fabric\\packages": {},
-          "http://nuget.syncfusion.com/nuget_xamarin/nuget/getsyncfusionpackages/xamarin": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -103,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
