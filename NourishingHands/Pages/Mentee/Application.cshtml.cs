@@ -72,20 +72,20 @@ namespace NourishingHands.Pages.Mentee
                 _dbContext.Persons.Add(Person);
                 await _dbContext.SaveChangesAsync();
 
-                ContactParent();
+                ContactParent(Person.Id);
             }
 
             return RedirectToPage("/Mentee/Home");
         }
-        private void ContactParent()
+        private void ContactParent(int recordId)
         {
             var logoPath = Path.Combine(_hostingEnvironment.WebRootPath, $"assets/images/NourishingHandsLogo.png");
             var pagePath = Path.Combine(_hostingEnvironment.WebRootPath, $"/Mentee/EmploymentHistory");
 
             var callbackUrl = Url.Page(
-                        "/Mentee/Home",
+                        "/Parent/ParentLetter",
                         pageHandler: null,
-                        values: null,
+                        values: new { Id = recordId },
                         protocol: Request.Scheme);
 
             SendEmailFromGmail sfgmail = new SendEmailFromGmail();

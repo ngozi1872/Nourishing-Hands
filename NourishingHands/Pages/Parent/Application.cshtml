@@ -1,9 +1,16 @@
 ﻿@page
-@model NourishingHands.Pages.Mentor.ApplicationModel
+@model NourishingHands.Pages.Parent.ApplicationModel
 @{
     Layout = "_NhLayout";
 }
 
+<style>
+    .signTxt {
+
+        width: 250px;
+        display: inline-block;
+    }
+</style>
 <!-- START SECTION SHOP -->
 <div class="section">
     <div class="container">
@@ -13,7 +20,7 @@
                 <div class="heading_s1">
                     <h4>Personal Information</h4>
                 </div>
-                <form method="post" asp-page="Application" asp-page-handler="AddPersonRecord" class="row needs-validation" novalidate>
+                <form method="post" class="row needs-validation" novalidate>
                     @*<div asp-validation-summary="All" style="color:red"></div>*@
                     <br />
                     @if (Model.Person != null)
@@ -34,46 +41,11 @@
                         </div>
                     </div>
                     <div class="form-group col-md-6 row">
-                        <label asp-for="Person.Gender" class="col-form-label col-sm-4"></label>
+                        <label asp-for="Person.RelationshipToMentee" class="col-form-label col-sm-4"></label>
                         <div class="col-sm-8">
-                            <div class="custom_select">
-                                <select required asp-for="Person.Gender" class="custom-select browser-default">
-                                    <option value="">Select a gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                            </div>
+                            <input asp-for="Person.RelationshipToMentee" required class="form-control">
                         </div>
                     </div>
-                    <div class="form-group col-md-6 row">
-                        <label asp-for="Person.Ethnicity" class="col-form-label col-sm-4"></label>
-                        <div class="col-sm-8">
-                            <div class="custom_select">
-                                <select asp-for="Person.Ethnicity" required class="custom-select browser-default">
-                                    <option value="">Select a race</option>
-                                    <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
-                                    <option value="Asian">Asian</option>
-                                    <option value="Black or African American">Black or African American</option>
-                                    <option value="Hispanic or Latino">Hispanic or Latino</option>
-                                    <option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander</option>
-                                    <option value="White">White</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-6 row">
-                        <label asp-for="Person.BirthDay" class="col-form-label col-sm-4"></label>
-                        <div class="col-sm-8">
-                            <input asp-for="Person.BirthDay" required class="form-control" type="date">
-                        </div>
-                    </div>
-                    <div class="form-group col-md-6 row">
-                        <label asp-for="Person.SSNumber" class="col-form-label col-sm-4"></label>
-                        <div class="col-sm-8">
-                            <input asp-for="Person.SSNumber" id="ssNumber" required class="form-control">
-                        </div>
-                    </div>
-
                     <div class="form-group col-md-6 row">
                         <label asp-for="Person.Address" class="col-form-label col-sm-4"></label>
                         <div class="col-sm-8">
@@ -165,13 +137,48 @@
                             <input asp-for="Person.WorkPhone" required class="form-control" id="workPhone">
                         </div>
                     </div>
-                    <div class="form-group col-md-6 row">
-                        <label asp-for="Person.HighestLevelOfEducation" class="col-form-label col-sm-4"></label>
-                        <div class="col-sm-8">
-                            <input asp-for="Person.HighestLevelOfEducation" required class="form-control">
+                    <div class="form-group col-12 row">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="medium_divider"></div>
+                            </div>
                         </div>
                     </div>
+                    <div class="form-group col-md-12">
+                        <div class="card booking-card">
+                            <div class="card-body">
+                                <h4 class="card-title font-weight-bold"><a>PARENTAL CONSENT</a></h4>
+                                <p class="mb-2">
+                                    I have read and understand the information given to my child about Nourishing Hands Inc. teen mentoring program. I hereby give my permission for my child.
+                                        <input required class="form-control signTxt">
+                                    , to participate in this program. I will assist my child in keeping all appointments with his/her mentor. I will attend (all or most) parent events and I agree to communicate with a member of NHI staff regarding any concerns I may have about my child’s participation in the Be a Mentor Program. I also understand that I will be given the opportunity to meet my child’s mentor. I also understand that my child will occasionally meet with his/her mentor at supervised scheduled events held at the school, virtually, or other identified community locations. Should an event be scheduled away from the school, I am responsible for my child’s transportation.
+                                </p>
+                                <p class="mb-2" style="font-weight:700">
+                                    All meetings between my child and his/her mentor held outside of the school setting, and not supervised by the NHI Staff, shall be arranged by me, my child, and the mentor, and I take full responsibility for such meetings.
+                                </p>
+                               
+                            </div>
+                            <div class="card-footer">
+                                <div class="col-lg-12">
+                                   
+                                        <div class="form-group col-md-6 row">
+                                            <label class="col-form-label col-sm-5">Enter your name to sign</label>
+                                            <div class="col-sm-7">
+                                                <input required class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6 row">
+                                            <label class="col-form-label col-sm-5">Current Date</label>
+                                            <div class="col-sm-7">
+                                                <input type="date" required class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
+                        </div>
+
+                    </div>
                     <div class="form-group col-md-12">
                         <button type="submit" class="btn btn-default"> Save and continue </button>
                     </div>
@@ -223,6 +230,6 @@
                 });
             }, false);
         })();
-
+    
     </script>
 }
