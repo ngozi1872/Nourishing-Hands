@@ -1,0 +1,93 @@
+﻿@page
+@model NourishingHands.Pages.Event.EventsModel
+@{
+    Layout = "_NhLayout";
+}
+
+<!-- START SECTION EVENTS-->
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-title">
+                    <h3>Up Coming Events</h3>
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+        @foreach (var nhevent in Model.AllEvents)
+        {
+            <div class="row">
+                <div class="col-12">
+                    <div class="event_list">
+                        <div class="event_box box_shadow1 animation" data-animation="fadeInUp" data-animation-delay="0.2s">
+                            <div class="event_img">
+                                <img src="~/assets/images/wellnessflower.jpg" alt="event_img1" style="opacity:0.2">
+                                <div class="event_dt radius_all_5">
+                                    <h5>
+                                        <span>@Convert.ToString(string.Format("{0:MMM. dd}", nhevent.EventStartDate))</span>
+                                        @Convert.ToString(string.Format("{0:yyyy}", nhevent.EventStartDate))
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="event_info">
+                                <h5 class="event_title"><a href="#">@nhevent.Name</a></h5>
+                                <ul class="event_meta">
+                                    <li><i class="ti-time"></i><span>@nhevent.StartTime - @nhevent.EndTime</span></li>
+                                </ul>
+                                <ul class="event_meta">
+                                    <li><i class="ti-location-pin"></i><span>@nhevent.Location</span></li>
+                                </ul>
+                                <ul class="event_meta">
+                                    <li><i class="ti-location-pin"></i><span>@nhevent.Address</span></li>
+                                </ul>
+                                <div class="event_desc">
+                                    <p>@nhevent.Description</p>
+                                </div>
+                                <div class="event_btn">
+                                    <a href="#" class="btn btn-default">Sign Up</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="row">
+            <div class="col-12">
+                <div class="medium_divider"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="medium_divider"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="medium_divider"></div>
+            </div>
+        </div>
+
+        @*<div class="row">
+            <div class="col-12 mt-2 mt-md-3">
+                <ul class="pagination pagination_style1 justify-content-center">
+                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1"><i class="linearicons-arrow-left"></i></a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#"><i class="linearicons-arrow-right"></i></a></li>
+                </ul>
+            </div>
+        </div>*@
+    </div>
+</div>
+<!-- END SECTION EVENTS-->
+
+
+
+
+
+

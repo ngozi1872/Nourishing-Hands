@@ -27,8 +27,17 @@ namespace NourishingHands.Areas.Identity.Data
         public string SSNumber { get; set; }
         public string Gender { get; set; }
         public string Ethnicity { get; set; }
+        [Display(Name = "Grade")]
         public string Grade { get; set; }
         public string School { get; set; }
+
+        [Display(Name = "School ID")]
+        public string StudSchoolId { get; set; }
+        [Display(Name = "Parent's Email")]
+        public string ParentEmail { get; set; }
+
+        [Display(Name = "Cordinator Name")]
+        public string CordinatorName { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
         public string State { get; set; }
@@ -40,6 +49,8 @@ namespace NourishingHands.Areas.Identity.Data
         [Display(Name = "Work Phone")]
         public string WorkPhone { get; set; }
         public string Email { get; set; }
+        [Display (Name = "Language")]
+        public string Language { get; set; }
         [Display(Name = "Highest Education")]
         public string HighestLevelOfEducation { get; set; }
         public string AvatarPath { get; set; }
