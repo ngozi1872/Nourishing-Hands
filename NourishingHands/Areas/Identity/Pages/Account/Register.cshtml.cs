@@ -98,7 +98,7 @@ namespace NourishingHands.Areas.Identity.Pages.Account
                     //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
 
-                    var path = Path.Combine(_hostingEnvironment.WebRootPath, $"assets/images/NourishingHandsLogo.png");
+                    var path = Path.Combine(_hostingEnvironment.WebRootPath, $"assets/images/NH-Logo.png");
 
                     SendEmailFromGmail sfgmail = new SendEmailFromGmail();
                     sfgmail.SendEmail(Input.Email, "Registrant", "Confirm your email",

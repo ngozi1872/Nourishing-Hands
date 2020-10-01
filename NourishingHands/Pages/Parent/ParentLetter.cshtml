@@ -1,0 +1,91 @@
+﻿@page
+@model NourishingHands.Pages.Parent.ParentLetterModel
+@{
+    Layout = "_NhLayout";
+}
+
+
+<div class="section">
+    <form method="post">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card booking-card">
+                        <div class="card-body">
+                            <h4 class="card-title font-weight-bold"><a>Parent Letter</a></h4>
+                            <p class="mb-2"><span id="currentDate"></span></p>
+                            <p class="mb-2">
+                                Dear Parent or Guardian:
+                                <br />Your child has applied to participate in Nourishing Hands Inc., teen mentoring Program this year. Students are selected based upon their availability and number of volunteer mentors available.
+                                If placed, your child is matched with one adult mentor from the surrounding business or service community. Each mentor serves as a professional role model during the eight-month period
+                                (from September to April), listening and encouraging his/her student. The overall purpose of the mentor relationship is to show the students the real world applicability of wellness,
+                                academics employment/entrepreneurship, and financial literacy. We aim to draw connections between what we teach in our mentoring program and real world application, to expose and provide
+                                resources to help ease their transition to the real world.
+                            </p>
+                            <p class="mb-2">
+                                Our mentors come to us from various locally based businesses and service organizations. They are a diverse group representing a vast array of occupations. Each mentor is carefully screened prior to being matched with a student. Eager to share insight and experience with his or her student, each mentor will spend a minimum of four to six hours a month with his or her participant (mentee). Facilitated, supervised meetings will be held periodically at the school, or virtually, in the evenings for mentors and participants. The meetings will consist of skill development, team building, coaching, and some social activities.
+                                All meetings between mentors and NHI Participants held outside of the school setting and not supervised by an NHI staff shall be arranged by mentor, program participant and parent, and the parent accepts full responsibility for such meetings.
+                                You will have an opportunity to meet your child’s mentor on the school campus or virtually before your child is matched.
+                                In order to have your child enter this program; we must have your signed authorization form in our files. To that end, we have enclosed a Parent/Guardian Questionnaire and Parent Authorization form. Please complete both, and should you have any questions, concerns, or need additional information about the project, please feel free to call me at 404-604-0734.
+                                We are very excited about the events of the upcoming year. I look forward to meeting with you all, very soon.
+                            </p>
+                            <p class="mb-2"> Most sincerely,</p>
+                            <p class="mb-2">Mentor Coordinator</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="chek-form">
+                                <div class="custome-checkbox">
+                                    <input class="form-check-input" type="checkbox" name="checkbox" id="chkRead">
+                                    <label class="form-check-label label_info" for="chkRead"><span>I have read and consent</span></label>
+                                </div>
+                            </div>
+                            <br />
+                            <div>
+                                <button type="submit" class="btn btn-default" id="btnNext" disabled> Next >> </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript" src="~/assets/js/jquery.inputmask.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        var d = new Date();
+        var mm = d.getMonth() + 1;
+        var dd = d.getDate();
+        var yyyy = d.getFullYear();
+
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+
+        document.getElementById("currentDate").innerHTML = dd + '/' + mm + '/' + yyyy;
+
+        $(document).ready(function () {
+            $('#chkRead').click(function () {
+                if ($(this).prop("checked") == true) {
+                    $("#btnNext").prop('disabled', false);
+                }
+                else if ($(this).prop("checked") == false) {
+                    $("#btnNext").prop('disabled', true);
+                }
+            });
+        });
+
+    </script>
+
+}

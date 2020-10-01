@@ -29,12 +29,15 @@ namespace NourishingHands.Areas.Identity.Data
         public string Ethnicity { get; set; }
         [Display(Name = "Grade")]
         public string Grade { get; set; }
+        public int MenteeId { get; set; } 
         public string School { get; set; }
 
         [Display(Name = "School ID")]
         public string StudSchoolId { get; set; }
         [Display(Name = "Parent's Email")]
         public string ParentEmail { get; set; }
+        [Display(Name = "Relationship to Mentee")]
+        public string RelationshipToMentee { get; set; }
 
         [Display(Name = "Cordinator Name")]
         public string CordinatorName { get; set; }

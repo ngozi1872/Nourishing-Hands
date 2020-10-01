@@ -131,7 +131,7 @@ namespace NourishingHands.Pages
 
             _dbContext.SaveChanges();
 
-            var path = Path.Combine(_hostingEnvironment.WebRootPath, $"assets/images/NourishingHandsLogo.png");
+            var path = Path.Combine(_hostingEnvironment.WebRootPath, $"assets/images/NH-Logo.png");
 
             SendEmailFromGmail sfgmail = new SendEmailFromGmail();
 
