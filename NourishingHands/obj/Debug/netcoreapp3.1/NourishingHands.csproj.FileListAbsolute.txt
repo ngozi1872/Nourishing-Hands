@@ -883,3 +883,6 @@ C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Parent\Application.cshtml.g.cs
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Parent\ParentLetter.cshtml.g.cs
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Parent\ParentQuestionnaire.cshtml.g.cs
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Parent\Home.cshtml.g.cs
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Mentee\MenteeLetter.cshtml.g.cs
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Mentee\MenteeQuestionnaire.cshtml.g.cs

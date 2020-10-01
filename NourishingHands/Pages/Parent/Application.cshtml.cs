@@ -13,7 +13,6 @@ using NourishingHands.Areas.Identity.NourishingHands.Data;
 
 namespace NourishingHands.Pages.Parent
 {
-    [Authorize]
     public class ApplicationModel : PageModel
     {
         private readonly NourishingHandsContext _dbContext;
@@ -43,7 +42,7 @@ namespace NourishingHands.Pages.Parent
             
         }
 
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnPost(string returnUrl = null)
         {
             if (!ModelState.IsValid)
             {
@@ -52,7 +51,7 @@ namespace NourishingHands.Pages.Parent
 
             //Person.UserId = _userManager.GetUserId(User);
             //Person.Email = _userManager.GetUserName(User);
-
+            
 
             Person.CreatedOn = DateTime.Now;
             Person.Role = "Parent";
@@ -61,7 +60,17 @@ namespace NourishingHands.Pages.Parent
             _dbContext.Persons.Add(Person);
             await _dbContext.SaveChangesAsync();
 
-            return RedirectToPage("/Parent/ParentQuestionnaire?Id="+Person.Id);
+            var pId = Person.Id;
+
+            //var callbackUrl = Url.Page(
+            //           "/Parent/ParentQuestionnaire",
+            //           pageHandler: null,
+            //           values: new { Id = pId },
+            //           protocol: Request.Scheme);
+
+            returnUrl = returnUrl ?? Url.Content("/Parent/ParentQuestionnaire?Id=" + pId);
+
+            return LocalRedirect(returnUrl);
         }
 
     }

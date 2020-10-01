@@ -52,7 +52,7 @@ namespace NourishingHands.Pages.Mentor
                 _dbContext.Persons.Attach(Person).State = EntityState.Modified;
                 _dbContext.SaveChanges();
                 Person = _dbContext.Persons.FirstOrDefault(p => p.UserId.Trim() == Person.UserId.Trim());
-                return Page();
+                return RedirectToPage("/Mentor/Home");
 
             }
             else

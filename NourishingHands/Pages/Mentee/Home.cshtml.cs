@@ -30,29 +30,31 @@ namespace NourishingHands.Pages.Mentee
         public bool HasPersonRecord { get; set; }
         public bool HasEmployment { get; set; }
         public bool HasAnswer { get; set; }
-
+        public bool HasParentSigned { get; set; }
         public IActionResult OnGet()
         {
-            //var userId = _userManager.GetUserId(User);
-            //Person = _dbContext.Persons.FirstOrDefault(p => p.UserId == userId);
+            var userId = _userManager.GetUserId(User);
+            Person = _dbContext.Persons.FirstOrDefault(p => p.UserId == userId);
 
-            //if (Person == null || Person.Id <= 0)
-            //    return RedirectToPage("/Mentor/Application");
+            
 
-            //EmploymentHistories = _dbContext.EmploymentHistories.Where(e => e.PersonId == Person.Id).ToList();
-            //Answers = _dbContext.Answers.Where(a => a.PersonId == Person.Id).ToList();
+            if (Person == null || Person.Id <= 0)
+                return RedirectToPage("/Mentee/Application");
 
-            //if (EmploymentHistories.Count > 0)
-            //    HasEmployment = true;
-            //else
-            //    HasEmployment = false;
+            var parent = _dbContext.Persons.FirstOrDefault(p => p.MenteeId == Person.Id);
+            Answers = _dbContext.Answers.Where(a => a.PersonId == Person.Id).ToList();
 
-            //if (Answers.Count > 0)
-            //    HasAnswer = true;
-            //else
-            //    HasAnswer = false;
+            if (parent != null && parent.IsSigned)
+                HasParentSigned = true;
+            else
+                HasParentSigned = false;
 
-            //HasPersonRecord = true;
+            if (Answers.Count > 0)
+                HasAnswer = true;
+            else
+                HasAnswer = false;
+
+            HasPersonRecord = true;
 
             return Page();
         }

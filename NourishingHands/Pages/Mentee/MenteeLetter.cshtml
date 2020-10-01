@@ -1,0 +1,108 @@
+﻿@page
+@model NourishingHands.Pages.Mentee.MenteeLetterModel
+@{
+    Layout = "_NhLayout";
+}
+
+
+<div class="section">
+    <form method="post">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card booking-card">
+                        <div class="card-body">
+                            <h4 class="card-title font-weight-bold"><a>SO WHAT IS EXPECTED OF THE PARTICIPANT?</a></h4>
+                            <p class="mb-2"><span id="currentDate"></span></p>
+                            <p class="mb-2">
+                                <table class="table table-striped">
+                                    
+                                    <tbody>
+                                        <tr>
+                                            <td><b>Ask questions.</b> You can’t ask too many and if your mentor does not know the answers, he or she will know where to find them! Don’t hesitate to speak up if English is your second language. This is a safe, non-judgmental learning environment where all points of view are valued.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Be open-minded. </b>Take advantage of the opportunity to be exposed to new things even if they are not your “thing”. Remember to share your interests with your mentors. They want to learn about you, too.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Help your mentors feel comfortable around you.</b>Talk to them! Include them! Introduce them to your friends.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Develop goals with your mentor that you would like help in achieving during your one-year relationship.</b> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Communicate regularly with your mentors.</b>Telephone them. Write letters to them. E-mail them. Page them. Your mentors need to hear from you and will love it when they do.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Communicate regularly with the Mentor Coordinator.</b> Regularly scheduled student support meetings will be held for this purpose.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Attend all scheduled meetings with your mentors.</b>Be punctual! Confirm your attendance at all scheduled meetings by contacting your mentor in advance. Don’t be a no-show! Respect your mentor’s time and don’t keep him or her waiting and wondering.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Invite your mentor to your extracurricular activities.</b>They may not be able to come, but you never know. It never hurts to ask.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Thank your mentor! </b>Thank them for everything. Let them know how much you appreciate their time, help, and interest in you.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>                        
+                            </p>                        
+                        </div>
+                        <div class="card-footer">
+                            <div class="chek-form">
+                                <div class="custome-checkbox">
+                                    <input class="form-check-input" type="checkbox" name="checkbox" id="chkRead">
+                                    <label class="form-check-label label_info" for="chkRead"><span>I have read and consent</span></label>
+                                </div>
+                            </div>
+                            <br />
+                            <div>
+                                <button type="submit" class="btn btn-default" id="btnNext" disabled> Next >> </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript" src="~/assets/js/jquery.inputmask.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        var d = new Date();
+        var mm = d.getMonth() + 1;
+        var dd = d.getDate();
+        var yyyy = d.getFullYear();
+
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+
+        document.getElementById("currentDate").innerHTML = mm + '/' + dd + '/' + yyyy;
+
+        $(document).ready(function () {
+            $('#chkRead').click(function () {
+                if ($(this).prop("checked") == true) {
+                    $("#btnNext").prop('disabled', false);
+                }
+                else if ($(this).prop("checked") == false) {
+                    $("#btnNext").prop('disabled', true);
+                }
+            });
+        });
+
+    </script>
+
+}

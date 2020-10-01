@@ -16,7 +16,7 @@
                     </div>
                     <br />
                     <div class="table-responsive">
-                        @*<table class="table">
+                        <table class="table">
                             <tbody>
                                 <tr>
                                     <td class="cart_total_label">Personal Information</td>
@@ -24,7 +24,7 @@
                                     {
                                         <td class="cart_total_amount" style="color: forestgreen">Completed</td>
                                         <td class="cart_total_amount">
-                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px;" asp-page="/Mentor/Application">
+                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px;" asp-page="/Mentee/Application">
                                                 Edit
                                             </a>
                                         </td>
@@ -33,30 +33,30 @@
                                     {
                                         <td class="cart_total_amount" style="color: red">Not Started</td>
                                         <td class="cart_total_amount">
-                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/Application">
+                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentee/Application">
                                                 Start
                                             </a>
                                         </td>
                                     }
                                 </tr>
                                 <tr>
-                                    <td class="cart_total_label">Employment History</td>
-                                    @if (Model.HasEmployment)
+                                    <td class="cart_total_label">Parent Consent</td>
+                                    @if (Model.HasParentSigned)
                                     {
                                         <td class="cart_total_amount" style="color: forestgreen">Completed</td>
                                         <td class="cart_total_amount">
-                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/EmploymentHistory">
+                                            @*<a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/EmploymentHistory">
                                                 Edit
-                                            </a>
+                                            </a>*@
                                         </td>
                                     }
                                     else
                                     {
                                         <td class="cart_total_amount" style="color: red">Not Started</td>
                                         <td class="cart_total_amount">
-                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/EmploymentHistory">
+                                            @*<a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/EmploymentHistory">
                                                 Start
-                                            </a>
+                                            </a>*@
                                         </td>
                                     }
                                 </tr>
@@ -66,8 +66,17 @@
                                     {
                                         <td class="cart_total_amount" style="color: forestgreen">Completed</td>
                                         <td class="cart_total_amount">
-                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/Questions">
+                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentee/MenteeQuestionnaire">
                                                 Edit
+                                            </a>
+                                        </td>
+                                    }
+                                    else if (!Model.HasParentSigned)
+                                    {
+                                        <td class="cart_total_amount" style="color: red">Not Started</td>
+                                        <td class="cart_total_amount">
+                                            <a class="btn btn-default btn-sm float-left pull-left" style="width: 100px; pointer-events: none; cursor: default; text-decoration: none; color: black;" asp-page="/Mentee/MenteeLetter">
+                                                Start
                                             </a>
                                         </td>
                                     }
@@ -75,14 +84,14 @@
                                     {
                                         <td class="cart_total_amount" style="color: red">Not Started</td>
                                         <td class="cart_total_amount">
-                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/Questions">
+                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentee/MenteeLetter">
                                                 Start
                                             </a>
                                         </td>
                                     }
                                 </tr>
                             </tbody>
-                        </table>*@
+                        </table>
                     </div>
 
                 </div>

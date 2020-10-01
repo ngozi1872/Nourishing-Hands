@@ -41,7 +41,7 @@ namespace NourishingHands.Pages.Parent
 
            
         }
-        public IActionResult OnPostAddAnswer()
+        public IActionResult OnPost()
         {
             if (ModelState.IsValid)
             {
@@ -77,7 +77,8 @@ namespace NourishingHands.Pages.Parent
                     }
                 }
 
-                return RedirectToPage("/Mentor/Home");
+
+                return RedirectToPage("/Parent/Home");
             }
 
             return Page();

@@ -15,8 +15,9 @@
                     <div class="heading_s1">
                         <h4>Create an account</h4>
                     </div>
+                    <div class="form-note">Already have an account? <a asp-area="Identity" style="color:#FEBC34; font-weight:600" asp-page="/Account/Login">Login Here!</a></div>
                     <form method="post" class="needs-validation" novalidate>
-                        <div asp-validation-summary="All" style="color:red" ></div>
+                        <div asp-validation-summary="All" style="color:red"></div>
                         <br />
                         <div class="form-group">
                             <input asp-for="Input.Email" required class="form-control" placeholder="Enter Your Email">
@@ -62,10 +63,10 @@
                         }
                     }
                     @*<ul class="btn-login list_none text-center">
-                            <li><a href="#" class="btn btn-facebook"><i class="ion-social-facebook"></i>Facebook</a></li>
-                            <li><a href="#" class="btn btn-google"><i class="ion-social-googleplus"></i>Google</a></li>
-                        </ul>*@
-                    <div class="form-note text-center">Already have an account? <a asp-area="Identity" asp-page="/Account/Login">Login Here!</a></div>
+            <li><a href="#" class="btn btn-facebook"><i class="ion-social-facebook"></i>Facebook</a></li>
+            <li><a href="#" class="btn btn-google"><i class="ion-social-googleplus"></i>Google</a></li>
+        </ul>*@
+                   
                 </div>
             </div>
         </div>

@@ -11,13 +11,10 @@ namespace NourishingHands.Pages.Parent
     {
         public IActionResult OnGet()
         {
-            var menteeId = 0;
             if (!string.IsNullOrWhiteSpace(HttpContext.Request.Query["Id"]))
-                menteeId = Convert.ToInt32(HttpContext.Request.Query["Id"]);
+                return Page();
             else
-                return RedirectToPage("/Index");
-
-            return Page();
+                return RedirectToPage("/Index");          
         }
 
         public IActionResult OnPost()
