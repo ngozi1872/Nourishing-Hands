@@ -9,7 +9,7 @@
         <form method="post" class="needs-validation" novalidate>
             <div class="row">
                 <div class="col-12">
-                    <h4>Mentor Questionnaire</h4>
+                    <h4>Participant Questionnaire</h4>
                 </div>
             </div>
             <br />
@@ -19,16 +19,29 @@
                     {
                         @foreach (var answer in Model.Answers)
                         {
-                            <div class="single_faq">
-                                <div class="faq_question">
-                                    <h5>@answer.Question.Description</h5>
-                                </div>
-                                <div class="md-form">
-                                    <input type="hidden" name="employementID" id="employementID" asp-for="@answer.QuestionId" />
-                                    <input type="text" id="@answer.QuestionId" name="@answer.QuestionId" asp-for="@answer.Description" class="form-control" required>
-                                    @*<textarea asp-for="Answer.Description" required class="form-control" rows="2"></textarea>*@
-                                </div>
+                        <div class="single_faq">
+                            <div class="faq_question">
+                                <h5>@answer.Question.Description</h5>
                             </div>
+                            <div class="md-form">
+                                <input type="hidden" name="employementID" id="employementID" asp-for="@answer.QuestionId" />
+                                @if(answer.Question.AnswerType != null && answer.Question.AnswerType.Trim() == "YesNo")
+                                {
+                                    <div class="custom_select">
+                                        <select required id="@answer.QuestionId" name="@answer.QuestionId" asp-for="@answer.Description" class="custom-select browser-default" style="width:200px;">
+                                            <option value="">Select answer</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <input type="text" id="@answer.QuestionId" name="@answer.QuestionId" asp-for="@answer.Description" class="form-control" required>
+                                }
+                            </div>
+                       
+                        </div>
                         }
 
                     }
@@ -44,8 +57,21 @@
                                     </div>
                                     <div class="md-form">
                                         <input type="hidden" name="employementID" id="employementID" asp-for="@question.Id" />
+                                        @if(question.AnswerType != null && @question.AnswerType == "YesNo")
+                                        {
+                                        <div class="custom_select">
+                                            <select required id="@question.Id" name="@question.Id" class="custom-select browser-default"  style="width:200px;">
+                                                <option value="">Select answer</option>
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </div>
+                                        }
+                                        else
+                                        {
                                         <input type="text" id="@question.Id" name="@question.Id" class="form-control" required>
-                                        @*<textarea asp-for="Answer.Description" required class="form-control" rows="2"></textarea>*@
+                                        }
+
                                     </div>
                                 </div>
                             }

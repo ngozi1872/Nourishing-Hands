@@ -62,6 +62,12 @@ namespace NourishingHands.Areas.Identity.Data
         public DateTime CreatedOn { get; set; }
         public  DateTime? UpdatedOn { get; set; }
 
+        [Display(Name = "Volunteer Frequency")]
+        public string VolunteerFrequency { get; set; }
+
+        [Display(Name = "Volunteer Role")]
+        public string VolunteerRole { get; set; }
+
         public ICollection<EmploymentHistory> EmploymentHistories { get; set; }
         public ICollection<Answer> Answers { get; set; }
 

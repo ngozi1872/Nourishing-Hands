@@ -15,6 +15,7 @@ namespace NourishingHands.Areas.Identity.Data
         public DateTime? CreatedOn { get; set; }
         public DateTime? UpdatedOn { get; set; }
         public int? DisplayOrder { get; set; }
+        public string AnswerType { get; set; }
 
         public ICollection<Answer> Answers { get; set; }
 

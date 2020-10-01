@@ -27,26 +27,21 @@ namespace NourishingHands.Pages.Mentee
         public List<Question> Questions { get; set; }
         public IActionResult OnGet()
         {
-            if (!string.IsNullOrWhiteSpace(HttpContext.Request.Query["Id"]))
-            {
-                var personId = PersonId();
-                Questions = _dbContext.Questions.Where(q => q.QuestionFor.Trim() == "Parent").ToList();
-                var answers = _dbContext.Answers.Where(a => a.PersonId == personId).ToList();
-                if (answers.Count > 0)
-                    Answers = answers;
-                return Page();
-            }
-            else
-                return RedirectToPage("/Index");
+            var personId = PersonId();
+            Questions = _dbContext.Questions.Where(q => q.QuestionFor.Trim() == "Mentee").ToList();
+            var answers = _dbContext.Answers.Where(a => a.PersonId == personId).ToList();
+            if (answers.Count > 0)
+                Answers = answers;
+            return Page();
 
-           
+
         }
         public IActionResult OnPost()
         {
             if (ModelState.IsValid)
             {
                 var personId = PersonId();
-                Questions = _dbContext.Questions.Where(q => q.QuestionFor.Trim() == "Parent").ToList();
+                Questions = _dbContext.Questions.Where(q => q.QuestionFor.Trim() == "Mentee").ToList();
                 Answers = _dbContext.Answers.Where(a => a.PersonId == personId).ToList();
                 if (Answers.Count > 0)
                 {
@@ -78,7 +73,7 @@ namespace NourishingHands.Pages.Mentee
                 }
 
 
-                return RedirectToPage("/Parent/Home");
+                return RedirectToPage("/Mentee/Home");
             }
 
             return Page();
@@ -86,8 +81,8 @@ namespace NourishingHands.Pages.Mentee
 
         private int PersonId()
         {
-            var pId = Convert.ToInt32(HttpContext.Request.Query["Id"]);
-            Person person = _dbContext.Persons.FirstOrDefault(p => p.Id == pId);
+            var userId = _userManager.GetUserId(User);
+            Person person = _dbContext.Persons.FirstOrDefault(p => p.UserId == userId);
 
             if (person != null)
                 return person.Id;
