@@ -32,7 +32,7 @@
                     </div>
                     <div class="table-responsive">
 
-                        <table class="table" id="manageEmployment">
+                        <table class="table" id="manageEvent">
                             <thead>
                                 <tr>
                                     <th class="product-name">Event</th>
@@ -57,10 +57,10 @@
                                             <td class="product-name">@Convert.ToString(string.Format("{0:MM/dd/yyyy}", nhEvent.EventStartDate))</td>
                                             <td class="product-name">@nhEvent.StartTime - @nhEvent.EndTime</td>
                                             <td>
-                                                <a class="btn btn-default btn-sm float-left pull-left" style="width:100px;" asp-page="/Mentee/Application">
+                                                <a class="btn btn-default btn-sm float-left pull-left edit" style="width:100px;" href="#eventModel" data-toggle="modal" >
                                                     Sign-up
                                                 </a>
-                                                <input type="hidden" name="employementID" id="employementID" asp-for="@nhEvent.Id" />
+                                                <input type="hidden" name="eventID" id="eventID" asp-for="@nhEvent.Id" />
                                             </td>
                                         </tr>
                                     }
@@ -85,6 +85,29 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="eventModel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form method="post" asp-page="Home" asp-page-handler="AddVoluntaryForEvent">
+                        <div class="modal-header" style="background-color:#FEBC34">
+                            <h3 class="modal-title" style="color:white">Confirm Sign-up</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" style="color:white">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to volunteer for this event?</p>
+                            <input type="hidden" name="eventID" id="eventID" />
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Yes" class="btn btn-success" />
+                            <input type="button" value="Cancel" class="btn btn-primary" data-dismiss="modal" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-12">
                 <div class="medium_divider"></div>
@@ -97,3 +120,45 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript" src="~/assets/js/jquery.inputmask.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+
+
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
+        $(document).ready(function () {
+
+            $("table#manageEvent .edit").click(function () {
+                var eventID = $(this).parent().find("#eventID").val();
+                $("#eventModel").find("#eventID").val(eventID);
+            });
+
+    });
+
+    </script>
+}

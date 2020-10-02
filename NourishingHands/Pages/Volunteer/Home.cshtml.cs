@@ -25,6 +25,10 @@ namespace NourishingHands.Pages.Volunteer
         public Person Person { get; set; }
         public bool HasPersonRecord { get; set; }
         public List<Events> Events { get; set; }
+        public List<EventVolunteer> EventVolunteers { get; set; }
+
+        [BindProperty]
+        public Events GetEvent { get; set; }
 
         public IActionResult OnGet()
         {
@@ -36,6 +40,29 @@ namespace NourishingHands.Pages.Volunteer
 
             HasPersonRecord = true;
             Events = _dbContext.Events.Where(e => e.EventStartDate > DateTime.Now).ToList();
+            EventVolunteers = _dbContext.EventVolunteers.Where(v => v.PersonId == Person.Id).ToList();
+
+            return Page();
+        }
+
+        public IActionResult OnPostAddVoluntaryForEvent(int eventID)
+        {
+            if (eventID == 0)
+            {
+                return Page();
+            }
+
+            var eventVolunteer = new EventVolunteer
+            {
+                EventId = eventID,
+                PersonId = PersonId()
+            };
+
+            _dbContext.Add(eventVolunteer);
+            _dbContext.SaveChanges();
+
+            Events = _dbContext.Events.Where(e => e.EventStartDate > DateTime.Now).ToList();
+            EventVolunteers = _dbContext.EventVolunteers.Where(v => v.PersonId == Person.Id).ToList();
 
             return Page();
         }
