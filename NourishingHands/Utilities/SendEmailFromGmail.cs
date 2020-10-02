@@ -27,7 +27,7 @@ namespace NourishingHands.Utilities
 
             };
 
-            string html = @"<html><body><img src='cid:NHLogo' style='display: block; margin-left: auto; margin-right: auto; width:225px; height:60px'><hr/><br/>" + body + "</body></html>";
+            string html = @"<html><body><img src='cid:NHLogo' style='display: block; margin-left: auto; margin-right: auto; width:75px; height:75px'><hr/><br/>" + body + "</body></html>";
             AlternateView altView = AlternateView.CreateAlternateViewFromString(html, null, MediaTypeNames.Text.Html);
 
             if (path != null)
