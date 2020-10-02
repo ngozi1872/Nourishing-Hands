@@ -21,6 +21,7 @@ namespace NourishingHands.Areas.Identity.Data
         public DateTimeOffset? ModifiedOn { get; set; }
         public string Location { get; set; }
         public string Address { get; set; }
+        public int Slots { get; set; }
 
     }
 }
