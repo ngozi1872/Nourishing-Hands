@@ -36,7 +36,7 @@
                             <thead>
                                 <tr>
                                     <th class="product-name">Event</th>
-                                    @*<th class="product-price">Description</th>*@
+                                    <th class="product-price">Description</th>
                                     <th class="product-remove">Location</th>
                                     @*<th class="product-remove">Address</th>*@
                                     <th class="product-remove">Date</th>
@@ -45,23 +45,41 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @if (Model.Events.Count > 0)
+                                @if (Model.AllEvents.Count > 0)
                                 {
-                                    @foreach (var nhEvent in Model.Events)
+                                    @foreach (var nhEvent in Model.AllEvents)
                                     {
                                         <tr>
-                                            <td class="product-name">@nhEvent.Name</td>
-                                            @*<td class="product-name">@nhEvent.Description</td>*@
-                                            <td class="product-name">@nhEvent.Location</td>
+                                            <td class="product-name">
+                                                @nhEvent.Name
+                                                <input type="hidden" name="eventID" id="eventID" asp-for="@nhEvent.EventId" />
+                                            </td>
+                                            <td class="product-name">@nhEvent.Description</td>
+                                            <td class="product-name">Virtual</td>
                                             @*<td class="product-name">@nhEvent.Address</td>*@
                                             <td class="product-name">@Convert.ToString(string.Format("{0:MM/dd/yyyy}", nhEvent.EventStartDate))</td>
                                             <td class="product-name">@nhEvent.StartTime - @nhEvent.EndTime</td>
-                                            <td>
-                                                <a class="btn btn-default btn-sm float-left pull-left edit" style="width:100px;" href="#eventModel" data-toggle="modal" >
-                                                    Sign-up
-                                                </a>
-                                                <input type="hidden" name="eventID" id="eventID" asp-for="@nhEvent.Id" />
-                                            </td>
+
+                                            @if (nhEvent.PersonId > 0)
+                                            {
+                                                <td>
+                                                    <a class="btn btn-success btn-sm float-left pull-left delete" style="width:100px;" href="#eventCancelModel" data-toggle="modal">
+                                                        Cancel
+                                                    </a>
+                                                </td>
+
+                                            }
+                                            else
+                                            {
+                                                <td>
+                                                    <a class="btn btn-default btn-sm float-left pull-left edit" style="width:100px;" href="#eventModel" data-toggle="modal">
+                                                        Sign-up
+                                                    </a>
+                                                </td>
+
+                                            }
+
+
                                         </tr>
                                     }
                                 }
