@@ -711,3 +711,4 @@ C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Rele
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\NourishingHands.dll
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\NourishingHands.pdb
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\NourishingHands.genruntimeconfig.cache
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\Event\_StatusMessage.cshtml.g.cs
