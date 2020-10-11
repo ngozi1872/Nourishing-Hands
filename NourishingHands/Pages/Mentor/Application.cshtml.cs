@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -7,7 +6,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using NourishingHands.Areas.Identity.Data;
 using NourishingHands.Areas.Identity.NourishingHands.Data;
 
@@ -33,7 +31,7 @@ namespace NourishingHands.Pages.Mentor
         {
             var userId = _userManager.GetUserId(User);
             var email = _userManager.GetUserName(User);
-            Person = _dbContext.Persons.FirstOrDefault(p => p.UserId.Trim() == userId.Trim());
+            Person = _dbContext.Persons.FirstOrDefault(p => p.UserId.Trim() == userId.Trim() && p.Role.Trim() == "Mentor");
         }
 
         public async Task<IActionResult> OnPostAddPersonRecord()
@@ -51,7 +49,7 @@ namespace NourishingHands.Pages.Mentor
                 Person.UpdatedOn = DateTime.Now;
                 _dbContext.Persons.Attach(Person).State = EntityState.Modified;
                 _dbContext.SaveChanges();
-                Person = _dbContext.Persons.FirstOrDefault(p => p.UserId.Trim() == Person.UserId.Trim());
+                Person = _dbContext.Persons.FirstOrDefault(p => p.UserId.Trim() == Person.UserId.Trim() && p.Role.Trim() == "Mentor");
                 return RedirectToPage("/Mentor/Home");
 
             }
