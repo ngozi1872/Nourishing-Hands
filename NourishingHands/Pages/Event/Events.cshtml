@@ -4,90 +4,236 @@
     Layout = "_NhLayout";
 }
 
-<!-- START SECTION EVENTS-->
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="page-title">
-                    <h3>Up Coming Events</h3>
+
+<section class="container py-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex">
+                <ul id="tabsJustified" class="nav nav-pills flex-column">
                     <br />
-                    <br />
-                </div>
-            </div>
-        </div>
-        @foreach (var nhevent in Model.AllEvents)
-        {
-            <div class="row">
-                <div class="col-12">
-                    <div class="event_list">
-                        <div class="event_box box_shadow1 animation" data-animation="fadeInUp" data-animation-delay="0.2s">
-                            <div class="event_img">
-                                <img src="~/assets/images/eventbackdrop.jpg" alt="event_img1" style="opacity:0.5">
-                                <div class="event_dt radius_all_5">
-                                    <h5>
-                                        <span>@Convert.ToString(string.Format("{0:MMM. dd}", nhevent.EventStartDate))</span>
-                                        @Convert.ToString(string.Format("{0:yyyy}", nhevent.EventStartDate))
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="event_info">
-                                <h5 class="event_title"><a href="#">@nhevent.Name</a></h5>
-                                <ul class="event_meta">
-                                    <li><i class="ti-time"></i><span>@nhevent.StartTime - @nhevent.EndTime</span></li>
-                                </ul>
-                                <ul class="event_meta">
-                                    <li><i class="ti-location-pin"></i><span>@nhevent.Location</span></li>
-                                </ul>
-                                <ul class="event_meta">
-                                    <li><i class="ti-location-pin"></i><span>@nhevent.Address</span></li>
-                                </ul>
-                                <div class="event_desc">
-                                    <p>@nhevent.Description</p>
-                                </div>
-                                <div class="event_btn">
-                                    <a href="#" class="btn btn-default">Sign Up</a>
-                                </div>
+                    <li class="nav-item btn-default"><a href="" data-target="#profile1" data-toggle="tab" class="nav-link small text-uppercase active">List</a></li>
+                    <li class="nav-item btn-default"><a href="" data-target="#messages1" data-toggle="tab" class="nav-link small text-uppercase">Calendar</a></li>
+                </ul>
+                <div class="tab-content border rounded p-3 w-100">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <div class="page-title">
+                                <h3>Up Coming Events</h3>
+                                <br />
+                                <partial name="_StatusMessage" model="Model.Message" />
                             </div>
                         </div>
                     </div>
+                    <div id="profile1" class="tab-pane fade active show">
+                        <!-- START SECTION EVENTS-->
+                            <div class="section">
+                                <div class="container" id="manageEvent">
+                                    @if (Model.AllEvents != null)
+                                    {
+                                        @foreach (var nhevent in Model.AllEvents)
+                                        {
+                                            
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="event_list">
+                                                        <div class="event_box box_shadow1 animation" data-animation="fadeInUp" data-animation-delay="0.2s">
+                                                            <div class="event_img">
+                                                                <img src="~/assets/images/eventbackdrop.jpg" alt="event_img1" style="opacity:0.5">
+                                                                <div class="event_dt radius_all_5">
+                                                                    <h5>
+                                                                        <span>@Convert.ToString(string.Format("{0:MMM. dd}", nhevent.EventStartDate))</span>
+                                                                        @Convert.ToString(string.Format("{0:yyyy}", nhevent.EventStartDate))
+                                                                    </h5>
+                                                                </div>
+                                                            </div>
+                                                            <div class="event_info">
+                                                                <h5 class="event_title"><a href="#">@nhevent.Name</a></h5>
+                                                                <ul class="event_meta">
+                                                                    <li><i class="ti-time"></i><span>@nhevent.StartTime - @nhevent.EndTime</span></li>
+                                                                </ul>
+                                                                <ul class="event_meta">
+                                                                    <li><i class="ti-location-pin"></i><span>@nhevent.Location</span></li>
+                                                                </ul>
+                                                                <ul class="event_meta">
+                                                                    <li><i class="ti-location-pin"></i><span>@nhevent.Address</span></li>
+                                                                </ul>
+                                                                <div class="event_desc">
+                                                                    <p>@nhevent.Description</p>
+                                                                </div>
+                                                                <div class="event_btn">
+                                                                    <a class="btn btn-default edit" href="#eventModel" data-toggle="modal">Sign Up</a>
+                                                                    <input type="hidden" name="eventID" id="eventID" asp-for="@nhevent.Id" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                    </div>
+                    <div id="messages1" class="tab-pane fade active show">
+
+                        <div class="col-xs-6 col-xs-push-2">
+                            <div class="box box-primary">
+                                <div class="box-body no-padding event_box box_shadow1">
+                                    <!-- THE CALENDAR -->
+                                    <div id="bootstrapModalFullCalendar"></div>
+                                </div><!-- /.box-body -->
+                            </div><!-- /. box -->
+                        </div>
+
+                        <div class="modal fade" id="fullCalModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="post" asp-page="Events" asp-page-handler="AddVoluntaryForEvent">
+                                        <div class="modal-header" style="background-color:#5ebb47">
+                                            <h3 class="modal-title" style="color:white">Confirm Sign-up</h3>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true" style="color:white">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div id="modalBody" class="modal-body">
+                                           
+                                        </div>
+                                        <div class="modal-footer">
+                                            <input type="submit" value="Yes" class="btn btn-success" />
+                                            <input type="button" value="Cancel" class="btn btn-primary" data-dismiss="modal" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        @*<div id="fullCalModal" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                                        <h4 id="modalTitle" class="modal-title"></h4>
+                                    </div>
+                                    <div id="modalBody" class="modal-body"></div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <a class="btn btn-primary" id="eventUrl" target="_blank">Event Page</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                    </div>
                 </div>
-            </div>
-        }
+             </div>
+        </div>
+    </div>
+</section>
 
-        <div class="row">
-            <div class="col-12">
-                <div class="medium_divider"></div>
-            </div>
+<div class="modal fade" id="eventModel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-page="Events" asp-page-handler="AddVoluntaryForEvent">
+                <div class="modal-header" style="background-color:#5ebb47">
+                    <h3 class="modal-title" style="color:white">Confirm Sign-up</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="color:white">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to volunteer for this event?</p>
+                    <input type="hidden" name="eventID" id="eventID" />
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" value="Yes" class="btn btn-success" />
+                    <input type="button" value="Cancel" class="btn btn-primary" data-dismiss="modal" />
+                </div>
+            </form>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="medium_divider"></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="medium_divider"></div>
-            </div>
-        </div>
-
-        @*<div class="row">
-            <div class="col-12 mt-2 mt-md-3">
-                <ul class="pagination pagination_style1 justify-content-center">
-                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1"><i class="linearicons-arrow-left"></i></a></li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#"><i class="linearicons-arrow-right"></i></a></li>
-                </ul>
-            </div>
-        </div>*@
     </div>
 </div>
-<!-- END SECTION EVENTS-->
+
+<div class="row">
+    <div class="col-12">
+        <div class="medium_divider"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="medium_divider"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="medium_divider"></div>
+    </div>
+</div>
 
 
 
 
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <link href="~/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/responsive.css">
+    <link rel="stylesheet" id="layoutstyle" href="~/assets/color/theme-yellow.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        .fc-title {
+            color: white;
+            background-color: #5ebb47;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script>
+    <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#bootstrapModalFullCalendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'  
+                },
+                buttonText: {
+                    today: 'today',
+                    month: 'month',
+                    week: 'week',
+                    day: 'day'
+                }, 
+                eventClick: function (event, jsEvent, view) {
+                    $('#modalTitle').html(event.title);
+                    $('#modalBody').html(event.description);
+                    $('#eventUrl').attr('href', event.url);
+                    $('#fullCalModal').modal();
+                    return false;
+                },
+                events: "@Url.Page("/Event/Events", "FindAllEvents")"
+            });
+            $('#bootstrapModalFullCalendar1').fullCalendar({
+                header: {
+                    left: '',
+                    center: 'prev title next',
+                    right: ''
+                },
+                eventClick: function (event, jsEvent, view) {
+                    $('#modalTitle').html(event.title);
+                    $('#modalBody').html(event.description);
+                    $('#eventUrl').attr('href', event.url);
+                    $('#fullCalModal').modal();
+                    return false;
+                },
+                events: "@Url.Page("/Event/Events", "FindAllEvents")",
+                defaultDate: moment().add(1, "months")
+            });
 
+            $("#manageEvent .edit").click(function () {
+                var eventID = $(this).parent().find("#eventID").val();
+                $("#eventModel").find("#eventID").val(eventID);
+            });
+        });
+    </script>
 
+}

@@ -53,8 +53,8 @@
                                             <td class="product-name">@Convert.ToString(string.Format("{0:MM/dd/yyyy}", employment.StartDate))</td>
                                             <td class="product-name">@Convert.ToString(string.Format("{0:MM/dd/yyyy}", employment.EndDate))</td>
                                             <td>
-                                                <a href="#editEmploymentHistoryModel" class="edit" data-toggle="modal" style="color:#FEBC34; font-weight:600"><img src="~/assets/images/pencil.png" style="width:27px; height:27px" /></a> &nbsp;&nbsp;
-                                                <a href="#deleteEmploymentHistoryModel" class="delete" data-toggle="modal" style="color:#FEBC34; font-weight:600"><img src="~/assets/images/trash.png" style="width:27px; height:27px" /></a>
+                                                <a href="#editEmploymentHistoryModel" class="edit" data-toggle="modal" style="color:#5ebb47; font-weight:600"><img src="~/assets/images/pencil.png" style="width:27px; height:27px" /></a> &nbsp;&nbsp;
+                                                <a href="#deleteEmploymentHistoryModel" class="delete" data-toggle="modal" style="color:#5ebb47; font-weight:600"><img src="~/assets/images/trash.png" style="width:27px; height:27px" /></a>
                                                 <input type="hidden" name="employementID" id="employementID" asp-for="@employment.Id" />
                                             </td>
                                         </tr>
@@ -89,7 +89,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <form method="post" asp-page="EmploymentHistory" asp-page-handler="AddEmployment" class="needs-validation" novalidate>
-                        <div class="modal-header" style="background-color:#FEBC34">
+                        <div class="modal-header" style="background-color:#5ebb47">
                             <h3 class="modal-title" style="color:white">Add Employment History</h3>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true" style="color:white">&times;</span>
@@ -199,7 +199,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <form method="post" asp-page="EmploymentHistory" asp-page-handler="UpdateEmployment" class="needs-validation" novalidate>
-                        <div class="modal-header" style="background-color:#FEBC34">
+                        <div class="modal-header" style="background-color:#5ebb47">
                             <h3 class="modal-title" style="color:white">Update Employment History</h3>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true" style="color:white">&times;</span>
@@ -310,7 +310,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <form method="post" asp-page="EmploymentHistory" asp-page-handler="DeleteEmployment">
-                        <div class="modal-header" style="background-color:#FEBC34">
+                        <div class="modal-header" style="background-color:#5ebb47">
                             <h3 class="modal-title" style="color:white">Delete Employment</h3>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true" style="color:white">&times;</span>

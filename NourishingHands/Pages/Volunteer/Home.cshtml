@@ -17,7 +17,7 @@
                             <h6>Hello @Model.Person.FirstName!</h6>
                         }
                         <div class="form-group">
-                            <div class="form-note">Click <a style="color:#FEBC34; font-weight:600" asp-page="/Mentor/Application">Edit</a> update your personal information.</div>
+                            <div class="form-note">Click <a style="color:#5ebb47; font-weight:600" asp-page="/Mentor/Application">Edit</a> update your personal information.</div>
                         </div>
                     </div>
 
@@ -50,10 +50,7 @@
                                     @foreach (var nhEvent in Model.AllEvents)
                                     {
                                         <tr>
-                                            <td class="product-name">
-                                                @nhEvent.Name
-                                                <input type="hidden" name="eventID" id="eventID" asp-for="@nhEvent.EventId" />
-                                            </td>
+                                            <td class="product-name">@nhEvent.Name</td>
                                             <td class="product-name">@nhEvent.Description</td>
                                             <td class="product-name">Virtual</td>
                                             @*<td class="product-name">@nhEvent.Address</td>*@
@@ -63,9 +60,10 @@
                                             @if (nhEvent.PersonId > 0)
                                             {
                                                 <td>
-                                                    <a class="btn btn-success btn-sm float-left pull-left delete" style="width:100px;" href="#eventCancelModel" data-toggle="modal">
+                                                    <a class="btn btn-success btn-sm float-left pull-left delete" style="width:100px;" href="#deleteModel" data-toggle="modal">
                                                         Cancel
                                                     </a>
+                                                    <input type="hidden" name="eventID" id="eventID" asp-for="@nhEvent.EventId" />
                                                 </td>
 
                                             }
@@ -75,6 +73,7 @@
                                                     <a class="btn btn-default btn-sm float-left pull-left edit" style="width:100px;" href="#eventModel" data-toggle="modal">
                                                         Sign-up
                                                     </a>
+                                                    <input type="hidden" name="eventID" id="eventID" asp-for="@nhEvent.EventId" />
                                                 </td>
 
                                             }
@@ -107,7 +106,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <form method="post" asp-page="Home" asp-page-handler="AddVoluntaryForEvent">
-                        <div class="modal-header" style="background-color:#FEBC34">
+                        <div class="modal-header" style="background-color:#5ebb47">
                             <h3 class="modal-title" style="color:white">Confirm Sign-up</h3>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true" style="color:white">&times;</span>
@@ -126,6 +125,28 @@
             </div>
         </div>
 
+        <div class="modal fade" id="deleteModel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form method="post" asp-page="Home" asp-page-handler="DeleteVoluntaryForEvent">
+                        <div class="modal-header" style="background-color:#5ebb47">
+                            <h3 class="modal-title" style="color:white">Cancel your service</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" style="color:white">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to unvoluntary for this event?</p>
+                            <input type="hidden" name="eventID" id="eventID" />
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Yes" class="btn btn-success" />
+                            <input type="button" value="Cancel" class="btn btn-primary" data-dismiss="modal" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-12">
                 <div class="medium_divider"></div>
@@ -174,6 +195,11 @@
             $("table#manageEvent .edit").click(function () {
                 var eventID = $(this).parent().find("#eventID").val();
                 $("#eventModel").find("#eventID").val(eventID);
+            });
+
+            $("table#manageEvent .delete").click(function () {
+                var eventID = $(this).parent().find("#eventID").val();
+                $("#deleteModel").find("#eventID").val(eventID);
             });
 
     });

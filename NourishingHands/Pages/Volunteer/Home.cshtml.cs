@@ -67,6 +67,28 @@ namespace NourishingHands.Pages.Volunteer
             return Page();
         }
 
+        public IActionResult OnPostDeleteVoluntaryForEvent(int eventID)
+        {
+            var personId = PersonId();
+            if (eventID == 0)
+            {
+                return Page();
+            }
+
+            var eventVolunteer = new EventVolunteer
+            {
+                EventId = eventID,
+                PersonId = personId
+            };
+
+            _dbContext.Remove(eventVolunteer);
+            _dbContext.SaveChanges();
+
+            EventsVolunteer(personId);
+
+            return Page();
+        }
+
         private void EventsVolunteer(int personId)
         {
             //Events = _dbContext.Events.Where(e => e.EventStartDate > DateTime.Now).ToList();

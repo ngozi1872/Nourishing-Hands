@@ -42,12 +42,12 @@ a:hover,
 .widget_features li i,
 .shorting_icon.active,
 .toggle_info i {
-	color: #FEBC34;
+	color: #5ebb47;
 }
 
 .text_default,
 .social_style4 li a:hover {
-	color: #FEBC34 !important;
+	color: #5ebb47 !important;
 }
 
 .btn-default,
@@ -75,11 +75,11 @@ a:hover,
 .blockquote_style1,
 .tab-style1 .nav-tabs li.nav-item a.active, .tab-style1 .nav-tabs li.nav-item a.active:hover,
 .custome-radio input[type="radio"] + .form-check-label::after {
-	background-color: #FEBC34;
+	background-color: #5ebb47;
 }
 
 .bg_default {
-	background-color: #FEBC34 !important;
+	background-color: #5ebb47 !important;
 }
 
 .btn-default:hover {
@@ -92,7 +92,7 @@ a:hover,
 .product_gallery_item .slick-current img,
 .tab-style1 .nav-tabs li.nav-item a.active, .tab-style1 .nav-tabs li.nav-item a.active:hover,
 .toggle_info,.custome-radio input[type="radio"]:checked + .form-check-label::before {
-	border-color: #FEBC34;
+	border-color: #5ebb47;
 }
 
 .blockquote_style1 {
