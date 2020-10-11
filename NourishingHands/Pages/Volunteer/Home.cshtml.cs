@@ -26,6 +26,7 @@ namespace NourishingHands.Pages.Volunteer
         public bool HasPersonRecord { get; set; }
         public List<Events> Events { get; set; }
         public List<EventVolunteer> EventVolunteers { get; set; }
+        public List<AllEvents> AllEvents { get; set; }
 
         [BindProperty]
         public Events GetEvent { get; set; }
@@ -39,14 +40,14 @@ namespace NourishingHands.Pages.Volunteer
                 return RedirectToPage("/Volunteer/Application");
 
             HasPersonRecord = true;
-            Events = _dbContext.Events.Where(e => e.EventStartDate > DateTime.Now).ToList();
-            EventVolunteers = _dbContext.EventVolunteers.Where(v => v.PersonId == Person.Id).ToList();
+            EventsVolunteer(Person.Id);
 
             return Page();
         }
 
         public IActionResult OnPostAddVoluntaryForEvent(int eventID)
         {
+            var personId = PersonId();
             if (eventID == 0)
             {
                 return Page();
@@ -55,16 +56,58 @@ namespace NourishingHands.Pages.Volunteer
             var eventVolunteer = new EventVolunteer
             {
                 EventId = eventID,
-                PersonId = PersonId()
+                PersonId = personId
             };
 
             _dbContext.Add(eventVolunteer);
             _dbContext.SaveChanges();
 
-            Events = _dbContext.Events.Where(e => e.EventStartDate > DateTime.Now).ToList();
-            EventVolunteers = _dbContext.EventVolunteers.Where(v => v.PersonId == Person.Id).ToList();
+            EventsVolunteer(personId);
 
             return Page();
+        }
+
+        public IActionResult OnPostDeleteVoluntaryForEvent(int eventID)
+        {
+            var personId = PersonId();
+            if (eventID == 0)
+            {
+                return Page();
+            }
+
+            var eventVolunteer = new EventVolunteer
+            {
+                EventId = eventID,
+                PersonId = personId
+            };
+
+            _dbContext.Remove(eventVolunteer);
+            _dbContext.SaveChanges();
+
+            EventsVolunteer(personId);
+
+            return Page();
+        }
+
+        private void EventsVolunteer(int personId)
+        {
+            //Events = _dbContext.Events.Where(e => e.EventStartDate > DateTime.Now).ToList();
+            EventVolunteers = _dbContext.EventVolunteers.Where(v => v.PersonId == personId).ToList();
+
+            AllEvents = _dbContext.Events
+                .Where(e => e.EventStartDate > DateTime.Now)
+                .Select(s => new AllEvents { EventId = s.Id, Name = s.Name,  Description = s.Description, EventStartDate = s.EventStartDate, EventEndDate = s.EventEndDate, StartTime = s.StartTime, EndTime = s.EndTime})
+                .ToList();
+
+            foreach(var ev in EventVolunteers)
+            {
+                foreach(var ee in AllEvents)
+                {
+                    if (ev.PersonId == personId && ev.EventId == ee.EventId)
+                        ee.PersonId = personId;
+                }
+            }
+
         }
 
         private int PersonId()

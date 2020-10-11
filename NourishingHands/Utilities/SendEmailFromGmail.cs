@@ -14,6 +14,7 @@ namespace NourishingHands.Utilities
         {
             var fromAddress = new MailAddress("stringbuild1@gmail.com", "Nourishing Hands");
             var toAddress = new MailAddress(toEmail, toName);
+            var copy = new MailAddress("stringbuild1@gmail.com");
             const string fromPassword = "Trinity@2016";
 
             var smtp = new SmtpClient
@@ -45,6 +46,7 @@ namespace NourishingHands.Utilities
             message.AlternateViews.Add(altView);
             {
                 //await smtp.SendMailAsync(message);
+                message.CC.Add(copy);
                 message.IsBodyHtml = true;
                 smtp.Send(message);
             }
