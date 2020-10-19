@@ -35,6 +35,7 @@ namespace NourishingHands.Areas.Identity.NourishingHands.Data
         public DbSet<Events> Events { get; set; }
         public DbSet<EventVolunteer> EventVolunteers { get; set; }
         public DbSet<Donation> Donations { get; set; }
+        public DbSet<MentorSchedule> MentorSchedules { get; set; }
 
     }
 }

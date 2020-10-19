@@ -53,6 +53,7 @@ namespace NourishingHands.Pages.Volunteer
 
             Person.UserId = _userManager.GetUserId(User);
             Person.Email = _userManager.GetUserName(User);
+            Person.Role = "Volunteer";
 
             if (Person.Id > 0)
             {
@@ -66,7 +67,7 @@ namespace NourishingHands.Pages.Volunteer
             else
             {
                 Person.CreatedOn = DateTime.Now;
-                Person.Role = "Volunteer";
+                
                 _dbContext.Persons.Add(Person);
                 await _dbContext.SaveChangesAsync();
             }

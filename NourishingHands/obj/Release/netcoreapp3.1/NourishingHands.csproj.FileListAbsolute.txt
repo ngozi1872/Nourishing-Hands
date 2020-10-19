@@ -682,13 +682,9 @@ C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Rele
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\Mentor.cshtml.g.cs
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\MentorQuestionnaire.cshtml.g.cs
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\Mentor\Application.cshtml.g.cs
-C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\Mentor\Education.cshtml.g.cs
-C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\Mentor\Employment.cshtml.g.cs
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\Mentor\EmploymentHistory.cshtml.g.cs
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\Mentor\Home.cshtml.g.cs
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\Mentor\Questions.cshtml.g.cs
-C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\Mentor\_UpdateEmployment.cshtml.g.cs
-C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\Mentor\_UpdateRecord.cshtml.g.cs
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\Parent\Application.cshtml.g.cs
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\Parent\Home.cshtml.g.cs
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\Parent\ParentLetter.cshtml.g.cs
@@ -712,3 +708,6 @@ C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Rele
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\NourishingHands.pdb
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\NourishingHands.genruntimeconfig.cache
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\Event\_StatusMessage.cshtml.g.cs
+C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\Event\_StatusMessage.cshtml.g.cs
+C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\bin\Release\netcoreapp3.1\Properties\ServiceDependencies\NourishingHands - Web Deploy1\profile.arm.json
+C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\Mentor\_StatusMessage.cshtml.g.cs

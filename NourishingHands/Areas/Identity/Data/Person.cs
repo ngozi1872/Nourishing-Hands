@@ -61,6 +61,7 @@ namespace NourishingHands.Areas.Identity.Data
         public bool IsSigned { get; set; }
         public DateTime CreatedOn { get; set; }
         public  DateTime? UpdatedOn { get; set; }
+        public bool? Approved { get; set; }
 
         [Display(Name = "Volunteer Frequency")]
         public string VolunteerFrequency { get; set; }

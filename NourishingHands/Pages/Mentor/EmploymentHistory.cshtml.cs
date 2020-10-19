@@ -49,6 +49,7 @@ namespace NourishingHands.Pages.Mentor
             }
 
             AddEmployment();
+            EmploymentHistory = new EmploymentHistory();
 
             return Page();
         }

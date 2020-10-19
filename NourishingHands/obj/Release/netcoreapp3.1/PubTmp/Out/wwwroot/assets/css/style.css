@@ -234,7 +234,7 @@ button:focus {
 	z-index: 1;
 }
 .btn-default:hover {
-	background-color: #EEAC24;
+	background-color: #336626;
 	color: #fff !important;
 }
 .btn-default::before {
@@ -368,8 +368,11 @@ button:focus {
 .bg_danger {
 	background-color: #F6475F;
 }
-.bg_blue {
+/*.bg_blue {
     background-color: #4382FF;
+}*/
+.bg_blue {
+	background-color: #336626;
 }
 .bg_orange {
 	background-color: #F89035;

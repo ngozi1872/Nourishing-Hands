@@ -14,16 +14,16 @@ namespace NourishingHands.Areas.Identity
     {
         public void Configure(IWebHostBuilder builder)
         {
-            builder.ConfigureServices((context, services) => {
-                services.AddDbContext<NourishingHandsContext>(options =>
-                    options.UseSqlServer(
-                        context.Configuration.GetConnectionString("NourishingHandsContextConnection")));
+            //builder.ConfigureServices((context, services) => {
+            //    services.AddDbContext<NourishingHandsContext>(options =>
+            //        options.UseSqlServer(
+            //            context.Configuration.GetConnectionString("NourishingHandsContextConnection")));
 
-                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<NourishingHandsContext>()
-                    .AddDefaultUI()
-                    .AddDefaultTokenProviders();
-            });
+            //    services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //        .AddEntityFrameworkStores<NourishingHandsContext>()
+            //        .AddDefaultUI()
+            //        .AddDefaultTokenProviders();
+            //});
         }
     }
 }

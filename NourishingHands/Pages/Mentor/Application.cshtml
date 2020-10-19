@@ -11,6 +11,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="heading_s1">
+                    <partial name="_StatusMessage" model="Model.Message" />
+                    <br />
                     <h4>Personal Information</h4>
                 </div>
                 <form method="post" asp-page="Application" asp-page-handler="AddPersonRecord" class="row needs-validation" novalidate>
@@ -64,7 +66,7 @@
                     <div class="form-group col-md-6 row">
                         <label asp-for="Person.BirthDay" class="col-form-label col-sm-4"></label>
                         <div class="col-sm-8">
-                            <input asp-for="Person.BirthDay" required class="form-control" type="date">
+                            <input asp-for="Person.BirthDay" required class="form-control birthday" type="date">
                         </div>
                     </div>
                     <div class="form-group col-md-6 row">
@@ -168,7 +170,17 @@
                     <div class="form-group col-md-6 row">
                         <label asp-for="Person.HighestLevelOfEducation" class="col-form-label col-sm-4"></label>
                         <div class="col-sm-8">
-                            <input asp-for="Person.HighestLevelOfEducation" required class="form-control">
+                            <select asp-for="Person.HighestLevelOfEducation" required class="custom-select browser-default">
+                                <option value="">Select highest level of education</option>
+                                <option value="No formal education">No formal education</option>
+                                <option value="Primary education">Primary education</option>
+                                <option value="Secondary education">Secondary education or high school</option>
+                                <option value="GED">GED</option>
+                                <option value="Vocational qualification">Vocational qualification</option>
+                                <option value="Bachelor's degree">Bachelor's degree</option>
+                                <option value="Master's degree">Master's degree</option>
+                                <option value="Doctorate or higher">Doctorate or higher</option>
+                            </select>
                         </div>
                     </div>
 
@@ -206,6 +218,7 @@
             outputFormat: "99999",
             inputEventOnly: true
         });
+
         (function () {
             'use strict';
             window.addEventListener('load', function () {

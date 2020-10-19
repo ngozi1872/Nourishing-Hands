@@ -6,20 +6,8 @@
 
 <div class="section">
     <div class="container">
-        <div class="row">
-            <div class="form-group col-md-12 row">
-                <div class="col-md-3">
-                    <button type="button" class="btn btn-default btn-sm float-left pull-left" data-toggle="modal" data-target="#addProductModal" style="width:240px">
-                        Add Employment
-                    </button>
-                </div>
-                <div class="col-md-3">
-                    <a class="btn btn-default btn-sm float-left pull-left" style="width:240px" asp-page="/Mentor/Questions">
-                        Continue
-                    </a>
-                </div>
-            </div>
-
+        <div class="heading_s1 mb-3">
+            <h6>Mentor Employment History</h6>
         </div>
 
         <div class="row">
@@ -65,7 +53,7 @@
                                     <tr>
                                         <td class="product-name"><div>No Data</div></td>
                                     </tr>
-                                    
+
                                 }
 
                             </tbody>
@@ -79,6 +67,23 @@
                 </div>
             </div>
         </div>
+        <br />
+        <div class="row">
+            <div class="form-group col-md-12 row">
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-default btn-sm float-left pull-left" data-toggle="modal" data-target="#addProductModal" style="width:240px">
+                        Add Employment
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <a class="btn btn-default btn-sm float-left pull-left" style="width:240px" asp-page="/Mentor/Questions">
+                        Continue
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
         <div class="row">
             <div class="col-12">
                 <div class="medium_divider"></div>
@@ -106,20 +111,12 @@
                                 <label asp-for="EmploymentHistory.Employer" class="col-form-label col-sm-3"></label>
                                 <div class="col-sm-9">
                                     <input asp-for="EmploymentHistory.Employer" required class="form-control" placeholder="Employer *">
-                                    <div class="invalid-tooltip">
-                                        Employer can not be empty.
-                                        <br />
-                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-12 row">
                                 <label asp-for="EmploymentHistory.JobTitle" class="col-form-label col-sm-3"></label>
                                 <div class="col-sm-9">
                                     <input asp-for="EmploymentHistory.JobTitle" required class="form-control" placeholder="Job Title *">
-                                    <div class="invalid-tooltip">
-                                        Job Title can not be empty.
-                                        <br />
-                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-12 row">
@@ -138,50 +135,30 @@
                                 <label asp-for="EmploymentHistory.JobDescription" class="col-form-label col-sm-3"></label>
                                 <div class="col-sm-9">
                                     <textarea asp-for="EmploymentHistory.JobDescription" required class="form-control" placeholder="Job Title *" rows="3"></textarea>
-                                    <div class="invalid-tooltip">
-                                        Job Description can not be empty.
-                                        <br />
-                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-12 row">
                                 <label asp-for="EmploymentHistory.EmployerPhone" class="col-form-label col-sm-3"></label>
                                 <div class="col-sm-9">
                                     <input asp-for="EmploymentHistory.EmployerPhone" required class="form-control phonemask" placeholder="Employer Phone *">
-                                    <div class="invalid-tooltip">
-                                        Employer Phone is not in the correct format 000-000-0000.
-                                        <br />
-                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-12 row">
                                 <label asp-for="EmploymentHistory.EmployerEmail" class="col-form-label col-sm-3"></label>
                                 <div class="col-sm-9">
                                     <input type="email" asp-for="EmploymentHistory.EmployerEmail" required class="form-control" placeholder="Employer Email *">
-                                    <div class="invalid-tooltip">
-                                        Employer Email can not be empty.
-                                        <br />
-                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-12 row">
                                 <label asp-for="EmploymentHistory.StartDate" class="col-form-label col-sm-3"></label>
                                 <div class="col-sm-9">
                                     <input asp-for="EmploymentHistory.StartDate" required class="form-control startdate" placeholder="Start Date *" id="startdate" type="text">
-                                    <div class="invalid-tooltip">
-                                        Start Date can not be empty.
-                                        <br />
-                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-12 row">
                                 <label asp-for="EmploymentHistory.EndDate" class="col-form-label col-sm-3"></label>
                                 <div class="col-sm-9">
                                     <input asp-for="EmploymentHistory.EndDate" required class="form-control enddate" placeholder="End Date *" id="enddate" type="text">
-                                    <div class="invalid-tooltip">
-                                        End Date can not be empty.
-                                        <br />
-                                    </div>
                                 </div>
                             </div>
 
@@ -217,20 +194,12 @@
                                 <label asp-for="EmploymentHistory.Employer" class="col-form-label col-sm-3"></label>
                                 <div class="col-sm-9">
                                     <input asp-for="EmploymentHistory.Employer" required class="form-control" placeholder="Employer *">
-                                    <div class="invalid-tooltip">
-                                        Employer can not be empty.
-                                        <br />
-                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-12 row">
                                 <label asp-for="EmploymentHistory.JobTitle" class="col-form-label col-sm-3"></label>
                                 <div class="col-sm-9">
                                     <input asp-for="EmploymentHistory.JobTitle" required class="form-control" placeholder="Job Title *">
-                                    <div class="invalid-tooltip">
-                                        Job Title can not be empty.
-                                        <br />
-                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-12 row">
@@ -249,50 +218,30 @@
                                 <label asp-for="EmploymentHistory.JobDescription" class="col-form-label col-sm-3"></label>
                                 <div class="col-sm-9">
                                     <textarea asp-for="EmploymentHistory.JobDescription" required class="form-control" placeholder="Job Title *" rows="3"></textarea>
-                                    <div class="invalid-tooltip">
-                                        Job Description can not be empty.
-                                        <br />
-                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-12 row">
                                 <label asp-for="EmploymentHistory.EmployerPhone" class="col-form-label col-sm-3"></label>
                                 <div class="col-sm-9">
                                     <input asp-for="EmploymentHistory.EmployerPhone" required class="form-control phonemask" placeholder="Employer Phone">
-                                    <div class="invalid-tooltip">
-                                        Employer Phone is not in the correct format 000-000-0000.
-                                        <br />
-                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-12 row">
                                 <label asp-for="EmploymentHistory.EmployerEmail" class="col-form-label col-sm-3"></label>
                                 <div class="col-sm-9">
                                     <input type="email" asp-for="EmploymentHistory.EmployerEmail" required class="form-control" placeholder="Employer Email *">
-                                    <div class="invalid-tooltip">
-                                        Employer Email can not be empty.
-                                        <br />
-                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-12 row">
                                 <label asp-for="EmploymentHistory.StartDate" class="col-form-label col-sm-3"></label>
                                 <div class="col-sm-9">
                                     <input asp-for="EmploymentHistory.StartDate" required class="form-control startdate" placeholder="Start Date *" type="text" id="startdate1">
-                                    <div class="invalid-tooltip">
-                                        Start Date can not be empty.
-                                        <br />
-                                    </div>
                                 </div>
                             </div>
                             <div class="form-group col-md-12 row">
                                 <label asp-for="EmploymentHistory.EndDate" class="col-form-label col-sm-3"></label>
                                 <div class="col-sm-9">
                                     <input asp-for="EmploymentHistory.EndDate" required class="form-control enddate" placeholder="End date *" type="text" id="enddate1">
-                                    <div class="invalid-tooltip">
-                                        End Date can not be empty.
-                                        <br />
-                                    </div>
                                 </div>
                             </div>
 
@@ -363,6 +312,8 @@
         $(function () {
             $(".startdate").datepicker({
                 numberOfMonths: 1,
+                changeMonth: true,
+                changeYear: true,
                 onSelect: function (selected) {
                     var dt = new Date(selected);
                     dt.setDate(dt.getDate() + 1);
@@ -371,6 +322,8 @@
             });
             $(".enddate").datepicker({
                 numberOfMonths: 1,
+                changeMonth: true,
+                changeYear: true,
                 onSelect: function (selected) {
                     var dt = new Date(selected);
                     dt.setDate(dt.getDate() - 1);

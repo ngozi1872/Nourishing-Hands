@@ -1,0 +1,71 @@
+﻿@page
+@model NourishingHands.Pages.Admin.Mentor.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Mentor Name
+            </th>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].BirthDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].Ethnicity)
+            </th>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].HighestLevelOfEducation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].Approved)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Person) {
+        <tr>
+            <td>
+                @Convert.ToString(item.FirstName + " " + item.LastName)
+            </td>
+            
+            <td>
+                @Convert.ToString(string.Format("{0:MM/dd/yyyy}", item.BirthDay))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ethnicity)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.HighestLevelOfEducation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Approved)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
