@@ -1,0 +1,68 @@
+﻿@page
+@model NourishingHands.Pages.Mentor.MentorSchedule.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_NhLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>MentorSchedule</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MentorSchedule.MenteeId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MentorSchedule.MenteeId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MentorSchedule.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MentorSchedule.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MentorSchedule.StartDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MentorSchedule.StartDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MentorSchedule.EndDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MentorSchedule.EndDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MentorSchedule.StartTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MentorSchedule.StartTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MentorSchedule.EndTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MentorSchedule.EndTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MentorSchedule.Notes)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MentorSchedule.Notes)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MentorSchedule.Person)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MentorSchedule.Person.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.MentorSchedule.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

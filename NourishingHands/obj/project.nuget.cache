@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UfNa6LT/O986hBuczKayTqhdqAdbIstXgsCv/ie5VrbRYJ+L2BL9mR+UxUEOu9pwX0Ul6FG2PcxkMxbvWWZDJg==",
+  "dgSpecHash": "NTWGkSvLPyLFv+53wHfCMYA4nQWYKnBxk61GuuoooXA0Gc1Z4YMVizGoAS3Dfj3poqQU7jILoUcHxbvKdoLGWA==",
   "success": true,
   "projectFilePath": "C:\\Users\\klsomah\\Documents\\PrivateWork\\Nourishing-Hands\\NourishingHands\\NourishingHands.csproj",
   "expectedPackageFiles": [
@@ -59,6 +59,7 @@
     "C:\\Users\\klsomah\\.nuget\\packages\\microsoft.identitymodel.tokens\\5.5.0\\microsoft.identitymodel.tokens.5.5.0.nupkg.sha512",
     "C:\\Users\\klsomah\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
     "C:\\Users\\klsomah\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\klsomah\\.nuget\\packages\\microsoft.typescript.msbuild\\4.0.3\\microsoft.typescript.msbuild.4.0.3.nupkg.sha512",
     "C:\\Users\\klsomah\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\3.1.4\\microsoft.visualstudio.web.codegeneration.3.1.4.nupkg.sha512",
     "C:\\Users\\klsomah\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.contracts\\3.1.4\\microsoft.visualstudio.web.codegeneration.contracts.3.1.4.nupkg.sha512",
     "C:\\Users\\klsomah\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\3.1.4\\microsoft.visualstudio.web.codegeneration.core.3.1.4.nupkg.sha512",

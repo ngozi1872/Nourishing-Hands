@@ -6,189 +6,312 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
+<h1>@Model.Person.FirstName @Model.Person.LastName</h1>
 
-<h4>Person</h4>
+<h4>Mentor</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Person.Id" />
-            <div class="form-group">
-                <label asp-for="Person.UserId" class="control-label"></label>
-                <select asp-for="Person.UserId" class="form-control" asp-items="ViewBag.UserId"></select>
-                <span asp-validation-for="Person.UserId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.FirstName" class="control-label"></label>
-                <input asp-for="Person.FirstName" class="form-control" />
-                <span asp-validation-for="Person.FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.LastName" class="control-label"></label>
-                <input asp-for="Person.LastName" class="form-control" />
-                <span asp-validation-for="Person.LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.Role" class="control-label"></label>
-                <input asp-for="Person.Role" class="form-control" />
-                <span asp-validation-for="Person.Role" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.BirthDay" class="control-label"></label>
-                <input asp-for="Person.BirthDay" class="form-control" />
-                <span asp-validation-for="Person.BirthDay" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.SSNumber" class="control-label"></label>
-                <input asp-for="Person.SSNumber" class="form-control" />
-                <span asp-validation-for="Person.SSNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.Gender" class="control-label"></label>
-                <input asp-for="Person.Gender" class="form-control" />
-                <span asp-validation-for="Person.Gender" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.Ethnicity" class="control-label"></label>
-                <input asp-for="Person.Ethnicity" class="form-control" />
-                <span asp-validation-for="Person.Ethnicity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.Grade" class="control-label"></label>
-                <input asp-for="Person.Grade" class="form-control" />
-                <span asp-validation-for="Person.Grade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.MenteeId" class="control-label"></label>
-                <input asp-for="Person.MenteeId" class="form-control" />
-                <span asp-validation-for="Person.MenteeId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.School" class="control-label"></label>
-                <input asp-for="Person.School" class="form-control" />
-                <span asp-validation-for="Person.School" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.StudSchoolId" class="control-label"></label>
-                <input asp-for="Person.StudSchoolId" class="form-control" />
-                <span asp-validation-for="Person.StudSchoolId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.ParentEmail" class="control-label"></label>
-                <input asp-for="Person.ParentEmail" class="form-control" />
-                <span asp-validation-for="Person.ParentEmail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.RelationshipToMentee" class="control-label"></label>
-                <input asp-for="Person.RelationshipToMentee" class="form-control" />
-                <span asp-validation-for="Person.RelationshipToMentee" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.CordinatorName" class="control-label"></label>
-                <input asp-for="Person.CordinatorName" class="form-control" />
-                <span asp-validation-for="Person.CordinatorName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.Address" class="control-label"></label>
-                <input asp-for="Person.Address" class="form-control" />
-                <span asp-validation-for="Person.Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.City" class="control-label"></label>
-                <input asp-for="Person.City" class="form-control" />
-                <span asp-validation-for="Person.City" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.State" class="control-label"></label>
-                <input asp-for="Person.State" class="form-control" />
-                <span asp-validation-for="Person.State" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.PostalCode" class="control-label"></label>
-                <input asp-for="Person.PostalCode" class="form-control" />
-                <span asp-validation-for="Person.PostalCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.Country" class="control-label"></label>
-                <input asp-for="Person.Country" class="form-control" />
-                <span asp-validation-for="Person.Country" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.HomePhone" class="control-label"></label>
-                <input asp-for="Person.HomePhone" class="form-control" />
-                <span asp-validation-for="Person.HomePhone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.WorkPhone" class="control-label"></label>
-                <input asp-for="Person.WorkPhone" class="form-control" />
-                <span asp-validation-for="Person.WorkPhone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.Email" class="control-label"></label>
-                <input asp-for="Person.Email" class="form-control" />
-                <span asp-validation-for="Person.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.Language" class="control-label"></label>
-                <input asp-for="Person.Language" class="form-control" />
-                <span asp-validation-for="Person.Language" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.HighestLevelOfEducation" class="control-label"></label>
-                <input asp-for="Person.HighestLevelOfEducation" class="form-control" />
-                <span asp-validation-for="Person.HighestLevelOfEducation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.AvatarPath" class="control-label"></label>
-                <input asp-for="Person.AvatarPath" class="form-control" />
-                <span asp-validation-for="Person.AvatarPath" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.BarcodePath" class="control-label"></label>
-                <input asp-for="Person.BarcodePath" class="form-control" />
-                <span asp-validation-for="Person.BarcodePath" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Person.IsSigned" /> @Html.DisplayNameFor(model => model.Person.IsSigned)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.CreatedOn" class="control-label"></label>
-                <input asp-for="Person.CreatedOn" class="form-control" />
-                <span asp-validation-for="Person.CreatedOn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.UpdatedOn" class="control-label"></label>
-                <input asp-for="Person.UpdatedOn" class="form-control" />
-                <span asp-validation-for="Person.UpdatedOn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.Approved" class="control-label"></label>
-                <input asp-for="Person.Approved" class="form-control" />
-                <span asp-validation-for="Person.Approved" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.VolunteerFrequency" class="control-label"></label>
-                <input asp-for="Person.VolunteerFrequency" class="form-control" />
-                <span asp-validation-for="Person.VolunteerFrequency" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.VolunteerRole" class="control-label"></label>
-                <input asp-for="Person.VolunteerRole" class="form-control" />
-                <span asp-validation-for="Person.VolunteerRole" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">Back to Mentor List</a>
+</div>
+
+<div id="accordion">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Approve & Assign Mentees
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <form method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="Person.Id" />
+                            <div class="form-group">
+                                <label>Approved</label> <input type="checkbox" asp-for="IsApproved" />
+                                <span asp-validation-for="Person.Approved" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Assign Paticipants</label>
+                                <select asp-for="Person.MenteeId" class="custom-select" asp-items="ViewBag.MenteeData">
+                                    <option value=""> Please select paticipant</option>
+                                </select>
+                                @*<span asp-validation-for="Person.MenteeId" class="text-danger"></span>*@
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Save" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-8">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                
+                                    <th>
+                                        Participants
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.MentorSchedules[0].Title)
+                                    </th>
+                                    @*<th>
+                                        @Html.DisplayNameFor(model => model.MentorSchedules[0].Notes)
+                                    </th>*@
+                                    <th>
+                                        Starts
+                                    </th>
+                                    <th>
+                                        End
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.MentorSchedules)
+                                {
+                                    @if (item.MenteeId != null || item.MenteeId > 0)
+                                    {
+                                        <tr>
+                                         
+                                            <td>
+                                                @Model.Persons.FirstOrDefault(p => p.Id == item.MenteeId).FirstName
+                                                @Model.Persons.FirstOrDefault(p => p.Id == item.MenteeId).LastName
+                                                @*@Html.DisplayFor(modelItem => item.MenteeId)*@
+                                            </td>
+                                            @*<td>
+                                                @Html.DisplayFor(modelItem => item.Notes)
+                                            </td>*@
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Title)
+                                            </td>
+                                            <td>
+                                                @Convert.ToString(string.Format("{0:MMM dd, yyyy tt}", item.StartDate))
+                                            </td>
+                                            <td>
+                                                @Convert.ToString(string.Format("{0:MMM dd, yyyy tt}", item.EndDate))
+                                            </td>
+
+                                        </tr>
+                                        }
+                                    }
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Contact Information
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                <div>
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            Name
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Model.Person.FirstName @Model.Person.LastName
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.BirthDay)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Convert.ToString(string.Format("{0:MM/dd/yyyy}", Model.Person.BirthDay))
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.SSNumber)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Person.SSNumber)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.Gender)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Person.Gender)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.Ethnicity)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Person.Ethnicity)
+                        </dd>
+
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.Address)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Model.Person.Address, @Model.Person.City, @Model.Person.State @Model.Person.PostalCode
+                        </dd>
+
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.HomePhone)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Person.HomePhone)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.WorkPhone)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Person.WorkPhone)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.Email)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Person.Email)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.Language)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Person.Language)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.HighestLevelOfEducation)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Person.HighestLevelOfEducation)
+                        </dd>
+
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.CreatedOn)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Person.CreatedOn)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.UpdatedOn)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Person.UpdatedOn)
+                        </dd>
+
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Employment History
+                </button>
+            </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EmploymentHistory[0].Employer)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EmploymentHistory[0].JobTitle)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EmploymentHistory[0].JobDescription)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EmploymentHistory[0].StartDate)
+                            </th>
+                            <th width="14%">
+                                @Html.DisplayNameFor(model => model.EmploymentHistory[0].EmployerPhone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EmploymentHistory[0].EmployerEmail)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EmploymentHistory[0].EndDate)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.EmploymentHistory)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Employer)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.JobTitle)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.JobDescription)
+                                </td>
+                                <td>
+                                    @Convert.ToString(string.Format("{0:MM/dd/yyyy}", item.StartDate))
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EmployerPhone)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EmployerEmail)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EndDate)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                    Mentor Questions
+                </button>
+            </h5>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th width="50%">
+                                @Html.DisplayNameFor(model => model.Answer[0].Question)
+                            </th>
+                            <th width="50%">
+                                Answer
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Answer)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Question.Description)
+                                </td>
+                                <td style="font-weight: 600">
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
 @section Scripts {

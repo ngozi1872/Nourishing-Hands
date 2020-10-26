@@ -28,11 +28,24 @@ namespace NourishingHands.Pages.Parent
 
         [BindProperty]
         public Person Person { get; set; }
-        public IActionResult OnGet()
+        public string MenteeFullName { get; set; }
+        public string MenteeName { get; set; }
+        public string ParentName { get; set; }
+        public DateTime CurrentDate { get; set; }
+
+        [TempData]
+        public string Message { get; set; }
+
+        public IActionResult OnGet(int? id)
         {
-            //var userId = _userManager.GetUserId(User);
-            //var email = _userManager.GetUserName(User);
-            //Person = _dbContext.Persons.FirstOrDefault(p => p.UserId.Trim() == userId.Trim());
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var mentee = _dbContext.Persons.FirstOrDefault(p => p.Id == id);
+            if(mentee != null)
+                MenteeFullName = $"{mentee.FirstName} {mentee.LastName}";
 
             if (!string.IsNullOrWhiteSpace(HttpContext.Request.Query["Id"]))
                 return Page();
@@ -49,9 +62,15 @@ namespace NourishingHands.Pages.Parent
                 return Page();
             }
 
-            //Person.UserId = _userManager.GetUserId(User);
-            //Person.Email = _userManager.GetUserName(User);
-            
+            var mentee = _dbContext.Persons.FirstOrDefault(p => p.Id == Convert.ToInt32(HttpContext.Request.Query["Id"]));
+            if (mentee != null)
+                MenteeFullName = $"{mentee.FirstName} {mentee.LastName}";
+
+            //if(MenteeName != MenteeFullName)
+            //{
+            //    Message = "Error: Participant name on file is different from what you've entered in the parent consent form";
+            //    return Page();
+            //}
 
             Person.CreatedOn = DateTime.Now;
             Person.Role = "Parent";
@@ -61,12 +80,6 @@ namespace NourishingHands.Pages.Parent
             await _dbContext.SaveChangesAsync();
 
             var pId = Person.Id;
-
-            //var callbackUrl = Url.Page(
-            //           "/Parent/ParentQuestionnaire",
-            //           pageHandler: null,
-            //           values: new { Id = pId },
-            //           protocol: Request.Scheme);
 
             returnUrl = returnUrl ?? Url.Content("/Parent/ParentQuestionnaire?Id=" + pId);
 

@@ -13,7 +13,9 @@ namespace NourishingHands.Areas.Identity.Data
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        [DataType(DataType.DateTime)]
         public DateTimeOffset? EventStartDate { get; set; }
+        [DataType(DataType.DateTime)]
         public DateTimeOffset? EventEndDate { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }

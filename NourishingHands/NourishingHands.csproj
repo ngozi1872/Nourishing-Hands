@@ -6,14 +6,170 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\Admin\EventsVlt\**" />
+    <Compile Remove="wwwroot\vendors\js\fullcalendar\luxon\**" />
+    <Compile Remove="wwwroot\vendors\js\fullcalendar\moment-timezone\**" />
+    <Compile Remove="wwwroot\vendors\js\fullcalendar\moment\**" />
+    <Content Remove="Pages\Admin\EventsVlt\**" />
+    <Content Remove="wwwroot\vendors\js\fullcalendar\luxon\**" />
+    <Content Remove="wwwroot\vendors\js\fullcalendar\moment-timezone\**" />
+    <Content Remove="wwwroot\vendors\js\fullcalendar\moment\**" />
+    <EmbeddedResource Remove="Pages\Admin\EventsVlt\**" />
+    <EmbeddedResource Remove="wwwroot\vendors\js\fullcalendar\luxon\**" />
+    <EmbeddedResource Remove="wwwroot\vendors\js\fullcalendar\moment-timezone\**" />
+    <EmbeddedResource Remove="wwwroot\vendors\js\fullcalendar\moment\**" />
+    <None Remove="Pages\Admin\EventsVlt\**" />
+    <None Remove="wwwroot\vendors\js\fullcalendar\luxon\**" />
+    <None Remove="wwwroot\vendors\js\fullcalendar\moment-timezone\**" />
+    <None Remove="wwwroot\vendors\js\fullcalendar\moment\**" />
+    <TypeScriptCompile Remove="Pages\Admin\EventsVlt\**" />
+    <TypeScriptCompile Remove="wwwroot\vendors\js\fullcalendar\luxon\**" />
+    <TypeScriptCompile Remove="wwwroot\vendors\js\fullcalendar\moment-timezone\**" />
+    <TypeScriptCompile Remove="wwwroot\vendors\js\fullcalendar\moment\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Areas\Identity\Data\Mentee.cs" />
     <Compile Remove="Areas\Identity\Data\Parent.cs" />
     <Compile Remove="Areas\Identity\Data\UserProfile.cs" />
     <Compile Remove="Areas\Identity\Data\Volunteer.cs" />
+    <Compile Remove="Pages\Admin\Mentor\Create.cshtml.cs" />
+    <Compile Remove="Pages\Event\Events.cshtml.cs" />
+    <Compile Remove="Pages\Mentor\MentorSchedule\Details.cshtml.cs" />
+    <Compile Remove="Pages\Mentor\MentorSchedule\Index.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Admin\Mentor\Create.cshtml" />
+    <Content Remove="Pages\Event\Events.cshtml" />
+    <Content Remove="Pages\Mentor\MentorSchedule\Details.cshtml" />
+    <Content Remove="Pages\Mentor\MentorSchedule\Index.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\icons\fonts\daypiloticons.svg" />
+    <None Include="wwwroot\vendors\font\material-font.woff2" />
+    <None Include="wwwroot\vendors\js\amChart\animated.js" />
+    <None Include="wwwroot\vendors\js\amChart\charts.js" />
+    <None Include="wwwroot\vendors\js\amChart\core.js" />
+    <None Include="wwwroot\vendors\js\amChart\maps.js" />
+    <None Include="wwwroot\vendors\js\bootstrap.min.js" />
+    <None Include="wwwroot\vendors\js\Chart.bundle.min.js" />
+    <None Include="wwwroot\vendors\js\Chart.min.js" />
+    <None Include="wwwroot\vendors\js\d3.min.js" />
+    <None Include="wwwroot\vendors\js\datamaps.world.js" />
+    <None Include="wwwroot\vendors\js\dataTables.responsive.min.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\bootstrap\main.esm.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\bootstrap\main.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\bootstrap\main.min.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\bootstrap\README.md" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales-all.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales-all.min.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\af.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\ar-dz.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\ar-kw.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\ar-ly.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\ar-ma.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\ar-sa.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\ar-tn.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\ar.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\bg.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\bs.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\ca.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\cs.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\da.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\de.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\el.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\en-au.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\en-gb.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\en-nz.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\es-us.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\es.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\et.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\eu.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\fa.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\fi.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\fr-ca.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\fr-ch.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\fr.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\gl.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\he.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\hi.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\hr.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\hu.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\id.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\is.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\it.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\ja.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\ka.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\kk.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\ko.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\lb.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\lt.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\lv.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\mk.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\ms.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\nb.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\nl.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\nn.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\pl.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\pt-br.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\pt.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\ro.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\ru.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\sk.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\sl.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\sq.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\sr-cyrl.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\sr.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\sv.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\th.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\tr.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\uk.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\vi.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\zh-cn.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\locales\zh-tw.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\main.esm.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\main.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\main.min.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\core\README.md" />
+    <None Include="wwwroot\vendors\js\fullcalendar\daygrid\main.esm.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\daygrid\main.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\daygrid\main.min.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\daygrid\README.md" />
+    <None Include="wwwroot\vendors\js\fullcalendar\google-calendar\main.esm.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\google-calendar\main.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\google-calendar\main.min.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\google-calendar\README.md" />
+    <None Include="wwwroot\vendors\js\fullcalendar\interaction\main.esm.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\interaction\main.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\interaction\main.min.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\interaction\README.md" />
+    <None Include="wwwroot\vendors\js\fullcalendar\list\main.esm.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\list\main.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\list\main.min.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\list\README.md" />
+    <None Include="wwwroot\vendors\js\fullcalendar\rrule\main.esm.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\rrule\main.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\rrule\main.min.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\rrule\README.md" />
+    <None Include="wwwroot\vendors\js\fullcalendar\timegrid\main.esm.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\timegrid\main.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\timegrid\main.min.js" />
+    <None Include="wwwroot\vendors\js\fullcalendar\timegrid\README.md" />
+    <None Include="wwwroot\vendors\js\jquery-3.4.1.min.js" />
+    <None Include="wwwroot\vendors\js\jquery.dataTables.min.js" />
+    <None Include="wwwroot\vendors\js\perfect-scrollbar.min.js" />
+    <None Include="wwwroot\vendors\js\popper.min.js" />
+    <None Include="wwwroot\vendors\js\rtl\bootstrap.min.js" />
+    <None Include="wwwroot\vendors\js\slider\jquery.slider.min.js" />
+    <None Include="wwwroot\vendors\js\topojson.min.js" />
+    <None Include="wwwroot\vendors\webfonts\fa-brands-400.svg" />
+    <None Include="wwwroot\vendors\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\vendors\webfonts\fa-regular-400.svg" />
+    <None Include="wwwroot\vendors\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\vendors\webfonts\fa-solid-900.svg" />
+    <None Include="wwwroot\vendors\webfonts\fa-solid-900.woff2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,8 +183,23 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
     <PackageReference Include="Stripe.net" Version="39.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\vendors\js\fullcalendar\bootstrap\main.d.ts" />
+    <TypeScriptCompile Include="wwwroot\vendors\js\fullcalendar\core\main.d.ts" />
+    <TypeScriptCompile Include="wwwroot\vendors\js\fullcalendar\daygrid\main.d.ts" />
+    <TypeScriptCompile Include="wwwroot\vendors\js\fullcalendar\google-calendar\main.d.ts" />
+    <TypeScriptCompile Include="wwwroot\vendors\js\fullcalendar\interaction\main.d.ts" />
+    <TypeScriptCompile Include="wwwroot\vendors\js\fullcalendar\list\main.d.ts" />
+    <TypeScriptCompile Include="wwwroot\vendors\js\fullcalendar\rrule\main.d.ts" />
+    <TypeScriptCompile Include="wwwroot\vendors\js\fullcalendar\timegrid\main.d.ts" />
   </ItemGroup>
 
 </Project>

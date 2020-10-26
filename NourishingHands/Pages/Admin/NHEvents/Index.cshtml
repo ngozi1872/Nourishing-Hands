@@ -1,0 +1,130 @@
+﻿@page
+@model NourishingHands.Pages.Admin.NHEvents.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<br />
+<h3>Events and Events Volunteers</h3>
+
+
+
+<div id="accordion">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Scheduled Event
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <p>
+                    <a asp-page="Create">Add New Event</a>
+                </p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Events[0].Description)
+                            </th>
+                            <th>
+                                Start Date & Time
+                            </th>
+                            <th>
+                                End Date & Time
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Events)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+
+                                <td>
+                                    @Convert.ToString(string.Format("{0:MM/dd/yy hh:mm tt}", item.EventStartDate))
+                                </td>
+                                <td>
+                                    @Convert.ToString(string.Format("{0:MM/dd/yy hh:mm tt}", item.EventStartDate))
+                                </td>
+
+
+                                <td>
+                                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Event Volunteers
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EventVolunteers[0].Events)
+                            </th>
+                            <th>
+                                Start Date & Time
+                            </th>
+                            <th>
+                                Volunteer
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.EventVolunteers)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Events.Name)
+                                </td>
+                                <td>
+                                    @Convert.ToString(string.Format("{0:MM/dd/yy hh:mm tt}", item.Events.EventStartDate))
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Person.FirstName)
+                                    @Html.DisplayFor(modelItem => item.Person.LastName)
+                                </td>
+                                @*<td>
+                                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                </td>*@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+   
+</div>

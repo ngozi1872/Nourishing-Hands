@@ -1,0 +1,60 @@
+﻿@page
+@model NourishingHands.Pages.Mentor.MentorSchedule.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Pages/Shared/_NhLayout.cshtml";
+}
+
+<div class="section">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading_s1">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <br />
+                    <h4>Delete</h4>
+                    <br />
+                    <h6>Are you sure you want to delete this?</h6>
+                </div>
+                <hr />
+                <div>
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.MentorSchedule.Title)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.MentorSchedule.Title)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.MentorSchedule.Notes)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.MentorSchedule.Notes)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.MentorSchedule.StartDate)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.MentorSchedule.StartDate)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.MentorSchedule.EndDate)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.MentorSchedule.EndDate)
+                        </dd>
+
+                    </dl>
+
+                    <form method="post">
+                        <input type="hidden" asp-for="MentorSchedule.Id" />
+                        <input type="submit" value="Delete" class="btn btn-danger" /> |
+                        <a asp-page="/Mentor/Home">Back to List</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

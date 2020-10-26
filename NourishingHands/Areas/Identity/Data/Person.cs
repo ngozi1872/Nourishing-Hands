@@ -12,6 +12,7 @@ namespace NourishingHands.Areas.Identity.Data
         {
             EmploymentHistories = new HashSet<EmploymentHistory>();
             Answers = new HashSet<Answer>();
+            MentorSchedules = new HashSet<MentorSchedule>();
         }   
 
         public int Id { get; set; }
@@ -61,7 +62,7 @@ namespace NourishingHands.Areas.Identity.Data
         public bool IsSigned { get; set; }
         public DateTime CreatedOn { get; set; }
         public  DateTime? UpdatedOn { get; set; }
-        public bool? Approved { get; set; }
+        public bool? Approved { get; set; } = false;
 
         [Display(Name = "Volunteer Frequency")]
         public string VolunteerFrequency { get; set; }
@@ -71,6 +72,7 @@ namespace NourishingHands.Areas.Identity.Data
 
         public ICollection<EmploymentHistory> EmploymentHistories { get; set; }
         public ICollection<Answer> Answers { get; set; }
+        public ICollection<MentorSchedule> MentorSchedules { get; set; }
 
         [ForeignKey(nameof(UserId))]
         public virtual IdentityUser IdentityUser { get; set; }

@@ -1,0 +1,224 @@
+﻿@page
+@model NourishingHands.Pages.Event.AllEventsModel
+@{
+    Layout = "_NhLayout";
+}
+
+
+
+<div class="section">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="heading_s1 mb-3">
+                    <h6>Our Upcoming Events</h6>
+                </div>
+                <partial name="_StatusMessage" model="Model.Message" />
+            </div>
+            <div class="col-lg-12">
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" style="color:#5ebb47; font-weight:600" aria-expanded="false" aria-controls="collapseFour">
+                                    Calendar
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="col-md-12">
+                                    <div class="cart_totals">
+                                        <div class="rg-card-simple">
+                                            <header></header>
+                                            <section>
+                                                <div id='calendar'></div>
+                                            </section>
+                                        </div>
+                                        <input asp-for="@Model.UpComingEvent" hidden id="defaultDate" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" style="color:#5ebb47; font-weight:600" aria-expanded="true" aria-controls="collapseOne">
+                                    Schedule
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+
+                                <div class="col-md-12">
+                                    <div class="cart_totals">
+
+                                        <div class="section">
+                                            <div class="container" id="manageEvent">
+                                                @if (Model.AllEvents != null)
+                                                {
+                                                    @foreach (var nhevent in Model.AllEvents)
+                                                    {
+
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="event_list">
+                                                                    <div class="event_box box_shadow1 animation" data-animation="fadeInUp" data-animation-delay="0.2s">
+                                                                        <div class="event_img">
+                                                                            <img src="~/assets/images/eventbackdrop.jpg" alt="event_img1" style="opacity:0.5">
+                                                                            <div class="event_dt radius_all_5">
+                                                                                <h5>
+                                                                                    <span>@Convert.ToString(string.Format("{0:MMM. dd}", nhevent.EventStartDate))</span>
+                                                                                    @Convert.ToString(string.Format("{0:yyyy}", nhevent.EventStartDate))
+                                                                                </h5>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="event_info">
+                                                                            <h5 class="event_title"><a href="#">@nhevent.Name</a></h5>
+                                                                            <ul class="event_meta">
+                                                                                <li><i class="ti-time"></i><span>@Convert.ToString(string.Format("{0:t}", nhevent.EventStartDate)) - @Convert.ToString(string.Format("{0:t}", nhevent.EventEndDate))</span></li>
+                                                                            </ul>
+                                                                            <ul class="event_meta">
+                                                                                <li><i class="ti-location-pin"></i><span>@nhevent.Location</span></li>
+                                                                            </ul>
+                                                                            <ul class="event_meta">
+                                                                                <li><i class="ti-location-pin"></i><span>@nhevent.Address</span></li>
+                                                                            </ul>
+                                                                            <div class="event_desc">
+                                                                                <p>@nhevent.Description</p>
+                                                                            </div>
+                                                                            <div class="event_btn">
+                                                                                <a class="btn btn-default edit" href="#eventModel" data-toggle="modal">Sign Up</a>
+                                                                                <input type="hidden" name="eventID" id="eventID" asp-for="@nhevent.Id" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="medium_divider"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="medium_divider"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="eventModel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-page="AllEvents" asp-page-handler="AddVoluntaryForEvent">
+                <div class="modal-header" style="background-color:#5ebb47">
+                    <h3 class="modal-title" style="color:white">Confirm Sign-up</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="color:white">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to volunteer for this event?</p>
+                    <input type="hidden" name="eventID" id="eventID" />
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" value="Yes" class="btn btn-success" />
+                    <input type="button" value="Cancel" class="btn btn-primary" data-dismiss="modal" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <link href="~/vendors/css/perfect-scrollbar.css" rel="stylesheet" />
+    <link href="~/vendors/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <link href="~/vendors/css/responsive.dataTables.min.css" rel="stylesheet" />
+    <link href="~/vendors/js/fullcalendar/core/main.css" rel='stylesheet' />
+    <link href="~/vendors/js/fullcalendar/daygrid/main.css" rel='stylesheet' />
+    <link href="~/vendors/js/fullcalendar/timegrid/main.css" rel='stylesheet' />
+
+    <link href="~/vendors/js/fullcalendar/list/main.css" rel='stylesheet' />
+    <link href="~/vendors/css/jquery.slider.min.css" rel="stylesheet" />
+    <!-- END SECTION VIDEO -->
+    <!--Fullcalendar-->
+    <script src="~/vendors/js/fullcalendar/core/main.js"></script>
+    <script src="~/vendors/js/fullcalendar/interaction/main.js"></script>
+    <script src="~/vendors/js/fullcalendar/daygrid/main.js"></script>
+    <script src="~/vendors/js/fullcalendar/timegrid/main.js"></script>
+    <script src="~/vendors/js/fullcalendar/list/main.js"></script>
+
+    <style>
+        .fc-title {
+            color: white;
+            /*background-color: #5ebb47;*/
+        }
+    </style>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var mydefaultDate = $("#defaultDate").val();
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
+                height: 'parent',
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                },
+                eventClick: function (event) {
+                    //alert('Event: ' + event.event.extendedProps.description);
+                    $('#courseTitle').html('Register for ' + event.event.title);
+                    $('#descriptTxt').html(event.event.extendedProps.description);
+                    $('#schdls').val(event.event.id);
+                    $('#model-box').modal();
+                    return false;
+                },
+                defaultView: 'dayGridMonth',
+                defaultDate: mydefaultDate,
+                minTime: "07:00:00",
+                maxTime: "20:00:00",
+                navLinks: true, // can click day/week names to navigate views
+                editable: true,
+                eventLimit: true, // allow "more" link when too many events
+                events: '@Url.Page("/Index", "FindAllEvents")',
+                eventColor: '#5ebb47'
+            });
+
+            calendar.render();
+        });
+
+       $(document).ready(function () {
+            $("#manageEvent .edit").click(function () {
+                var eventID = $(this).parent().find("#eventID").val();
+                $("#eventModel").find("#eventID").val(eventID);
+            });
+        });
+</script>
+}
