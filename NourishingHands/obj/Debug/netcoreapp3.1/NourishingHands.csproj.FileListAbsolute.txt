@@ -631,13 +631,9 @@ C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Mentor.cshtml.g.cs
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\MentorQuestionnaire.cshtml.g.cs
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Mentor\Application.cshtml.g.cs
-C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Mentor\Education.cshtml.g.cs
-C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Mentor\Employment.cshtml.g.cs
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Mentor\EmploymentHistory.cshtml.g.cs
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Mentor\Home.cshtml.g.cs
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Mentor\Questions.cshtml.g.cs
-C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Mentor\_UpdateEmployment.cshtml.g.cs
-C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Mentor\_UpdateRecord.cshtml.g.cs
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Parent\Application.cshtml.g.cs
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Parent\Home.cshtml.g.cs
 C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Parent\ParentLetter.cshtml.g.cs
@@ -921,3 +917,10 @@ C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Debu
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Mentor\Details.cshtml.g.cs
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Mentor\Edit.cshtml.g.cs
 C:\Users\klsomah\Documents\PrivateWork\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Mentor\Index.cshtml.g.cs
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\NourishingHands - Web Deploy1\profile.arm.json
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Mentor\Create.cshtml.g.cs
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Mentor\Delete.cshtml.g.cs
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Mentor\Details.cshtml.g.cs
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Mentor\Edit.cshtml.g.cs
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Mentor\Index.cshtml.g.cs
+C:\Users\ngozi\Documents\StringBuilders\AppDev\Nourishing-Hands\NourishingHands\obj\Debug\netcoreapp3.1\Razor\Pages\Mentor\_StatusMessage.cshtml.g.cs
