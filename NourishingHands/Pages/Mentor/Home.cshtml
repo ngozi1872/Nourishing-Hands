@@ -7,154 +7,373 @@
 
 <div class="section">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="cart_totals">
-                    <div class="heading_s1 mb-3">
-                        <h6>Mentor Application Status</h6>
-                    </div>
-                    <br />
-                    <div class="table-responsive">
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <td class="cart_total_label">Personal Information</td>
-                                    @if (Model.HasPersonRecord)
-                                    {
-                                        <td class="cart_total_amount" style="color: forestgreen">Completed</td>
-                                        <td class="cart_total_amount">
-                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px;" asp-page="/Mentor/Application">
-                                                Edit
-                                            </a>
-                                        </td>
-                                    }
-                                    else
-                                    {
-                                        <td class="cart_total_amount" style="color: red">Not Started</td>
-                                        <td class="cart_total_amount">
-                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/Application">
-                                                Start
-                                            </a>
-                                        </td>
-                                    }
-                                </tr>
-                                <tr>
-                                    <td class="cart_total_label">Employment History</td>
-                                    @if (Model.HasEmployment)
-                                    {
-                                        <td class="cart_total_amount" style="color: forestgreen">Completed</td>
-                                        <td class="cart_total_amount">
-                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/EmploymentHistory">
-                                                Edit
-                                            </a>
-                                        </td>
-                                    }
-                                    else
-                                    {
-                                        <td class="cart_total_amount" style="color: red">Not Started</td>
-                                        <td class="cart_total_amount">
-                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/EmploymentHistory">
-                                                Start
-                                            </a>
-                                        </td>
-                                    }
-                                </tr>
-                                <tr>
-                                    <td class="cart_total_label">Questionnaire</td>
-                                    @if (Model.HasAnswer)
-                                    {
-                                        <td class="cart_total_amount" style="color: forestgreen">Completed</td>
-                                        <td class="cart_total_amount">
-                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/Questions">
-                                                Edit
-                                            </a>
-                                        </td>
-                                    }
-                                    else
-                                    {
-                                        <td class="cart_total_amount" style="color: red">Not Started</td>
-                                        <td class="cart_total_amount">
-                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/Questions">
-                                                Start
-                                            </a>
-                                        </td>
-                                    }
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
 
+        <div class="row">
+            <div class="col-12">
+                <div class="heading_s1 mb-3">
+                    <h6>Hello @Model.Person.FirstName, welcome to you admin area!</h6>
                 </div>
             </div>
-        </div>
+            <div class="col-lg-12">
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" style="color:#5ebb47; font-weight:600" aria-expanded="true" aria-controls="collapseOne">
+                                    My Schedule
+                                </button>
+                            </h5>
+                        </div>
 
-        <div class="row">
-            <div class="accordion" id="accordionExample275">
-                <div class="card z-depth-0 bordered ">
-                    <div class="card-header" id="headingOne2">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne2"
-                                    aria-expanded="true" aria-controls="collapseOne2">
-                                Collapsible Group Item #1
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="collapseOne2" class="collapse" aria-labelledby="headingOne2"
-                         data-parent="#accordionExample275">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                            wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                            eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                            assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                            nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                            farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                            labore sustainable.
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+
+                                <div class="col-md-12">
+                                    <div class="cart_totals">
+                                        @*<div class="heading_s1 mb-3">
+                                        <h6>All Scheduled Events</h6>
+                                    </div>
+                                    <br />*@
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            Participants
+                                                        </th>
+                                                        <th>
+                                                            @Html.DisplayNameFor(model => model.MentorSchedules[0].Title)
+                                                        </th>
+
+                                                        <th>
+                                                            Starts
+                                                        </th>
+                                                        <th>
+                                                            Ends
+                                                        </th>
+                                                        <th>
+                                                            <a asp-page="./MentorSchedule/Create" style="color:#5ebb47">Add New</a>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var item in Model.MentorSchedules)
+                                                    {
+                                                        <tr>
+
+                                                            @if (item.MenteeId > 0)
+                                                            {
+                                                                <td>
+                                                                    @Model.Participants.FirstOrDefault(p => p.Id == item.MenteeId).Name
+                                                                </td>
+                                                            }
+                                                            else
+                                                            {
+                                                                <td>
+                                                                    <span>Group</span>
+                                                                </td>
+                                                            }
+
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Title)
+                                                            </td>
+
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.StartDate)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.EndDate)
+                                                            </td>
+                                                            <td>
+                                                                <a asp-page="./MentorSchedule/Edit" asp-route-id="@item.Id" style="color:#5ebb47">View</a> |
+                                                                <a asp-page="./MentorSchedule/Delete" asp-route-id="@item.Id" style="color:#5ebb47">Delete</a>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card z-depth-0 bordered">
-                    <div class="card-header" id="headingTwo2">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                    data-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
-                                Collapsible Group Item #2
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo2"
-                         data-parent="#accordionExample275">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                            wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                            eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                            assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                            nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                            farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                            labore sustainable.
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" style="color:#5ebb47; font-weight:600" aria-expanded="false" aria-controls="collapseFour">
+                                    Calendar
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="col-md-12">
+                                    <div class="cart_totals">
+
+                                        <div class="rg-card-simple">
+                                            <header></header>
+                                            <section>
+                                                <div id='calendar'></div>
+                                            </section>
+                                        </div>
+                                        <input asp-for="@Model.UpComingEvent" hidden id="defaultDate" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card z-depth-0 bordered">
-                    <div class="card-header" id="headingThree2">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                    data-target="#collapseThree2" aria-expanded="false" aria-controls="collapseThree2">
-                                Collapsible Group Item #3
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="collapseThree2" class="collapse" aria-labelledby="headingThree2"
-                         data-parent="#accordionExample275">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                            wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                            eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                            assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                            nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                            farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                            labore sustainable.
+
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" style="color:#5ebb47; font-weight:600" aria-expanded="false" aria-controls="collapseTwo">
+                                    My Participants
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="cart_totals">
+                                    @*<div class="heading_s1 mb-3">
+                                    <h6>My Mentees</h6>
+                                </div>
+                                <br />*@
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Participants
+                                                    </th>
+                                                    <th>
+                                                        Gender
+                                                    </th>
+                                                    <th>
+                                                        Ethnicity
+                                                    </th>
+                                                    <th>
+                                                        Grade
+                                                    </th>
+                                                    <th>
+                                                        School
+                                                    </th>
+                                                    <th>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.Participants)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            @item.Name
+                                                        </td>
+                                                        <td>
+                                                            @item.Gender
+                                                        </td>
+                                                        <td>
+                                                            @item.Ethnicity
+                                                        </td>
+                                                        <td>
+                                                            @item.Grade
+                                                        </td>
+                                                        <td>
+                                                            @item.School
+                                                        </td>
+                                                        <td>
+                                                            <a class="btn btn-default btn-sm modalLink" href="#menteeDetails" data-id="@item.Id" data-toggle="modal">Details</a>
+                                                        </td>
+
+                                                    </tr>
+
+                                                }
+                                            </tbody>
+                                        </table>
+
+                                        <div class="modal fade" id="menteeDetails">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header" style="background-color:#5ebb47">
+                                                        <h3 class="modal-title" style="color:white">Participant Detail</h3>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true" style="color:white">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div>
+                                                            <input type="hidden" name="partID" id="partID" />
+                                                            @*<input type="text" name="bookId" id="bookId" value="" />*@
+                                                            @*@if (Model.Participant != null)
+                                                        {*@
+                                                            <row>
+                                                                <div class="form-group col-md-12 row">
+                                                                    <label asp-for="@Model.Participant.FirstName" class="col-form-label col-sm-5"></label>
+                                                                    <div class="col-sm-7">
+                                                                        <input asp-for="@Model.Participant.FirstName" readonly class="form-control input-sm">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-md-12 row">
+                                                                    <label asp-for="@Model.Participant.LastName" class="col-form-label col-sm-5"></label>
+                                                                    <div class="col-sm-7">
+                                                                        <input asp-for="@Model.Participant.LastName" readonly class="form-control input-sm">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-md-12 row">
+                                                                    <label asp-for="@Model.Participant.BirthDay" class="col-form-label col-sm-5"></label>
+                                                                    <div class="col-sm-7">
+                                                                        <input asp-for="@Model.Participant.BirthDay" readonly class="form-control input-sm">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-md-12 row">
+                                                                    <label asp-for="@Model.Participant.Gender" class="col-form-label col-sm-5"></label>
+                                                                    <div class="col-sm-7">
+                                                                        <input asp-for="@Model.Participant.Gender" readonly class="form-control input-sm">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-md-12 row">
+                                                                    <label asp-for="@Model.Participant.Ethnicity" class="col-form-label col-sm-5"></label>
+                                                                    <div class="col-sm-7">
+                                                                        <input asp-for="@Model.Participant.Ethnicity" readonly class="form-control input-sm">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-md-12 row">
+                                                                    <label asp-for="@Model.Participant.HomePhone" class="col-form-label col-sm-5"></label>
+                                                                    <div class="col-sm-7">
+                                                                        <input asp-for="@Model.Participant.HomePhone" readonly class="form-control input-sm">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group col-md-12 row">
+                                                                    <label asp-for="@Model.Participant.Email" class="col-form-label col-sm-5"></label>
+                                                                    <div class="col-sm-7">
+                                                                        <input asp-for="@Model.Participant.Email" readonly class="form-control input-sm">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-md-12 row">
+                                                                    <label asp-for="@Model.Participant.School" class="col-form-label col-sm-5"></label>
+                                                                    <div class="col-sm-7">
+                                                                        <input asp-for="@Model.Participant.School" readonly class="form-control input-sm">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-md-12 row">
+                                                                    <label asp-for="@Model.Participant.Grade" class="col-form-label col-sm-5"></label>
+                                                                    <div class="col-sm-7">
+                                                                        <input asp-for="@Model.Participant.Grade" readonly class="form-control input-sm">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group col-md-12 row">
+                                                                    <label asp-for="@Model.Participant.CordinatorName" class="col-form-label col-sm-5"></label>
+                                                                    <div class="col-sm-7">
+                                                                        <input asp-for="@Model.Participant.CordinatorName" readonly class="form-control input-sm">
+                                                                    </div>
+                                                                </div>
+                                                            </row>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <input type="button" value="Close" class="btn btn-primary" data-dismiss="modal" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" style="color:#5ebb47; font-weight:600" aria-expanded="false" aria-controls="collapseThree">
+                                    Contact Information
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="cart_totals">
+                                    <div class="heading_s1 mb-3">
+                                        <h6>Application Status |  @Model.ApplicationStatus</h6>
+                                    </div>
+                                    <br />
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="cart_total_label">Personal Information</td>
+                                                    @if (Model.HasPersonRecord)
+                                                    {
+                                                        <td class="cart_total_amount" style="color: forestgreen">Completed</td>
+                                                        <td class="cart_total_amount">
+                                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px;" asp-page="/Mentor/Application">
+                                                                Edit
+                                                            </a>
+                                                        </td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="cart_total_amount" style="color: red">Not Started</td>
+                                                        <td class="cart_total_amount">
+                                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/Application">
+                                                                Start
+                                                            </a>
+                                                        </td>
+                                                    }
+                                                </tr>
+                                                <tr>
+                                                    <td class="cart_total_label">Employment History</td>
+                                                    @if (Model.HasEmployment)
+                                                    {
+                                                        <td class="cart_total_amount" style="color: forestgreen">Completed</td>
+                                                        <td class="cart_total_amount">
+                                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/EmploymentHistory">
+                                                                Edit
+                                                            </a>
+                                                        </td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="cart_total_amount" style="color: red">Not Started</td>
+                                                        <td class="cart_total_amount">
+                                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/EmploymentHistory">
+                                                                Start
+                                                            </a>
+                                                        </td>
+                                                    }
+                                                </tr>
+                                                <tr>
+                                                    <td class="cart_total_label">Questionnaire</td>
+                                                    @if (Model.HasAnswer)
+                                                    {
+                                                        <td class="cart_total_amount" style="color: forestgreen">Completed</td>
+                                                        <td class="cart_total_amount">
+                                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/Questions">
+                                                                Edit
+                                                            </a>
+                                                        </td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="cart_total_amount" style="color: red">Not Started</td>
+                                                        <td class="cart_total_amount">
+                                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/Questions">
+                                                                Start
+                                                            </a>
+                                                        </td>
+                                                    }
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -170,3 +389,116 @@
         </div>
     </div>
 </div>
+@section Scripts {
+    <link href="~/vendors/css/perfect-scrollbar.css" rel="stylesheet" />
+    <link href="~/vendors/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <link href="~/vendors/css/responsive.dataTables.min.css" rel="stylesheet" />
+    <link href="~/vendors/js/fullcalendar/core/main.css" rel='stylesheet' />
+    <link href="~/vendors/js/fullcalendar/daygrid/main.css" rel='stylesheet' />
+    <link href="~/vendors/js/fullcalendar/timegrid/main.css" rel='stylesheet' />
+
+    <link href="~/vendors/js/fullcalendar/list/main.css" rel='stylesheet' />
+    <link href="~/vendors/css/jquery.slider.min.css" rel="stylesheet" />
+    <!-- END SECTION VIDEO -->
+    <!--Fullcalendar-->
+    <script src="~/vendors/js/fullcalendar/core/main.js"></script>
+    <script src="~/vendors/js/fullcalendar/interaction/main.js"></script>
+    <script src="~/vendors/js/fullcalendar/daygrid/main.js"></script>
+    <script src="~/vendors/js/fullcalendar/timegrid/main.js"></script>
+    <script src="~/vendors/js/fullcalendar/list/main.js"></script>
+
+    <style>
+        .fc-title {
+            color: white;
+            /*background-color: #5ebb47;*/
+        }
+    </style>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var mydefaultDate = $("#defaultDate").val();
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
+                height: 'parent',
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                },
+                eventClick: function (event) {
+                    //alert('Event: ' + event.event.extendedProps.description);
+                    $('#courseTitle').html('Register for ' + event.event.title);
+                    $('#descriptTxt').html(event.event.extendedProps.description);
+                    $('#schdls').val(event.event.id);
+                    $('#model-box').modal();
+                    return false;
+                },
+                defaultView: 'dayGridMonth',
+                defaultDate: mydefaultDate,
+                minTime: "07:00:00",
+                maxTime: "20:00:00",
+                navLinks: true, // can click day/week names to navigate views
+                editable: true,
+                eventLimit: true, // allow "more" link when too many events
+                events: '@Url.Page("/Index", "FindAllEvents")',
+                eventColor: '#5ebb47'
+            });
+
+            calendar.render();
+        });
+
+        $(document).on("click", ".modalLink", function () {
+            var passedID = $(this).data('id');
+            //$(".modal-body #partID").val(passedID);
+            $(".modal-body #bookId").val(passedID);
+
+            GetEditProductDetails(passedID);
+        });
+
+        function GetEditProductDetails(employementID) {
+        $.ajax({
+            url: "@Url.Page("/Mentor/Home", "AjaxEmploymentDetail")",
+            typr: "GET",
+            data: { "employementID": "" + employementID + "" },
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+            success: function (response) {
+                $('#menteeDetails #Participant_FirstName').val(response.firstName);
+                $('#menteeDetails #Participant_LastName').val(response.lastName);
+                $('#menteeDetails #Participant_BirthDay').val(response.birthDay);
+                $('#menteeDetails #Participant_Gender').val(response.gender);
+                $('#menteeDetails #Participant_Ethnicity').val(response.ethnicity);
+                $('#menteeDetails #Participant_HomePhone').val(response.homePhone);
+                $('#menteeDetails #Participant_Email').val(response.email);
+                $('#menteeDetails #Participant_Grade').val(response.grade);
+                $('#menteeDetails #Participant_School').val(response.school);
+                $('#menteeDetails #Participant_CordinatorName').val(response.cordinatorName);
+                $('#menteeDetails #Participant_Gender').val(response.gender);
+                $('#menteeDetails #Participant_Gender').val(response.gender);
+                //$('#editEmploymentHistoryModel #EmploymentHistory_JobTitle').val(response.jobTitle);
+                //$('#editEmploymentHistoryModel #EmploymentHistory_JobDescription').val(response.jobDescription);
+                //$('#editEmploymentHistoryModel #EmploymentHistory_EmployerPhone').val(response.employerPhone);
+                //$('#editEmploymentHistoryModel #EmploymentHistory_EmployerEmail').val(response.employerEmail);
+                //$('#editEmploymentHistoryModel #EmploymentHistory_StartDate').val(response.startDate);
+                //$('#editEmploymentHistoryModel #EmploymentHistory_EndDate').val(response.endDate);
+            },
+            error: function (response) {
+                alert(response.responseText);
+                //$('#editEmploymentHistoryModel #EmploymentHistory_Employer').val("");
+                //$('#editEmploymentHistoryModel #EmploymentHistory_JobTitle').val("");
+                //$('#editEmploymentHistoryModel #EmploymentHistory_JobDescription').val("");
+                //$('#editEmploymentHistoryModel #EmploymentHistory_EmployerPhone').val("");
+                //$('#editEmploymentHistoryModel #EmploymentHistory_EmployerEmail').val("");
+                //$('#editEmploymentHistoryModel #EmploymentHistory_StartDate').val("");
+                //$('#editEmploymentHistoryModel #EmploymentHistory_EndDate').val("");
+            }
+        });
+        return false;
+        }
+    </script>
+}
+

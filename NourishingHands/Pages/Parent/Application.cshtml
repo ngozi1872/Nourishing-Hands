@@ -18,7 +18,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="heading_s1">
-                    <h4>Personal Information</h4>
+                    <partial name="_StatusMessage" model="Model.Message" />
+                    <br />
+                    <h4>Parent or Guardian for @Model.MenteeFullName</h4>
                 </div>
                 <form method="post" class="row needs-validation" novalidate>
                     @*<div asp-validation-summary="All" style="color:red"></div>*@
@@ -150,7 +152,7 @@
                                 <h4 class="card-title font-weight-bold"><a>PARENTAL CONSENT</a></h4>
                                 <p class="mb-2">
                                     I have read and understand the information given to my child about Nourishing Hands Inc. teen mentoring program. I hereby give my permission for my child.
-                                        <input required class="form-control signTxt">
+                                        <input required class="form-control signTxt" asp-for="@Model.MenteeName">
                                     , to participate in this program. I will assist my child in keeping all appointments with his/her mentor. I will attend (all or most) parent events and I agree to communicate with a member of NHI staff regarding any concerns I may have about my child’s participation in the Be a Mentor Program. I also understand that I will be given the opportunity to meet my child’s mentor. I also understand that my child will occasionally meet with his/her mentor at supervised scheduled events held at the school, virtually, or other identified community locations. Should an event be scheduled away from the school, I am responsible for my child’s transportation.
                                 </p>
                                 <p class="mb-2" style="font-weight:700">
@@ -164,13 +166,13 @@
                                         <div class="form-group col-md-6 row">
                                             <label class="col-form-label col-sm-5">Enter your name to sign</label>
                                             <div class="col-sm-7">
-                                                <input required class="form-control">
+                                                <input required class="form-control" asp-for="@Model.ParentName">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6 row">
                                             <label class="col-form-label col-sm-5">Current Date</label>
                                             <div class="col-sm-7">
-                                                <input type="date" required class="form-control">
+                                                <input type="date" required class="form-control" asp-for="@Model.CurrentDate">
                                             </div>
                                         </div>
                                     </div>
@@ -180,6 +182,7 @@
 
                     </div>
                     <div class="form-group col-md-12">
+                        <input asp-for="@Model.MenteeFullName" hidden class="form-control">
                         <button type="submit" class="btn btn-default"> Save and continue </button>
                     </div>
                 </form>

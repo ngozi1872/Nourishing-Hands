@@ -1,0 +1,247 @@
+﻿@page
+@model NourishingHands.Pages.Admin.Participant.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h3>@Model.Person.FirstName @Model.Person.LastName</h3>
+
+<h4>Participant</h4>
+<hr />
+
+<div>
+    <a asp-page="./Index">Back to Participant List</a>
+</div>
+
+<div id="accordion">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Mentoring Schedule
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <form method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="Person.Id" />
+                            <div class="form-group">
+                                <label class="control-label">Assign Mentors</label>
+                                <select asp-for="Person.Id" name="ddlMentor" id="ddlMentor" class="custom-select" asp-items="ViewBag.MentorData">
+                                    <option value=""> Please select mentor</option>
+                                </select>
+                                @*<span asp-validation-for="Person.MenteeId" class="text-danger"></span>*@
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Save" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-8">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Mentor
+                                    </th>
+                                    
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.MentorSchedules[0].Title)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.MentorSchedules[0].Notes)
+                                    </th>
+                                    <th>
+                                        Starts
+                                    </th>
+                                    <th>
+                                        End
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.MentorSchedules)
+                                {
+                                <tr>
+                                    <td>
+                                        @item.Person.FirstName @item.Person.LastName
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Notes)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Title)
+                                    </td>
+                                    <td>
+                                        @Convert.ToString(string.Format("{0:MMM dd, yyyy tt}", item.StartDate))
+                                       
+                                    </td>
+                                    <td>
+                                        @Convert.ToString(string.Format("{0:MMM dd, yyyy tt}", item.StartDate))
+                                        
+                                    </td>
+
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Contact Information
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                <div>
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            Name
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Model.Person.FirstName @Model.Person.LastName
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.BirthDay)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Convert.ToString(string.Format("{0:MM/dd/yyyy}", Model.Person.BirthDay))
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.SSNumber)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Person.SSNumber)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.Gender)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Person.Gender)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.Ethnicity)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Person.Ethnicity)
+                        </dd>
+
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.Address)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Model.Person.Address, @Model.Person.City, @Model.Person.State @Model.Person.PostalCode
+                        </dd>
+
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.HomePhone)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Person.HomePhone)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.Email)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Person.Email)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.Language)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Person.Language)
+                        </dd>
+                        <dt class="col-sm-2">
+                            Parent or Guardian
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Model.Persons.FirstOrDefault(p => p.MenteeId == Model.Person.Id).FirstName
+                            @Model.Persons.FirstOrDefault(p => p.MenteeId == Model.Person.Id).LastName
+                            | @Model.Persons.FirstOrDefault(p => p.MenteeId == Model.Person.Id).RelationshipToMentee
+                            | Consented - @Model.Persons.FirstOrDefault(p => p.MenteeId == Model.Person.Id).IsSigned
+
+                            <br /> Email - @Model.Persons.FirstOrDefault(p => p.MenteeId == Model.Person.Id).Email
+                            | Phone - @Model.Persons.FirstOrDefault(p => p.MenteeId == Model.Person.Id).HomePhone
+                            | Work Phone - @Model.Persons.FirstOrDefault(p => p.MenteeId == Model.Person.Id).WorkPhone
+                            <br />
+                            @Model.Persons.FirstOrDefault(p => p.MenteeId == Model.Person.Id).Address, @Model.Persons.FirstOrDefault(p => p.MenteeId == Model.Person.Id).City, @Model.Persons.FirstOrDefault(p => p.MenteeId == Model.Person.Id).State  @Model.Persons.FirstOrDefault(p => p.MenteeId == Model.Person.Id).PostalCode
+
+
+                        </dd>
+                        
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.CreatedOn)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Person.CreatedOn)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Person.UpdatedOn)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Person.UpdatedOn)
+                        </dd>
+
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                    Mentor Questions
+                </button>
+            </h5>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th width="50%">
+                                @Html.DisplayNameFor(model => model.Answer[0].Question)
+                            </th>
+                            <th width="50%">
+                                Answer
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Answer)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Question.Description)
+                                </td>
+                                <td style="font-weight: 600">
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

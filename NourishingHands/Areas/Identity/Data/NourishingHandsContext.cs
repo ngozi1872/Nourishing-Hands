@@ -25,7 +25,7 @@ namespace NourishingHands.Areas.Identity.NourishingHands.Data
 
             builder.Entity<Answer>().HasKey(a => new { a.QuestionId, a.PersonId });
             builder.Entity<EventVolunteer>().HasKey(e => new { e.EventId, e.PersonId });
-
+            
         }
 
         public DbSet<Person> Persons { get; set; }

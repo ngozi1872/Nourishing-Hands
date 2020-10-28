@@ -1,0 +1,90 @@
+﻿@page
+@model NourishingHands.Pages.Mentor.MentorSchedule.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_NhLayout.cshtml";
+}
+
+
+<div class="section">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading_s1">
+                    <br />
+                    <h4>My Schedule</h4>
+                    <br />
+                    <h5>@Model.FullName</h5>
+                </div>
+                <hr />
+               
+                <p>
+                    <a asp-page="Create">Create New</a>
+                </p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Participants
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MentorSchedule[0].Title)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MentorSchedule[0].Notes)
+                            </th>
+                            <th>
+                                Starts
+                            </th>
+                            <th>
+                                End
+                            </th>
+
+
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.MentorSchedule)
+                        {
+                            <tr>
+                                @if (item.MenteeId > 0)
+                                {
+                                <td>
+                                    @Model.Persons.FirstOrDefault(p => p.Id == item.MenteeId).FirstName
+                                    @Model.Persons.FirstOrDefault(p => p.Id == item.MenteeId).LastName
+                                </td>
+                                }
+                                else
+                                {
+                                    <td>
+
+                                    </td>
+                                }
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </td>
+                                
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StartDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EndDate)
+                                </td>
+                                <td>
+                                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

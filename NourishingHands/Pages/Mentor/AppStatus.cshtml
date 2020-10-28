@@ -1,0 +1,102 @@
+﻿@page
+@model NourishingHands.Pages.Mentor.AppStatusModel
+@{
+    Layout = "_NhLayout";
+}
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cart_totals">
+                    <div class="heading_s1 mb-3">
+                        <h6>Mentor Application Status <span style="color:orange">@Model.ApplicationStatus</span></h6>
+                    </div>
+                    <br />
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td class="cart_total_label">Personal Information</td>
+                                    @if (Model.HasPersonRecord)
+                                    {
+                                        <td class="cart_total_amount" style="color: forestgreen">Completed</td>
+                                        <td class="cart_total_amount">
+                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px;" asp-page="/Mentor/Application">
+                                                Edit
+                                            </a>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td class="cart_total_amount" style="color: red">Not Started</td>
+                                        <td class="cart_total_amount">
+                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/Application">
+                                                Start
+                                            </a>
+                                        </td>
+                                    }
+                                </tr>
+                                <tr>
+                                    <td class="cart_total_label">Employment History</td>
+                                    @if (Model.HasEmployment)
+                                    {
+                                        <td class="cart_total_amount" style="color: forestgreen">Completed</td>
+                                        <td class="cart_total_amount">
+                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/EmploymentHistory">
+                                                Edit
+                                            </a>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td class="cart_total_amount" style="color: red">Not Started</td>
+                                        <td class="cart_total_amount">
+                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/EmploymentHistory">
+                                                Start
+                                            </a>
+                                        </td>
+                                    }
+                                </tr>
+                                <tr>
+                                    <td class="cart_total_label">Questionnaire</td>
+                                    @if (Model.HasAnswer)
+                                    {
+                                        <td class="cart_total_amount" style="color: forestgreen">Completed</td>
+                                        <td class="cart_total_amount">
+                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/Questions">
+                                                Edit
+                                            </a>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td class="cart_total_amount" style="color: red">Not Started</td>
+                                        <td class="cart_total_amount">
+                                            <a class="btn btn-default btn-sm float-left pull-left" style="width:100px" asp-page="/Mentor/Questions">
+                                                Start
+                                            </a>
+                                        </td>
+                                    }
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="medium_divider"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="medium_divider"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+﻿@page
+@model NourishingHands.Pages.Admin.NHEvents.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<br />
+
+<h4>Edit Event</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="Events.Id" hidden class="form-control">
+            <div class="form-group col-md-6 row">
+                <label asp-for="Events.Name" class="col-form-label col-sm-4"></label>
+                <div class="col-sm-8">
+                    <input asp-for="Events.Name" required class="form-control">
+
+                </div>
+            </div>
+            <div class="form-group col-md-6 row">
+                <label asp-for="Events.Description" class="col-form-label col-sm-4"></label>
+                <div class="col-sm-8">
+                    <input asp-for="Events.Description" class="form-control">
+                </div>
+            </div>
+            <div class="form-group col-md-6 row">
+                <label class="col-form-label col-sm-4">Start Date & Time</label>
+                <div class="col-sm-8">
+                    <input asp-for="Events.EventStartDate" required class="form-control">
+
+                </div>
+            </div>
+            <div class="form-group col-md-6 row">
+                <label class="col-form-label col-sm-4">End Date & Time</label>
+                <div class="col-sm-8">
+                    <input asp-for="Events.EventEndDate" class="form-control">
+                </div>
+            </div>
+            <div class="form-group col-md-6 row">
+                <label asp-for="Events.Location" class="col-form-label col-sm-4"></label>
+                <div class="col-sm-8">
+                    <input asp-for="Events.Location" required class="form-control">
+
+                </div>
+            </div>
+            <div class="form-group col-md-6 row">
+                <label asp-for="Events.Address" class="col-form-label col-sm-4"></label>
+                <div class="col-sm-8">
+                    <input asp-for="Events.Address" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
