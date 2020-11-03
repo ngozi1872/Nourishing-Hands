@@ -9,6 +9,122 @@
 
         <div class="row">
             <div class="col-lg-12">
+
+
+
+                <!-- Grid row -->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-md-12 col-lg-12 ">
+
+                        <ul class="nav md-pills nav-justified pills-rounded pills-purple-gradient">
+                            <li class="nav-item">
+                                <a class="nav-link active btn btn-default" data-toggle="tab" href="#panel100" role="tab">Donor</a>
+                            </li>
+                            <p>&nbsp</p>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-default btn btn-default" data-toggle="tab" href="#panel101" role="tab">Adoption Donor</a>
+                            </li>
+                            <p>&nbsp</p>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-default" data-toggle="tab" href="#panel102" role="tab">All Seasons Sponsors</a>
+                            </li>
+                            <p>&nbsp</p>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-default" data-toggle="tab" href="#panel103" role="tab">Event Sponsorship</a>
+                            </li>
+                        </ul>
+
+                        <!-- Tab panels -->
+                        <div class="tab-content">
+
+                            <!--Panel 1-->
+                            <div class="tab-pane fade in show active" id="panel100" role="tabpanel">
+
+                                <p>
+                                    Donors are individuals who make financial contributions to Nourishing Hands Inc. on a monthly or one-time basis. 
+                                    Donors can select to give to one a fundraiser or a specific program, or to our general operations.
+                                </p>
+
+                            </div>
+                            <!--/.Panel 1-->
+                            <!--Panel 2-->
+                            <div class="tab-pane fade" id="panel101" role="tabpanel">
+                                <p>
+                                    Adoption donors are individuals who support one teen in the program for an entire year by contributing one time 
+                                    amount $3,000 annually, which is the cost per teen in our program.
+                                </p>                                                                  
+                                    <ul>
+                                        Benefits of this level of support includes:
+                                        <li>A deeper connection with our organization</li>
+                                        <li>The opportunity to help Nourishing Hands Inc. extend our reach</li>
+                                        <li>The knowledge that your contribution is directly supporting teens who need it most in our community</li>
+                                    </ul>
+                            </div>
+                            <!--/.Panel 2-->
+                            <!--Panel 3-->
+                            <div class="tab-pane fade" id="panel102" role="tabpanel">
+
+                                <p>
+                                    Nourishing Hands Inc. Sponsorship opportunities are geared toward businesses and corporations who share our
+                                    mission in uplifting underserved teens while significantly expanding their presence and exposure in the South
+                                    DeKalb communities. Through a variety of event sponsorship opportunities, Nourishing Hands Inc. hopes to target
+                                    audiences from various types of business in the county, the State of Georgia, and beyond. Whether your company
+                                    would benefit from exposure with participants at our community events and school-wide activities, or from being
+                                    involved in our leadership giving events, we invite your effort in helping teens to DREAM of a better future.
+                                </p>
+                              
+                                <b>Our sponsors play a major role in our events, and enjoy the following benefits:</b>                               
+                                    <ul style="padding-left:40px" >
+                                        <li>
+                                            A prominent presence at our events, tokens of appreciation, opportunities to display promotional materials,
+                                            and verbal acknowledgement of your company throughout the event
+                                        </li>
+                                        <li>
+                                            Extensive promotion of your sponsorship on all our marketing materials, including posters, brochures, t-shirts,
+                                            newsletters, and social media
+                                        </li>
+
+                                    </ul>                                
+                                <br />
+                                <b>All Seasons Sponsors</b>
+                                <p>
+                                    All Seasons Sponsors offer sustaining support for our organization, and are an integral part of our community
+                                    engagement. These mission sponsors may request a presence at all of our events throughout the year, and are featured
+                                    on our marketing materials. These sponsorship investments range between $5,000 and caps at the sponsor’s desired
+                                    investment.
+                                </p>
+
+                            </div>
+                            <!--/.Panel 3-->
+                            <!--Panel 4-->
+                            <div class="tab-pane fade" id="panel103" role="tabpanel">
+
+                                <p>
+                                    Event Sponsorships are for companies who want to be involved in specific events. We promote our sponsors leading 
+                                    up to the event and significantly during the event. These sponsorship investments range between $200 and $3,000.
+                                </p>
+                                <p>
+                                    In addition to promotional benefits, our sponsors enjoy a uniquely close relationship to our mission. We share 
+                                    stories of our impact on our participants and their communities with our sponsors, to keep them informed on our 
+                                    work. We also ask our sponsor companies to provide caring and responsible adults to volunteer for our program, 
+                                    by working to offer their employees flexibility to volunteer.
+                                </p>
+
+                            </div>
+                            <!--/.Panel 4-->
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+
                 <div class="heading_s1">
                     <h4 class="card-title mt-3 text-center">Make a donation with Stripe</h4>
                     <br />
@@ -26,7 +142,7 @@
                     <div class="form-group col-md-6 row">
                         <label asp-for="Donation.FirstName" class="col-form-label col-sm-4"></label>
                         <div class="col-sm-8">
-                            <input asp-for="Donation.FirstName" id="firstName" class="form-control record"  type="text" data-type="record" required>
+                            <input asp-for="Donation.FirstName" id="firstName" class="form-control record" type="text" data-type="record" required>
                             <div class="invalid-tooltip">
                                 First Name can not be empty.
                                 <br />
@@ -46,7 +162,7 @@
                     <div class="form-group col-md-6 row">
                         <label asp-for="Donation.Email" class="col-form-label col-sm-4"></label>
                         <div class="col-sm-8">
-                            <input asp-for="Donation.Email" id="email" class="form-control record"  data-type="record" required>
+                            <input asp-for="Donation.Email" id="email" class="form-control record" data-type="record" required>
                             <div class="invalid-tooltip">
                                 Gender can not be empty.
                                 <br />
@@ -67,7 +183,7 @@
                     <div class="form-group col-md-6 row">
                         <label asp-for="Donation.DonationAmount" class="col-form-label col-sm-4"></label>
                         <div class="col-sm-8">
-                            <input asp-for="@Model.DonationAmountStr" id="donationAmt" class="form-control record"  required pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency">
+                            <input asp-for="@Model.DonationAmountStr" id="donationAmt" class="form-control record" required pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency">
                             <div class="invalid-tooltip">
                                 Gender can not be empty.
                                 <br />
@@ -105,13 +221,13 @@
                         </div>
                     </div>
 
-
-
                 </form>
-            </div>
 
+            </div>
         </div>
+
     </div>
+
 </div>
 <div class="row">
     <div class="col-12">
