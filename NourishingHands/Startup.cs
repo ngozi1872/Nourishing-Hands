@@ -32,7 +32,7 @@ namespace NourishingHands
               options.UseSqlServer(Configuration.GetConnectionString("NourishingHandsContextConnection")));
 
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<NourishingHandsContext>()
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();

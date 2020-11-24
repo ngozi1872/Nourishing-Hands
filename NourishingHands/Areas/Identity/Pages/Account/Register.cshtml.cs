@@ -27,19 +27,22 @@ namespace NourishingHands.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly IWebHostEnvironment _hostingEnvironment;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager, 
             SignInManager<IdentityUser> signInManager, 
             ILogger<RegisterModel> logger, 
             IEmailSender emailSender, 
-            IWebHostEnvironment hostEnvironment)
+            IWebHostEnvironment hostEnvironment,
+            RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
             _hostingEnvironment = hostEnvironment;
+            _roleManager = roleManager;
         }
 
         [BindProperty]
@@ -85,6 +88,31 @@ namespace NourishingHands.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    if (!await _roleManager.RoleExistsAsync(AllRoles.AdminEndUser))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(AllRoles.AdminEndUser));
+                    }
+
+                    if (!await _roleManager.RoleExistsAsync(AllRoles.MentorEndUser))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(AllRoles.MentorEndUser));
+                    }
+
+                    if (!await _roleManager.RoleExistsAsync(AllRoles.MenteeEndUser))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(AllRoles.MenteeEndUser));
+                    }
+
+                    if (!await _roleManager.RoleExistsAsync(AllRoles.ParentsEndUser))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(AllRoles.ParentsEndUser));
+                    }
+
+                    if (!await _roleManager.RoleExistsAsync(AllRoles.VolunteerEndUser))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(AllRoles.VolunteerEndUser));
+                    }
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
