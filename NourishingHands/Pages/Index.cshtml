@@ -18,8 +18,8 @@
                                 <div class="banner_content text_white">
                                     <h2 class="staggered-animation" data-animation="fadeInUp" data-animation-delay="0.2s">Welcome to Nourishing Hands</h2>
                                     <p class="staggered-animation" data-animation="fadeInUp" data-animation-delay="0.4s">
-                                        Nourishing Hands Inc., a nonprofit organization which exists to reduce the negative effects of poverty and inequality for minority and immigrant teens ages 15-20
-                                        in DeKalb County.
+                                        Nourishing Hands Inc., a nonprofit organization which exists to reduce the negative effects of poverty and inequality for teens ages 15-20
+                                        in Georgia.
                                     </p>
                                     <a class="btn btn-default staggered-animation" asp-page="/Donation" data-animation="fadeInUp" data-animation-delay="0.6s" style="width:160px"> Donate </a>
                                     <a class="btn btn-white staggered-animation" data-animation="fadeInUp" data-toggle="modal" data-target="#infoModal1" data-animation-delay="0.6s" style="width:160px">Learn More</a>
@@ -88,11 +88,11 @@
                         <h6>Our eight month mentoring program runs from October to June</h6>
                     </div>
                     <p>
-                        We are a school-based Teen Mentoring Program serving minority and immigrant teens in DeKalb County.
-                        Through Partnerships with high schools we mentor teens ages 15-20.
-                        We provide both virtual and in person, and one on-one and group mentoring sessions. Each teen in our program
-                        participates in our four initiatives: Wellness, Education, Employment, and financial literacy, giving them access to
-                        four different mentors throughout the program year. These experiences provide needful guidance and skills for the transition to adulthood.
+                        Nourishing Hands Inc. teen mentoring program serves teens through both school and community-based activities. We partner with high schools in low-income communities, 
+                        churches, court systems, and other places where teen dwell to provide both virtual and in person, and one to-one and group mentoring sessions. Our program year runs 
+                        from October to June. The model allows each participant access to four expert mentors throughout the year. Our services are delivered through four initiatives: Wellness, 
+                        Education, Employment, and Financial Literacy. Each initiative runs for eight weeks, guided by curriculums that ensure our services are relevant and life changing for our 
+                        participants.
                     </p>
                 </div>
             </div>
@@ -110,13 +110,25 @@
 
             <div class="modal-body" style="height: 300px; overflow-y: auto;">
                 <div class="card-body">
-                    <p>Nourishing Hands Inc., a nonprofit organization which exists to reduce the negative effects of poverty and inequality for African American and immigrant teens (ages 15-20). Our school-based model partners with high schools and connects teens from marginalized communities with professional and positive community members who share our organization’s vision. We serve DeKalb County zip codes 30083, 30072, 30021, 30088, and 30079. Compared to neighboring zip codes in a twenty-mile radius, the economic disparity is alarming and demands urgent intervention. NHI responds to this need through our mentoring program, which will help bridge opportunity gaps. </p>
-                    <p>While the United States is undoubtedly the wealthiest nation on earth and a land of unparalleled opportunity for its people, the unfortunate truth is that one’s zip code is still determined by income, race and ethnicity. Data and statistics show that a zip code determines whether one has access to quality and affordable housing, jobs, healthcare, good schools, grocery stores/supermarkets, transportation and other basic necessities. Children in high-income zip codes tend to have access to better housing and schools, among other basic necessities, which in turn exposes them to more resources. They tend to perform much better academically and are more likely to graduate high school and attend college than their counterparts from low-income zip codes. </p>
                     <p>
-                        To mitigate this disparity, NHI’s research focuses on four areas: race, income, education, and housing. Based on our research, NHI is teaming up with partners to provide mentoring services to teens and their parents residing in zip codes 30083, 30072, 30021, 30088, and 30079.
-                        South DeKalb’s population is more than 70% black-identifying, with a median household income of $30,500, and median property/home value of  $151,000. Less than 30% of the population holds an advanced degree. Meanwhile black-identifying  people account for less than 20% of neighboring zip codes’ populations, with a median household income of $59,908, and a median property value of $263,259. More than 40% of this neighboring population holds an advanced degree.
+                        Nourishing Hands Inc., a nonprofit organization which exists to reduce the negative effects of poverty and inequality for teens (ages 15-20). Our school and 
+                        community-based model partners with individuals and entities in the community and connects teens from marginalized communities with professional and positive role models 
+                        who share our organization’s vision. Compared to other zip codes in the state, the economic disparities for teens from low income communities are alarming and demands urgent 
+                        intervention. NHI responds to this need through our mentoring program, which will help bridge opportunity gaps. 
                     </p>
-                    <p>Our goal is to create a strong, accountable program with trusting relationships between our participants and their mentors, which will foster experiences, growth, and opportunities. In order to provide an impactful program for teens who need extra support, we rely on our community partners to come together in support of our mission.</p>
+                    <p>
+                        While the United States is undoubtedly the wealthiest nation on earth and a land of unparalleled opportunity for its people, 
+                        the unfortunate truth is that one’s zip code is still determined by income, race and ethnicity. Data and statistics show that a zip 
+                        code determines whether one has access to quality and affordable housing, jobs, healthcare, good schools, grocery stores/supermarkets, 
+                        transportation and other basic necessities. Teens in high-income zip codes tend to have access to better housing and schools, among other basic necessities, 
+                        which in turn exposes them to more resources. They tend to perform much better academically and are more likely to graduate high school and attend college than their 
+                        counterparts from low-income zip codes. 
+                    </p>
+                   
+                    <p>
+                        Our goal is to create a strong, accountable program with trusting relationships between our participants and their mentors, which will foster experiences, growth, and opportunities. 
+                        In order to provide an impactful program for teens who need extra support, we rely on our community partners to come together in support of our mission.
+                    </p>
                 </div>
             </div>
             <div class="modal-footer">
@@ -158,6 +170,9 @@
                         <div class="form-group">
                             <button type="submit" title="Submit Your Message!" class="btn btn-default btn-block" value="Submit">Send Message</button>
                         </div>
+                        @*<div class="form-group">
+                            <span>@Model.EmailMessage</span>
+                        </div>*@
                     </form>
                 </div>
             </div>
@@ -184,7 +199,7 @@
                     </div>
                     <div class="courses_info">
                         <h5 class="courses_title"><a href="#">Wellness</a></h5>
-                        <p>Drug Prevention Program equipping minority and immigrants teens with the education and resources necessary to make informed decision about abstaining from drug use.</p>
+                        <p><b>MentallyFIT</b> is a drug prevention program equipping teens with the education and resources necessary to make informed decision about abstaining from drug use.</p>
                     </div>
                 </div>
             </div>
@@ -195,7 +210,7 @@
                     </div>
                     <div class="courses_info">
                         <h5 class="courses_title"><a href="#">Education</a></h5>
-                        <p>Ensuring that low-income teens have the tool to empower their decisions and  success in the college admission process.</p>
+                        <p><b>Gaining Through Education</b> is ensuring that low-income teens have the tool to empower their decisions and  success in the college admission process.</p>
                     </div>
                 </div>
             </div>
@@ -206,7 +221,7 @@
                     </div>
                     <div class="courses_info">
                         <h5 class="courses_title"><a href="#">Employment</a></h5>
-                        <p>Providing guidance for teens who plan to join the workforce after high school through career counseling and work experience opportunities.</p>
+                        <p><b>Earning to Start Learning</b> provides guidance for teens who plan to join the workforce after high school through career counseling and apprenticeship.</p>
 
                     </div>
                 </div>
@@ -219,7 +234,7 @@
                     <div class="courses_info">
                         <h5 class="courses_title"><a href="#">Financial Literacy</a></h5>
                         <p>
-                            Educating teens from low-income communities about the importance of being good stewards of their finances, by providing relevant information and practical examples.
+                            <b>Wealth-Magnet</b> is educating teens from low-income communities about the importance of being good stewards of their finances, by providing relevant information and practical examples.
                         </p>
 
                     </div>

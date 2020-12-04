@@ -33,6 +33,8 @@ namespace NourishingHands.Pages
         public InputModel Input { get; set; }
         public IList<Events> Events { get; set; }
         public DateTime UpComingEvent { get; set; }
+        //[TempData]
+        //public string EmailMessage { get; set; }
         public class InputModel
         {
             [Required]
@@ -55,6 +57,12 @@ namespace NourishingHands.Pages
         }
         public void OnGet()
         {
+            PullTopThreeEvent();
+
+        }
+
+        private void PullTopThreeEvent()
+        {
             Events = _dbContext.Events
                 .Where(e => e.EventStartDate >= DateTime.Now)
                 .OrderBy(e => e.EventStartDate)
@@ -64,7 +72,6 @@ namespace NourishingHands.Pages
             var eventn = _dbContext.Events.OrderBy(t => t.EventStartDate).FirstOrDefault();
 
             UpComingEvent = eventn.EventStartDate.HasValue ? (DateTime)eventn.EventStartDate.Value.Date : DateTime.Now.Date;
-
         }
 
         public void OnPost()
@@ -79,9 +86,15 @@ namespace NourishingHands.Pages
                 string body = string.Format($"From: {Input.FullName} <br/> Email: {Input.Email} <br/>Phone: {Input.Phone} <br/><br/>{Input.Message} <br/><br/>");
                 contactFromHome.SendEmail("ngozi1872@gmail.com", "COP", subj, body, path);
 
-                ModelState.Clear();
-                
+                //EmailMessage = "Your message has been submitted";
+
             }
+
+            Input.FullName = string.Empty;
+            Input.Email = string.Empty;
+            Input.Message = string.Empty;
+            Input.Phone = string.Empty;
+            PullTopThreeEvent();
         }
 
         public IActionResult OnGetFindAllEvents()
