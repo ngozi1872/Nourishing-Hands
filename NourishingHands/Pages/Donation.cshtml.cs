@@ -135,8 +135,10 @@ namespace NourishingHands.Pages
 
             SendEmailFromGmail sfgmail = new SendEmailFromGmail();
 
-            string body = string.Format("Dear " + Donation.FirstName + ", <br/><br/> Thank you so much for your generous donation of $" + Donation.DonationAmount
-            + " to the Nourishing Hands, Inc. <br/><br/>We hope to bridge the wellness, educational, skilled-employment, and financial literate attainment gaps between Africa American and immigrant teens by providing low-income teens with resources and opportunities through mentoring, thus creating hope of a promising future. <br/><br/>Sincerely,<br/>Nourishing Hands, Inc. <br/><br/>");
+            string body = string.Format("Nourishing Hands Inc.<br/> 1445 Woodmount Lane NW, <br/> Atlanta GA, 30318 <br/><br/>EIN#20-1510373 <br/><br/>Thank You for your generous donation of $" + Donation.DonationAmount
+            + " to the Nourishing Hands youth mentoring program. <br/><br/>Your donation goes directly to helping us in our work with developing youth into productive and sustainable citizens, to preserve and lead our future for generations to come.<br/><br/>Payment methods<br/>Online: https://www.nourishinghandsinc.org<br/>"
+            + "Paypal: PayPal.Me<br/>Via Check: Payable Nourishing Hands Inc.<br/>1445 Woodmount Lane NW,<br/>Atlanta GA, 30318<br/><br/>Sincerely,<br/>Cynthia Logan<br/>Executive Director<br/><br/>"
+            + "<br/><br/>Our mission: To deliver relevant resources, experiences, and opportunities to youth through mentoring; empowering them for future success.");
             sfgmail.SendEmail(Donation.Email, Donation.FirstName, "Thank you!", body, path);
 
         }

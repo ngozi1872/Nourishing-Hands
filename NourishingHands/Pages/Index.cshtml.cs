@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
@@ -69,7 +70,7 @@ namespace NourishingHands.Pages
                 .Take(3)
                 .ToList();
 
-            var eventn = _dbContext.Events.OrderBy(t => t.EventStartDate).FirstOrDefault();
+            var eventn = _dbContext.Events.Where(e => e.EventStartDate >= DateTime.Now ).OrderBy(t => t.EventStartDate).FirstOrDefault();
 
             UpComingEvent = eventn.EventStartDate.HasValue ? (DateTime)eventn.EventStartDate.Value.Date : DateTime.Now.Date;
         }
@@ -84,7 +85,7 @@ namespace NourishingHands.Pages
 
                 var subj = string.Format ($"Message From contact page - From {Input.FullName}");
                 string body = string.Format($"From: {Input.FullName} <br/> Email: {Input.Email} <br/>Phone: {Input.Phone} <br/><br/>{Input.Message} <br/><br/>");
-                contactFromHome.SendEmail("ngozi1872@gmail.com", "COP", subj, body, path);
+                contactFromHome.SendEmail("nourishinghandsinc@gmail.com", "COP", subj, body, path);
 
                 //EmailMessage = "Your message has been submitted";
 

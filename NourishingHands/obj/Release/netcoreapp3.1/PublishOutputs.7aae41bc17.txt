@@ -161,6 +161,8 @@ C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHan
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\blog_small_img4.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\blog_small_img5.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\blog_small_img6.jpg
+C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\Board.jpg
+C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\Brandi.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\cart_thamb1.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\cart_thamb2.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\checkout_bg.jpg
@@ -239,6 +241,7 @@ C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHan
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\headshot.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\headshot1.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\image.png
+C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\InezKephart.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\insta_img1.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\insta_img2.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\insta_img3.jpg
@@ -280,6 +283,7 @@ C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHan
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\post_user1.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\post_user2.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\post_user3.jpg
+C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\pphl.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\product_big_img1.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\product_img1-1.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\product_img1-2.jpg
@@ -317,6 +321,7 @@ C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHan
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\team_img7.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\team_img8.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\team_img_big.jpg
+C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\TeenageBoy.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\TeenSmocking.png
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\testi_img.jpg
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\assets\images\testi_user1.jpg

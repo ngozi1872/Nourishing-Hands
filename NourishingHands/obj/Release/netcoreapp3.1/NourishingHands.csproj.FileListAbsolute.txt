@@ -1015,3 +1015,6 @@ C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHan
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\NourishingHands.dll
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\NourishingHands.pdb
 C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\NourishingHands.genruntimeconfig.cache
+C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\JoinBoard.cshtml.g.cs
+C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\OurStory.cshtml.g.cs
+C:\Users\klsomah\Documents\PrivateWork\Nourishing\Nourishing-Hands\NourishingHands\obj\Release\netcoreapp3.1\Razor\Pages\ParticipantHighlight.cshtml.g.cs

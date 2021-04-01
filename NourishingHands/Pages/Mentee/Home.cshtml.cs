@@ -44,7 +44,7 @@ namespace NourishingHands.Pages.Mentee
             var parent = _dbContext.Persons.FirstOrDefault(p => p.MenteeId == Person.Id);
             Answers = _dbContext.Answers.Where(a => a.PersonId == Person.Id).ToList();
 
-            if(parent.IsSigned && Answers.Count > 0 && Person.Id > 0)
+            if(parent != null && parent.IsSigned && Answers.Count > 0 && Person.Id > 0)
                 return RedirectToPage("/Mentee/PaticipantDashboard");
 
             if (parent != null && parent.IsSigned)
